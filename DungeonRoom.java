@@ -60,7 +60,7 @@ public class DungeonRoom {
 		}
 	}*/
 	public void engage() {
-		encounter.encounterIntro(null);
+		encounter.encounterIntro(Game.PLAYER);
 	}
 	
 }

@@ -8,7 +8,7 @@ public class MapSquare extends JPanel {
 		ImageIcon icon = new ImageIcon("src/"+source);
 		JLabel label = new JLabel(icon);
        
-		setBounds(x*56+2, y*54, 58, 58);
+		setBounds(x*30+2, y*30, 26, 30);
 		add(label);
 		setVisible(true);
 	}

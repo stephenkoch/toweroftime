@@ -11,7 +11,7 @@ public class MapPanel extends JPanel{
 	
 	MapPanel() {
 
-		setBounds(0, 400, 400, 400);
+		setBounds(0, 560, 720, 400);
 		while(m.getRooms()<15 || m.getRooms()>30)
 		{	//every once in a while it makes a really small map, and I can't 
 			//figure out why so I added this. It only gets called maybe once
@@ -53,18 +53,14 @@ public class MapPanel extends JPanel{
 		JButton l = new JButton(west);
 		JButton r = new JButton(east);
 		JButton d = new JButton(south);
-		up.setBounds(100,50,60,80);
-		up.setContentAreaFilled(false); 
-		up.setFocusPainted(false);
-		l.setBounds(0,160,90,60);
-		l.setContentAreaFilled(false);
-		l.setFocusPainted(false);
-		r.setBounds(170,160,90,60);
-		r.setContentAreaFilled(false);
-		r.setFocusPainted(false);
-		d.setBounds(100,250,60,80);
-		d.setContentAreaFilled(false);
-		d.setFocusPainted(false);
+		up.setBounds(100,20,60,80);
+		up.setContentAreaFilled(false); up.setBorderPainted(false);
+		l.setBounds(10,70,90,60);
+		l.setContentAreaFilled(false); l.setBorderPainted(false);
+		r.setBounds(160,70,90,60);
+		r.setContentAreaFilled(false); r.setBorderPainted(false);
+		d.setBounds(100,120,60,80);
+		d.setContentAreaFilled(false); d.setBorderPainted(false);
 		right.add(up);
 		right.add(l);
 		right.add(r);
@@ -72,12 +68,10 @@ public class MapPanel extends JPanel{
 
 		setLayout(null);
 
-		left.setBounds(0,0,400,400);
-		right.setBounds(402,0,400,400);
+		left.setBounds(0,0,210,210);
+		right.setBounds(210,0,300,200);
 		add(left);
 		add(right);
-
-		setPreferredSize(new Dimension(680,415));
 	    setVisible(true);
 
 		

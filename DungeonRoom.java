@@ -7,7 +7,7 @@ public class DungeonRoom {
 	private DungeonRoom east = null;
 	private DungeonRoom south = null;
 	private DungeonRoom west = null;
-	private boolean discovered;
+	private boolean discovered, treasure;
 	private GridCoord location;
 	private Encounter encounter;
 	
@@ -19,6 +19,7 @@ public class DungeonRoom {
 		exits[3] = false;
 		// randomDoors();
 		discovered = false;
+		treasure = false;
 		encounter = new Encounter();
 	}
 	protected DungeonRoom (GridCoord a) {
@@ -33,7 +34,16 @@ public class DungeonRoom {
 		location = a;
 	}
 	
+	public int getExits() {
+		int e=0;
+		for(int i=0;i<4;i++){
+			if(exits[i])
+				e++;
+		}
+		return e;
+	}
 	public boolean getExits(int i) { return exits[i]; }
+	public boolean hasTreasure() { return treasure; }
 	public DungeonRoom getNorth() { return north; }
 	public DungeonRoom getEast() { return east; }
 	public DungeonRoom getSouth() { return south; }
@@ -42,6 +52,8 @@ public class DungeonRoom {
 	public int getY() { return location.y; }
 	public boolean getDiscovered() { return discovered; }
 	
+
+	public void giveTreasure() { treasure=true; }
 	public void setExits(int direction, boolean x) { this.exits[direction] = x; }
 	public void setNorth(DungeonRoom room) { this.north = room; exits[0]=true; }
 	public void setEast(DungeonRoom room) { this.east = room; exits[1]=true; }

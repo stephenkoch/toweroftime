@@ -13,56 +13,75 @@ public class Map {
 	Random rand = new Random();
 	protected DungeonRoom[][] grid = new DungeonRoom[7][7];
 	protected DungeonRoom start;
-	int totalRooms=0;
+	int totalRooms, numTreas;
 	
 	//constructor which accepts minimum distance to boss (might change by level?)
-	public Map(int len){
+	public Map(){
+		totalRooms=0;
+		numTreas=0;
 		int x,y;
-		x = rand.nextInt(2);
-		y = rand.nextInt(2);
+		x = rand.nextInt(7);
+		y = rand.nextInt(2)+5;
 
-		GridCoord where = new GridCoord();
-		switch(x){
-			case 0: where.x=0; break;
-			case 1: where.x=6; break;
-		}
-		switch(y){
-			case 0: where.y=0; break;
-			case 1: where.y=6; break;
-		}
+		GridCoord where = new GridCoord(x,y);
+		
 		start = new DungeonRoom(where);
-		totalRooms++;
-		//test case
 		
-		//out.println("start room at "+where.x+" "+where.y);
+		
 		grid[where.x][where.y] = start; //add to grid
-		branchRoom(start, len);
+		branchRoom(start, 0);
 		
-			
+		for(int i=0;i<7;i++){
+			for(int j=0; j<7; j++){
+				if(grid[i][j]!=null){
+					if(numTreas<6){
+						totalRooms++;
+						int g=grid[i][j].getExits();
+						out.println(g);
+						int t=rand.nextInt(100);
+						switch(g){
+						case 4: if(t<10){
+								grid[i][j].giveTreasure();
+								numTreas++;
+							}break;
+						case 1: if(t<60){
+								grid[i][j].giveTreasure();
+								numTreas++;
+							}break;
+						case 2: if(t<20){
+								grid[i][j].giveTreasure();
+								numTreas++;
+							}break;
+						case 3: if(t<10){
+								grid[i][j].giveTreasure();
+								numTreas++;
+							}break;
+						}
+					}
+				}
+			}
+		}
 	}
-	public void branchRoom(DungeonRoom prev, int len){
-		if(len>0 && totalRooms<20){ //out.println(len);
-			int x=prev.getX();
-			int y=prev.getY();
-		int num_doors = rand.nextInt(3)+1;
+	public void branchRoom(DungeonRoom prev, int rooms){
+	  if(rooms<12){ //out.println(rooms);
+		int x=prev.getX();
+		int y=prev.getY();
+		int num_doors = rand.nextInt(3);
 		for(int i=0; i<num_doors; i++){
 			int door_loc = rand.nextInt(4);
-			if (!prev.getExits(door_loc)){ //there is not already a door there
+			if(!prev.getExits(door_loc)){ //there is not already a door there
 				switch(door_loc){
 				case 0: /*NORTH*/ 
 					if(y!=0){ // making sure we don't put a door to the map's edge  
 						if(grid[x][y-1]==null){ //need to make new room
 							prev.setExits(0, true);
 							DungeonRoom north = new DungeonRoom(new GridCoord(x,y-1));
-							totalRooms++;
 							north.setSouth(prev);
 							grid[x][y].setNorth(north);
 							grid[x][y-1] = north;
 							//out.println("new room created -north " + totalRooms);
-							branchRoom(north,len-1);
+							branchRoom(north,rooms+1);
 						}
-						else
-							branchRoom(grid[x][y-1],len);
 					}else
 						num_doors++;
 					break;
@@ -72,15 +91,12 @@ public class Map {
 						if(grid[x+1][y]==null){
 							prev.setExits(1, true);
 							DungeonRoom east = new DungeonRoom(new GridCoord(x+1,y));
-							totalRooms++;
 							east.setWest(prev);
 							prev.setEast(east);
 							grid[x+1][y] = east;
 							//out.println("new room created -east " + totalRooms);
-							branchRoom(east,len-1);
+							branchRoom(east,rooms+1);
 						}
-						else
-							branchRoom(grid[x+1][y],len);
 					}else
 						num_doors++;
 					break;
@@ -91,15 +107,13 @@ public class Map {
 							prev.setExits(2, true);
 							//TODO: create new room
 							DungeonRoom south = new DungeonRoom(new GridCoord(x,y+1));
-							totalRooms++;
 							south.setExits(0, true);
 							south.setNorth(prev);
 							prev.setSouth(south);
 							grid[x][y+1] = south;
 							//out.println("new room created -south " + totalRooms);
-							branchRoom(south,len-1);
-						}else
-							branchRoom(grid[x][y+1],len);
+							branchRoom(south,rooms+1);
+						}
 					}else
 						num_doors++;
 					break;
@@ -110,25 +124,21 @@ public class Map {
 						prev.setExits(3, true);
 						//TODO: create new room
 						DungeonRoom west = new DungeonRoom(new GridCoord(x-1,y));
-						totalRooms++;
 						west.setEast(prev);
 						prev.setWest(west);
 						west.setExits(1, true);
 						grid[x-1][y] = west;
 						//out.println("new room created -west " + totalRooms);
 						
-						branchRoom(west,len-1);
-					}else
-						branchRoom(grid[x-1][y],len);
+						branchRoom(west,rooms+1);
+					}
 				}else
 					num_doors++;
 				break;
 /*end switch*/	}
 			}
  		}
-		}else while(totalRooms<12){
- 			branchRoom(prev,12-totalRooms);
- 		}
+	  }
 		
 		//TODO: map created. Now, decide boss ?and start? location
 		
@@ -140,9 +150,13 @@ public class Map {
 		return totalRooms;
 	}
 public static void main(String [ ] args) throws IOException{ //testing
-	Map m = new Map(9);
-	if(m.getRooms()<12)
-		m.branchRoom(m.getStart(),12);
+	Map m = new Map();
+	while(m.getRooms()<15 || m.getRooms()>30)
+	{	//every once in a while it makes a really small map, and I can't 
+		//figure out why so I added this. It only gets called maybe once
+		// every 15 runs or so, so it shouldn't effect performance.
+		m = new Map();
+	}
 	JFrame frame = new JFrame();
 	JPanel left = new JPanel();
 	JPanel right = new JPanel();
@@ -155,7 +169,7 @@ public static void main(String [ ] args) throws IOException{ //testing
 			String imageName = "";
 			DungeonRoom room  = m.get(j, i);
 			if(room!=null){
-				if(room.getDiscovered())
+				if(room.hasTreasure())
 					imageName+="d";
 				for(int k=0;k<4;k++){
 					if(room.getExits(k))

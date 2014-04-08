@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.*;
 
 public class StatEqItPanel extends JFrame
@@ -15,6 +16,15 @@ public class StatEqItPanel extends JFrame
     JButton Ring1 = new JButton("Ring 1");
     JButton Ring2 = new JButton("Ring 2");
     JButton Feet  = new JButton("Feet");
+    
+    JLabel Health;
+    JLabel Mana;
+    JLabel Level;
+    JLabel LevelD;
+    JLabel Class;
+    JLabel ClassD;
+    JProgressBar HealthBar;
+    JProgressBar ManaBar;
     
     // Add all Labels
     JButton Item = new JButton("Item");
@@ -100,21 +110,58 @@ public class StatEqItPanel extends JFrame
     
     public StatEqItPanel() 
     {
-       // Set up the frame  
-       setTitle("Character");
-       setSize(530,450);
-       setBackground(Color.DARK_GRAY);
-       
        // Creating tabs
        jtp = new JTabbedPane();
-       getContentPane().add(jtp);
        
-       
+       Health = new JLabel("HEALTH");
+       Mana = new JLabel("MANA");
+       Level = new JLabel("LEVEL");
+       LevelD = new JLabel("9");
+       Class = new JLabel("CLASS");
+       ClassD = new JLabel("Warrior");
+
        JPanel StatsPanel = new JPanel();//First Panel
        JPanel EquipmentPanel = new JPanel();//Second Panel
        JPanel BackpackPanel = new JPanel();//Third Panel
+       HealthBar = new JProgressBar(0,100);
+       ManaBar = new JProgressBar(0,100);
        
-       
+       Font newHealthFont = new Font(Health.getFont().getName(),Health.getFont().getStyle(),16);
+       Font newManaFont = new Font(Mana.getFont().getName(),Mana.getFont().getStyle(),16);
+       Health.setFont(newHealthFont);
+       Mana.setFont(newManaFont);
+     
+       Level.setLocation(350,10);
+       Level.setSize(100,40);
+      
+       LevelD.setLocation(400,10);
+       LevelD.setSize(100,40);
+      
+       Class.setLocation(350,30);
+       Class.setSize(100,40);
+      
+       ClassD.setLocation(400,30);
+       ClassD.setSize(100,40);
+      
+       // Set all Sizes
+       Health.setSize(100,40);
+       Health.setLocation(270,100);
+       HealthBar.setSize(150,25);
+       HealthBar.setLocation(340,100);
+      
+       HealthBar.setValue(50);
+       HealthBar.setStringPainted(true);
+       HealthBar.setForeground(Color.red);
+      
+       Mana.setSize(200,40);
+       Mana.setLocation(290,200);
+       ManaBar.setSize(150,25);
+       ManaBar.setLocation(340,200);
+     
+       ManaBar.setValue(80);
+       ManaBar.setStringPainted(true);
+       ManaBar.setForeground(Color.blue);
+
 
         
        //Tab Creation
@@ -140,17 +187,17 @@ public class StatEqItPanel extends JFrame
        //---------------------------
        
        //Stats Panel 1 Buttons Sizes
-       Strength.setSize(200,40);
-       Stamina.setSize(200,40);
-       Intelligence.setSize(200,40);
-       Mind.setSize(200,40);
-       DefenseStat.setSize(200,40);
+       Strength.setSize(100,40);
+       Stamina.setSize(100,40);
+       Intelligence.setSize(100,40);
+       Mind.setSize(100,40);
+       DefenseStat.setSize(100,40);
        //----------------------------
-       StrengthD.setSize(110,40);
-       StaminaD.setSize(110,40);
-       IntelligenceD.setSize(110,40);
-       MindD.setSize(110,40);
-       DefenseDStat.setSize(110,40);
+       StrengthD.setSize(100,40);
+       StaminaD.setSize(100,40);
+       IntelligenceD.setSize(100,40);
+       MindD.setSize(100,40);
+       DefenseDStat.setSize(100,40);
        //-----------------------------
        StrengthPlus.setSize(50,40);
        StaminaPlus.setSize(50,40);
@@ -158,10 +205,10 @@ public class StatEqItPanel extends JFrame
        MindPlus.setSize(50,40);
        DefensePlus.setSize(50,40);
        //-----------------------------
-       SkillPoints.setSize(200,40);
-       SkillPointsD.setSize(75,40);
+       SkillPoints.setSize(150,40);
+       SkillPointsD.setSize(50,40);
        //-----------------------------
-       Unequip.setSize(200,50);
+       Unequip.setSize(200,40);
          
        
        //Equipment Panel 2 Buttons Sizes
@@ -177,52 +224,52 @@ public class StatEqItPanel extends JFrame
        Ring2.setSize(80,35);
        Feet.setSize(80,50);
        //-------------------------
-       Stats.setSize(212,30);
-       Item.setSize(500,30);
-       Description.setSize(500,30);
+       Stats.setSize(125,30);
+       Item.setSize(400,30);
+       Description.setSize(400,30);
        Speed.setSize(125, 20);
        Damage.setSize(125, 20);
        Defense.setSize(125, 20);
        Element.setSize(125, 20); 
        Power.setSize(125, 20);
        //-------------------------
-       ItemD.setSize(500,20);
-       DescriptionD.setSize(500,20);
-       SpeedD.setSize(87,20);
-       DamageD.setSize(87,20);
-       DefenseD.setSize(87,20);
-       ElementD.setSize(87,20);
-       PowerD.setSize(87,20);
+       ItemD.setSize(400,20);
+       DescriptionD.setSize(400,20);
+       SpeedD.setSize(125,20);
+       DamageD.setSize(125,20);
+       DefenseD.setSize(125,20);
+       ElementD.setSize(125,20);
+       PowerD.setSize(125,20);
        //--------------------
        //Panel 3
        //--------------------
-       scroll.setSize(250,200);
+       scroll.setSize(200,180);
        
-       Title.setSize(250,50);
-       IWeapon.setSize(100,40);
-       IArmor.setSize(100,40);
-       IRings.setSize(100,40);
-       IPotion.setSize(100,40);
-       IShield.setSize(100,40);
+       Title.setSize(200,30);
+       IWeapon.setSize(90,30);
+       IArmor.setSize(90,30);
+       IRings.setSize(90,30);
+       IPotion.setSize(90,30);
+       IShield.setSize(90,30);
        
-       IItem.setSize(500,30);
-       IDescription.setSize(500,30);
-       IItemD.setSize(500,20);
-       IDescriptionD.setSize(500,20);
+       IItem.setSize(400,30);
+       IDescription.setSize(400,30);
+       IItemD.setSize(400,20);
+       IDescriptionD.setSize(400,20);
        
-       IDamage.setSize(100,20);
-       ISpeed.setSize(100,20);
-       IDefense.setSize(100,20);
-       IElement.setSize(100,20);
-       IPower.setSize(100,20);
+       IDamage.setSize(90,20);
+       ISpeed.setSize(90,20);
+       IDefense.setSize(90,20);
+       IElement.setSize(90,20);
+       IPower.setSize(90,20);
        
-       IDamageD.setSize(100,20);
-       ISpeedD.setSize(100,20);
-       IDefenseD.setSize(100,20);
-       IElementD.setSize(100,20);
-       IPowerD.setSize(100,20);
+       IDamageD.setSize(90,20);
+       ISpeedD.setSize(90,20);
+       IDefenseD.setSize(90,20);
+       IElementD.setSize(90,20);
+       IPowerD.setSize(90,20);
        
-       IEquip.setSize(120,40);
+       IEquip.setSize(90,40);
        
        //------------------------------------
        // LOCATION
@@ -238,7 +285,7 @@ public class StatEqItPanel extends JFrame
        Ring1.setLocation(190,180);
        Ring2.setLocation(10,180);
        Feet.setLocation(100,220); 
-       Unequip.setLocation(285,180);  
+       Unequip.setLocation(200,230);  
        //-----------------------------
        Item.setLocation(0,280);
        Description.setLocation(0,330);
@@ -246,44 +293,56 @@ public class StatEqItPanel extends JFrame
        ItemD.setLocation(0,310);
        DescriptionD.setLocation(0,360);
        //------------------------------
-       Stats.setLocation(280,30);
+       Stats.setLocation(280,10);
        //------------------------------
-       Speed.setLocation(280,60);
-       Damage.setLocation(280,80);
-       Defense.setLocation(280,100);
-       Element.setLocation(280,120);
-       Power.setLocation(280,140);
-      
-       SpeedD.setLocation(405,60);
-       DamageD.setLocation(405,80);
-       DefenseD.setLocation(405,100);
-       ElementD.setLocation(405,120);
-       PowerD.setLocation(405,140);
-       //-----------------------------------
-       Strength.setLocation(50,10);
-       Stamina.setLocation(50,70);
-       Mind.setLocation(50,130);
-       Intelligence.setLocation(50,190);
-       DefenseStat.setLocation(50,250);
-       //-----------------------------------
-       StrengthD.setLocation(255,10);
-       StaminaD.setLocation(255,70);
-       MindD.setLocation(255,130);
-       IntelligenceD.setLocation(255,190);
-       DefenseDStat.setLocation(255,250);
-       //-----------------------------------
-       StrengthPlus.setLocation(370,10);
-       StaminaPlus.setLocation(370,70);
-       MindPlus.setLocation(370,130);
-       IntelligencePlus.setLocation(370,190);
-       DefensePlus.setLocation(370,250);
-       //----------------------------------
-       SkillPoints.setLocation(100,300);
-       SkillPointsD.setLocation(300,300);
-       //-----------------------------------
-       scroll.setLocation(125,60);
+       Element.setLocation(280,40);
+       ElementD.setLocation(280,60); 
+       Power.setLocation(280,80);
+       PowerD.setLocation(280,100);
+       Speed.setLocation(280,120);
+       SpeedD.setLocation(280,140);
+       Damage.setLocation(280,160);
+       DamageD.setLocation(280,180);
+       Defense.setLocation(280,120);
+       DefenseD.setLocation(280,140);
+       Element.setVisible(false);
+       ElementD.setVisible(false);
+       Speed.setVisible(false);
+       SpeedD.setVisible(false);
+       Damage.setVisible(false);
+       DamageD.setVisible(false);
+       Defense.setVisible(false);
+       DefenseD.setVisible(false);
+       Power.setVisible(false);
+       PowerD.setVisible(false);
        
-       Title.setLocation(125,10);
+      
+
+       //-----------------------------------
+       Strength.setLocation(5,10);
+       Stamina.setLocation(5,70);
+       Mind.setLocation(5,130);
+       Intelligence.setLocation(5,190);
+       DefenseStat.setLocation(5,250);
+       //-----------------------------------
+       StrengthD.setLocation(105,10);
+       StaminaD.setLocation(105,70);
+       MindD.setLocation(105,130);
+       IntelligenceD.setLocation(105,190);
+       DefenseDStat.setLocation(105,250);
+       //-----------------------------------
+       StrengthPlus.setLocation(205,10);
+       StaminaPlus.setLocation(205,70);
+       MindPlus.setLocation(205,130);
+       IntelligencePlus.setLocation(205,190);
+       DefensePlus.setLocation(205,250);
+       //----------------------------------
+       SkillPoints.setLocation(25,300);
+       SkillPointsD.setLocation(175,300);
+       //-----------------------------------
+       scroll.setLocation(110,40);
+       
+       Title.setLocation(110,10);
        
        IWeapon.setLocation(10,10);
        IArmor.setLocation(10,60);
@@ -296,22 +355,22 @@ public class StatEqItPanel extends JFrame
        IDescription.setLocation(0,320);
        IDescriptionD.setLocation(0,350);
        
-       IDamage.setLocation(400,10);
-       IDamageD.setLocation(400,30);
+       IDamage.setLocation(310,10);
+       IDamageD.setLocation(310,30);
        
-       ISpeed.setLocation(400,50);
-       ISpeedD.setLocation(400,70);
+       ISpeed.setLocation(310,50);
+       ISpeedD.setLocation(310,70);
        
-       IDefense.setLocation(400,90);
-       IDefenseD.setLocation(400,110);
+       IDefense.setLocation(310,90);
+       IDefenseD.setLocation(310,110);
        
-       IElement.setLocation(400,130);
-       IElementD.setLocation(400,150);
+       IElement.setLocation(310,130);
+       IElementD.setLocation(310,150);
        
-       IPower.setLocation(400,170);
-       IPowerD.setLocation(400,190);
+       IPower.setLocation(310,170);
+       IPowerD.setLocation(310,190);
        
-       IEquip.setLocation(380,220);
+       IEquip.setLocation(310,220);
        //------------------------------------
        // COLORS
        //------------------------------------
@@ -367,7 +426,7 @@ public class StatEqItPanel extends JFrame
        Element.setBackground(Color.YELLOW);
        Power.setBackground(Color.YELLOW);
        //----------------------------------
-       Unequip.setBackground(Color.orange);
+       Unequip.setBackground(Color.yellow);
        
 
        //---------------------------------
@@ -488,13 +547,18 @@ public class StatEqItPanel extends JFrame
        
     }
     
-    class ButtonHandler implements ActionListener
+    private boolean setAlwaysOnTop(Color black) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	class ButtonHandler implements ActionListener
     {
            public void actionPerformed(ActionEvent e)
            {
         	   if(e.getSource() != Unequip)
         	   {
-        	   Sword.setBackground(Color.LIGHT_GRAY);
+        	    Sword.setBackground(Color.LIGHT_GRAY);
         	    Shield.setBackground(Color.LIGHT_GRAY);
         	    Helmet.setBackground(Color.LIGHT_GRAY);
         	    Chest.setBackground(Color.LIGHT_GRAY);
@@ -508,6 +572,17 @@ public class StatEqItPanel extends JFrame
         	   }
         		if(e.getSource() == Sword)
         		{
+        		Element.setVisible(true);
+        		ElementD.setVisible(true);
+        		Speed.setVisible(true);
+        		SpeedD.setVisible(true);
+        		Damage.setVisible(true);
+        	    DamageD.setVisible(true);
+        	    Defense.setVisible(false);
+        		DefenseD.setVisible(false);
+        		Power.setVisible(true);
+    			PowerD.setVisible(true);
+        		
         		Sword.setBackground(Color.yellow);
         	    ItemD.setText("Unarmed");
         	    DescriptionD.setText("You don't have a Sword.");
@@ -520,6 +595,16 @@ public class StatEqItPanel extends JFrame
         		
         		if(e.getSource() == Shield)
         		{
+            		Element.setVisible(true);
+            		ElementD.setVisible(true);
+            		Speed.setVisible(false);
+            		SpeedD.setVisible(false);
+            		Damage.setVisible(false);
+            	    DamageD.setVisible(false);
+            	    Defense.setVisible(true);
+            		DefenseD.setVisible(true);	
+        			Power.setVisible(true);
+        			PowerD.setVisible(true);
         		Shield.setBackground(Color.yellow);
         	    ItemD.setText("Unarmed");
         	    DescriptionD.setText("You don't have a shield.");
@@ -532,6 +617,16 @@ public class StatEqItPanel extends JFrame
         		
         		if(e.getSource() == Helmet)
         		{
+            		Element.setVisible(true);
+            		ElementD.setVisible(true);
+            		Speed.setVisible(false);
+            		SpeedD.setVisible(false);
+            		Damage.setVisible(false);
+            	    DamageD.setVisible(false);
+            	    Defense.setVisible(true);
+            		DefenseD.setVisible(true);
+            		Power.setVisible(true);
+        			PowerD.setVisible(true);
         		Helmet.setBackground(Color.yellow);
         	    ItemD.setText("Headless");
         	    DescriptionD.setText("You don't have a helmet.");
@@ -544,6 +639,16 @@ public class StatEqItPanel extends JFrame
         		
         		if(e.getSource() == Chest)
         		{
+            		Element.setVisible(true);
+            		ElementD.setVisible(true);
+            		Speed.setVisible(false);
+            		SpeedD.setVisible(false);
+            		Damage.setVisible(false);
+            	    DamageD.setVisible(false);
+            	    Defense.setVisible(true);
+            		DefenseD.setVisible(true);
+            		Power.setVisible(true);
+        			PowerD.setVisible(true);
         		Chest.setBackground(Color.yellow);
         	    ItemD.setText("Shirtless");
         	    DescriptionD.setText("You don't have a curiass.");
@@ -556,6 +661,16 @@ public class StatEqItPanel extends JFrame
         		
         		if(e.getSource() == Legs)
         		{
+            		Element.setVisible(true);
+            		ElementD.setVisible(true);
+            		Speed.setVisible(false);
+            		SpeedD.setVisible(false);
+            		Damage.setVisible(false);
+            	    DamageD.setVisible(false);
+            	    Defense.setVisible(true);
+            		DefenseD.setVisible(true);
+            		Power.setVisible(true);
+        			PowerD.setVisible(true);
         		Legs.setBackground(Color.yellow);
         	    ItemD.setText("None");
         	    DescriptionD.setText("You are lacking greaves.");
@@ -568,6 +683,16 @@ public class StatEqItPanel extends JFrame
         		
         		if(e.getSource() == Amulet)
         		{
+            		Element.setVisible(true);
+            		ElementD.setVisible(true);
+            		Speed.setVisible(false);
+            		SpeedD.setVisible(false);
+            		Damage.setVisible(false);
+            	    DamageD.setVisible(false);
+            	    Defense.setVisible(false);
+            		DefenseD.setVisible(false);
+            		Power.setVisible(true);
+        			PowerD.setVisible(true);
         		Amulet.setBackground(Color.yellow);
         	    ItemD.setText("None");
         	    DescriptionD.setText("You don't have an amulet.");
@@ -580,6 +705,16 @@ public class StatEqItPanel extends JFrame
         		
         		if(e.getSource() == Belt)
         		{
+            		Element.setVisible(true);
+            		ElementD.setVisible(true);
+            		Speed.setVisible(false);
+            		SpeedD.setVisible(false);
+            		Damage.setVisible(false);
+            	    DamageD.setVisible(false);
+            	    Defense.setVisible(false);
+            		DefenseD.setVisible(false);
+            		Power.setVisible(true);
+        			PowerD.setVisible(true);
         		Belt.setBackground(Color.yellow);
         	    ItemD.setText("None");
         	    DescriptionD.setText("How are you going to keep your pants up now?");
@@ -592,6 +727,16 @@ public class StatEqItPanel extends JFrame
         		
         		if(e.getSource() == Hands)
         		{
+            		Element.setVisible(true);
+            		ElementD.setVisible(true);
+            		Speed.setVisible(false);
+            		SpeedD.setVisible(false);
+            		Damage.setVisible(false);
+            	    DamageD.setVisible(false);
+            	    Defense.setVisible(true);
+            		DefenseD.setVisible(true);
+            		Power.setVisible(true);
+        			PowerD.setVisible(true);
         		Hands.setBackground(Color.yellow);
         	    ItemD.setText("None");
         	    DescriptionD.setText("Caught bare handed.");
@@ -604,6 +749,16 @@ public class StatEqItPanel extends JFrame
         		
         		if(e.getSource() == Ring1)
         		{
+            		Element.setVisible(true);
+            		ElementD.setVisible(true);
+            		Speed.setVisible(false);
+            		SpeedD.setVisible(false);
+            		Damage.setVisible(false);
+            	    DamageD.setVisible(false);
+            	    Defense.setVisible(false);
+            		DefenseD.setVisible(false);
+            		Power.setVisible(true);
+        			PowerD.setVisible(true);
         	    Ring1.setBackground(Color.yellow);
         	    ItemD.setText("None");
         	    DescriptionD.setText("Still single.");
@@ -616,6 +771,16 @@ public class StatEqItPanel extends JFrame
         		
         		if(e.getSource() == Ring2)
         		{
+            		Element.setVisible(true);
+            		ElementD.setVisible(true);
+            		Speed.setVisible(false);
+            		SpeedD.setVisible(false);
+            		Damage.setVisible(false);
+            	    DamageD.setVisible(false);
+            	    Defense.setVisible(false);
+            		DefenseD.setVisible(false);
+            		Power.setVisible(true);
+        			PowerD.setVisible(true);
         	    Ring2.setBackground(Color.yellow);
         	    ItemD.setText("None");
         	    DescriptionD.setText("Ringless.");
@@ -628,6 +793,16 @@ public class StatEqItPanel extends JFrame
         		
         		if(e.getSource() == Feet)
         		{
+            		Element.setVisible(true);
+            		ElementD.setVisible(true);
+            		Speed.setVisible(false);
+            		SpeedD.setVisible(false);
+            		Damage.setVisible(false);
+            	    DamageD.setVisible(false);
+            	    Defense.setVisible(true);
+            		DefenseD.setVisible(true);
+            		Power.setVisible(true);
+        			PowerD.setVisible(true);
         	    Feet.setBackground(Color.yellow);
         	    ItemD.setText("None");
         	    DescriptionD.setText("You are barefoot.");
@@ -759,4 +934,3 @@ public class StatEqItPanel extends JFrame
 
 
 }
-

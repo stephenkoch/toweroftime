@@ -7,6 +7,9 @@ import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+
+import java.awt.Color;
 
 import java.awt.*;
 
@@ -153,8 +156,12 @@ public static Player loadCharacter() {
 		mainMenu();
 	}
 	
-	public static void main(String args[]) {	
+	public static void main(String args[]) throws IOException {	
 		//mainMenu();
+		try{UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName() );
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		new StartGamePanel();
 	}
 }

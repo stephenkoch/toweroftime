@@ -10,8 +10,8 @@ public class DungeonRoom {
 	private boolean discovered, treasure;
 	private GridCoord location;
 	private Encounter encounter;
-	
-	
+
+
 	protected DungeonRoom () { //testing
 		exits[0] = false;
 		exits[1] = true;
@@ -23,7 +23,7 @@ public class DungeonRoom {
 		encounter = new Encounter();
 	}
 	protected DungeonRoom (GridCoord a) {
-		
+
 		exits[0] = false;
 		exits[1] = false;
 		exits[2] = false;
@@ -33,7 +33,7 @@ public class DungeonRoom {
 		encounter = new Encounter();
 		location = a;
 	}
-	
+
 	public int getExits() {
 		int e=0;
 		for(int i=0;i<4;i++){
@@ -51,7 +51,7 @@ public class DungeonRoom {
 	public int getX() { return location.x; }
 	public int getY() { return location.y; }
 	public boolean getDiscovered() { return discovered; }
-	
+
 
 	public void giveTreasure() { treasure=true; }
 	public void setExits(int direction, boolean x) { this.exits[direction] = x; }
@@ -74,5 +74,5 @@ public class DungeonRoom {
 	public void engage() {
 		encounter.encounterIntro(Game.PLAYER);
 	}
-	
+
 }

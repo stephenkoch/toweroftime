@@ -3,7 +3,7 @@ import java.awt.*;
 
 
 public class MapSquare extends JPanel {
-	
+
 	public MapSquare(int x, int y, String source){
 		ImageIcon icon = new ImageIcon("src/"+source);
 		JLabel label = new JLabel(icon);

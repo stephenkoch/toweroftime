@@ -116,9 +116,9 @@ public class StatEqItPanel extends JFrame
        Health = new JLabel("HEALTH");
        Mana = new JLabel("MANA");
        Level = new JLabel("LEVEL");
-       LevelD = new JLabel("9");
+       LevelD = new JLabel("");
        Class = new JLabel("CLASS");
-       ClassD = new JLabel("Warrior");
+       ClassD = new JLabel("");
 
        JPanel StatsPanel = new JPanel();//First Panel
        JPanel EquipmentPanel = new JPanel();//Second Panel
@@ -551,13 +551,24 @@ public class StatEqItPanel extends JFrame
 		// TODO Auto-generated method stub
 		return false;
 	}
-
+    //UPDATE EVERYTHING ON THIS PANEL!!!!!!!
+    private void updatePanel() {
+    	StrengthD.setText(Integer.toString(Game.PLAYER.getStrength()));
+    	StaminaD.setText(Integer.toString(Game.PLAYER.getStamina()));
+    	MindD.setText(Integer.toString(Game.PLAYER.getMind()));
+    	IntelligenceD.setText(Integer.toString(Game.PLAYER.getIntelligence()));
+    	DefenseD.setText(Integer.toString(Game.PLAYER.getDefense()));
+    }
+    //EVERYTHING ABOVE THIS IS IMPORTANT!!!!
+    
+    
 	class ButtonHandler implements ActionListener
     {
            public void actionPerformed(ActionEvent e)
            {
         	   if(e.getSource() != Unequip)
         	   {
+        		
         	    Sword.setBackground(Color.LIGHT_GRAY);
         	    Shield.setBackground(Color.LIGHT_GRAY);
         	    Helmet.setBackground(Color.LIGHT_GRAY);
@@ -880,7 +891,7 @@ public class StatEqItPanel extends JFrame
         		SkillPoints.setBackground(Color.gray);
         		}
         		   
-        		   StrengthD.setText(String.valueOf(strengthPoints));
+        		  // StrengthD.setText(String.valueOf(strengthPoints));
         	       StaminaD.setText(String.valueOf(staminaPoints));
         	       IntelligenceD.setText(String.valueOf(intelligencePoints));
         	       MindD.setText(String.valueOf(mindPoints));
@@ -928,6 +939,7 @@ public class StatEqItPanel extends JFrame
            item.addElement("Buckler");
            item.addElement("Agis");
            }
+           updatePanel();
        }
            
     }

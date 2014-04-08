@@ -20,10 +20,10 @@ public class Game {
 	public static StartGamePanel newgame;
 	
 	public static Player createCharacter() {
-		Scanner console = new Scanner(System.in);
-        System.out.println("What is your name, Champion?");
-        String name = console.nextLine();
-        Player intplayer = new Player(name);
+
+    
+
+        Player intplayer = new Player("Panda");
         intplayer.setRace(intplayer.selectRace());
         return intplayer;
 	}
@@ -157,11 +157,12 @@ public static Player loadCharacter() {
 	}
 	
 	public static void main(String args[]) throws IOException {	
-		//mainMenu();
 		try{UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName() );
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		Game GAME = new Game();
+		PLAYER = createCharacter();
 		new StartGamePanel();
 	}
 }

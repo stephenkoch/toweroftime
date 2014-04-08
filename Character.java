@@ -297,12 +297,6 @@ public class Character {
 	}
 	
 	protected String selectRace() {
-		Scanner console = new Scanner(System.in);
-        System.out.println("What is your race, "+name+"?");
-        System.out.println("1: Human  2: Elf  3: Orc  4: Dwarf  5: Troll");
-        int action = console.nextInt();
-        switch(action) {
-        	case 1: { //Human
         		this.hp = 25;
         		this.mp = 10;
         		this.maxHp = 25;
@@ -314,78 +308,5 @@ public class Character {
         		this.mind = 10;
         		this.defense = 10;
         		return "Human";
-        	}
-        	case 2: { //Elf
-        		this.hp = 20;
-        		this.mp = 15;
-        		this.maxHp = 20;
-        		this.maxMp = 15;
-        		this.strength = 9;
-        		this.dexterity = 11;
-        		this.stamina = 9;
-        		this.intelligence = 11;
-        		this.mind = 11;
-        		this.defense = 9;
-        		return "Elf";
-        	}
-        	case 3: { //Orc
-        		this.hp = 30;
-        		this.mp = 5;
-        		this.maxHp = 30;
-        		this.maxMp = 5;
-        		this.strength = 15;
-        		this.dexterity = 8;
-        		this.stamina = 12;
-        		this.intelligence = 7;
-        		this.mind = 7;
-        		this.defense = 11;
-        		return "Orc";
-        	}
-        	case 4: { //Dwarf
-        		this.hp = 35;
-        		this.mp = 5;
-        		this.maxHp = 35;
-        		this.maxMp = 5;
-        		this.strength = 12;
-        		this.dexterity = 8;
-        		this.stamina = 10;
-        		this.intelligence = 8;
-        		this.mind = 8;
-        		this.defense = 14;
-        		return "Dwarf";
-        	}
-        	case 5: { //Troll
-        		this.hp = 25;
-        		this.mp = 10;
-        		this.maxHp = 25;
-        		this.maxMp = 10;
-        		this.strength = 8;
-        		this.dexterity = 11;
-        		this.stamina = 8;
-        		this.intelligence = 11;
-        		this.mind = 11;
-        		this.defense = 11;
-        		return "Troll";
-        	}
-        	case 99: { //God [CHEAT CODE]
-        		this.level = 9;
-        		this.exp = 890;
-        		this.hp = 100;
-        		this.mp = 100;
-        		this.maxHp = 100;
-        		this.maxMp = 100;
-        		this.strength = 100;
-        		this.dexterity = 100;
-        		this.stamina = 100;
-        		this.intelligence = 100;
-        		this.mind = 100;
-        		this.defense = 100;
-        		return "God";
-        	}
-        	default: { //Incorrect Input
-        		System.out.println("Incorrect Input");
-        		return selectRace();
-        	}
-        }
 	}
 }

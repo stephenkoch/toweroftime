@@ -75,7 +75,7 @@ public class StartGamePanel extends JFrame implements MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		if (e.getSource() == newGameButton) {
     	    frame.dispose();
-    	    //\StatEqItPanel test = new StatEqItPanel();
+    	    Intro tab = new Intro();
     	    GameFrame THEGAMEWINDOW = new GameFrame();
     	}
     	else if(e.getSource() == loadGameButton) {

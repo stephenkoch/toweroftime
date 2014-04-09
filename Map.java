@@ -179,12 +179,39 @@ public class Map {
 	
 	public void movePlayer(int i){
 		DungeonRoom prev = grid[playerLocation.x][playerLocation.y];
-		if(prev.getExits(i)){
-			
+		
+		DungeonRoom moveTo;
+		if(prev.getExits(i)){//there is a door there
+			switch(i){//which door is it?
+			case 0: //NORTH
+				moveTo = prev.getNorth();
+			//TODO: Make sure not boss room
+			//TODO: Make room discovered
+				moveTo.setDiscoveredTrue();
+			//TODO: Move character
+				playerLocation.y-=1;
+			//TODO: ????redisplay board????
+					//	HOW?!?!?
+			break;
+			case 1: //EAST
+				moveTo = prev.getEast();
+				moveTo.setDiscoveredTrue();
+				playerLocation.x+=1;
+			break;
+			case 2: //SOUTH
+				moveTo = prev.getSouth();
+				moveTo.setDiscoveredTrue();
+				playerLocation.y+=1;
+			break;
+			case 3: //WEST
+				moveTo = prev.getWest();
+				moveTo.setDiscoveredTrue();
+				playerLocation.x-=1;
+			break;
+			}
 		}
 	}	
-	//accessors 
-	
+
 	public DungeonRoom get(int x, int y){
 		return grid[x][y];		
 	}

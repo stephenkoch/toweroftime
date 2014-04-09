@@ -29,7 +29,7 @@ public class GameFrame extends JFrame implements ActionListener{
 		fullGameFrame.add(PANELA);
 		PANELB = new HealthManaPanel();
 		fullGameFrame.add(PANELB);
-		PANELC = new GraphicPanel();
+		PANELC = new GraphicPanel(g.LEVEL);
 		fullGameFrame.add(PANELC);
 		PANELD = new MapPanel(g.LEVEL);
 		fullGameFrame.add(PANELD);

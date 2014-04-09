@@ -1,13 +1,14 @@
 import javax.swing.*;
-
+import java.awt.Font;
+import java.awt.FlowLayout;
 import java.awt.Color;
 import java.awt.event.*;
-import java.io.IOException;
+import java.awt.*;
 
 
-public class Intro extends JFrame implements ActionListener
-{
+public class Intro extends JFrame implements ActionListener{
     int NextText = 0;
+    String personname, sex, race;
     JButton Next = new JButton("->");
     JButton Back = new JButton("<-");
     JButton M 	 = new JButton("Male");
@@ -21,13 +22,25 @@ public class Intro extends JFrame implements ActionListener
     JButton R4 = new JButton("Race4");
     JButton R5 = new JButton("Race5");
     JButton R6 = new JButton("Race6");
+    JButton C1 = new JButton("CLASS1");
+    JButton C2 = new JButton("CLASS2");
+    JButton C3 = new JButton("CLASS3");
+    JButton C4 = new JButton("CLASS4");
+
     JTextField Name= new JTextField("Type Name");
+    
+    //Radio Buttons
+    
+    
 
     JComboBox Race = new JComboBox();
     Game GAME;
     
-    public Intro(Game g)
-    {   
+    // Creating Custom Font
+    Font ft = new Font("Brush Script MT", Font.BOLD, 15);
+    
+    
+    public Intro(Game g){   
     	GAME = g;
         setTitle("Character");
         setSize(800,200);
@@ -37,16 +50,19 @@ public class Intro extends JFrame implements ActionListener
        TextBox.setLayout(null);
        Back.setVisible(false);
        RaceSelection.setText("Human");
-
+       // Add all Action Listeners
        // Set all Sizes
        Next.setSize(80,20);
        Back.setSize(80,20);
        Text.setSize(800,100);
        Text.setForeground(Color.black);
+       Text.setFont(ft);
        
-       Next.setLocation(500,150);
+       
+       Next.setLocation(600,150);
        Back.setLocation(680,150);
        Text.setLocation(10,10);
+      
 
        // Add all Items to Panel
        TextBox.add(Next);
@@ -54,9 +70,8 @@ public class Intro extends JFrame implements ActionListener
        TextBox.add(Text);
        TextBox.add(RaceSelection);
        TextBox.add(Name);
-       
-        //Add all Action Listeners
-   
+
+        //Action Listeners
         Next.addActionListener(this);
         Back.addActionListener(this);
         Back.addActionListener(this);
@@ -69,15 +84,21 @@ public class Intro extends JFrame implements ActionListener
         M.addActionListener(this);
         F.addActionListener(this);
         Name.addActionListener(this);
+        C1.addActionListener(this);
+        C2.addActionListener(this);
+        C3.addActionListener(this);
+        C4.addActionListener(this);
+
 
         
-        setVisible(true); //otherwise you won't "see" it 
+       
+        // showing stuff
+        setVisible(true);
         		
     }
 
 	@Override
-	public void actionPerformed(ActionEvent e) 
-	{
+	public void actionPerformed(ActionEvent e) {
 		Name.setVisible(false);
 		M.setVisible(false);
 		F.setVisible(false);
@@ -88,10 +109,69 @@ public class Intro extends JFrame implements ActionListener
 		R5.setVisible(false);
 		R6.setVisible(false);
 		Back.setVisible(false);
+		C1.setVisible(false);
+		C2.setVisible(false);
+		C3.setVisible(false);
+		C4.setVisible(false);
+		
+		
 		//All buttons are hidden until they are needed
 
-		if((e.getSource() == Next) ||(e.getSource() == R1)||(e.getSource() == R2)||(e.getSource() == R3)||(e.getSource() == R4)||(e.getSource() == R5)||(e.getSource() == R6)||(e.getSource() == M)||(e.getSource() == F))
-		{
+		if((e.getSource() == Next) ||(e.getSource() == R1)||(e.getSource() == R2)||(e.getSource() == R3)||(e.getSource() == R4)||(e.getSource() == R5)||(e.getSource() == R6)||(e.getSource() == M)||(e.getSource() == F)||(e.getSource() == C1)||(e.getSource() == C2)||(e.getSource() == C3)||(e.getSource() == C4)){
+			
+			// getting the persons name
+			if(NextText==3){
+				personname = Name.getText();
+				System.out.print(personname);}
+			
+			// getting M or F choice
+			if(NextText==4){
+				if(e.getSource() == M){
+					sex="man";
+					System.out.print("MALE");}
+				else
+					sex = "female";
+					System.out.print("FEMALE");}
+			
+			// getting Race choice
+			if(NextText==5){
+				if(e.getSource()==R1){
+					race="R1";
+					System.out.print("RACE1");}
+				if(e.getSource()==R2){
+					race="R2";
+					System.out.print("RACE2");}
+				if(e.getSource()==R3){
+						race="R3";
+						System.out.print("RACE3");}
+				if(e.getSource()==R4){
+					race="R4";
+					System.out.print("RACE4");}
+				if(e.getSource()==R5){
+					race="R5";
+					System.out.print("RACE5");}
+				if(e.getSource()==R6){
+					race="R6";
+					System.out.print("RACE6");}
+			}
+			
+			if(NextText==6){
+				if(e.getSource()==C1){
+					race="CLASS1";
+					System.out.print("CLASS");}
+				if(e.getSource()==C2){
+					race="CLASS2";
+					System.out.print("CLASS");}
+				if(e.getSource()==C3){
+						race="CLASS3";
+						System.out.print("CLASS3");}
+				if(e.getSource()==C4){
+					race="CLASS4";
+					System.out.print("CLASS4");}
+				
+			}
+			
+			
 		NextText++;	
 		}
 
@@ -114,7 +194,7 @@ public class Intro extends JFrame implements ActionListener
 	      {
 	      Text.setText("I'm Mushroom and you are?");
 	      Name.setSize(200,20);
-	      Name.setLocation(20,80);
+	      Name.setLocation(00,80);
 	      Name.setVisible(true);
 	      }
 
@@ -171,49 +251,40 @@ public class Intro extends JFrame implements ActionListener
 	       TextBox.add(R6);
 
 	      }
-	      if(NextText == 6)
+	      
+	      if(NextText ==6){
+	    	  Text.setText("Well, What class are you?");
+	    	  
+	    	   C1.setSize(80,20);
+		       C2.setSize(80,20);
+		       C3.setSize(80,20);
+		       C4.setSize(80,20);
+		    
+		       C1.setLocation(10,70);
+		       C2.setLocation(100,70);
+		       C3.setLocation(200,70);
+		       C4.setLocation(300,70);
+		      
+		       C1.setVisible(true);
+		       C2.setVisible(true);
+		       C3.setVisible(true);
+		       C4.setVisible(true);
+		      
+		       TextBox.add(C1);
+		       TextBox.add(C2);
+		       TextBox.add(C3);
+		       TextBox.add(C4);
+		     
+	      }
+	      
+	      if(NextText == 7)
 	      {
-	    	  try {
-				GameFrame THEGAMEWINDOW = new GameFrame(GAME);
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-	      Next.setSize(80,20);
-	      Text.setText("Ah I see! Well, if you promise not to tell, I will let you out.");
+	    	  GameFrame THEGAMEWINDOW = new GameFrame(GAME);
+	   //   Next.setSize(80,20);
+	     // Text.setText("Ah I see! Well, if you promise not to tell, I will let you out.");
 	      }
 
-	      if(NextText==7)
-	      {
-	    	  Text.setText("You've encounted a Monster, be prepared to battle!"); }
-
-	      if(NextText ==8){
-	    	  Text.setText("You Defeted the enemy!");}
-
-	      if(NextText==9){
-	    	  Text.setText("You were defeated!");}
-
-	      if(NextText==10){
-	    	  Text.setText("I will teleport you up but you shall never return.");}
-
-	      if(NextText==11){
-	    	  Text.setText("You found a treasure.");}
-
-	      if(NextText==12){
-	    	  Text.setText("You are now facing Mafew!");}
-
-	      if(NextText==13){
-	    	  Text.setText("You Defeated Mafew!");}
-
-	      if(NextText==14){
-	    	  Text.setText("You were defeated by Mafew");}
-
-	      if(NextText==15){
-	    	  Text.setText("Game Over");}
-
-	      if(NextText == 16){
-	    	  Text.setText("You have entered an empty room.");
+	     
 	      }
-	      }
-
+// class Marksman, warrior, mange 
 	}

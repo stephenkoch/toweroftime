@@ -10,7 +10,6 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
-import java.awt.*;
 
 public class Game {
 	public static boolean inCombat = false;
@@ -21,7 +20,7 @@ public class Game {
 	
 	public Game() throws IOException {
 		LEVEL = new Map();
-		while(LEVEL.getRooms()<15 || LEVEL.getRooms()>30)	
+		while(LEVEL.getRooms()<15 || LEVEL.getRooms()>30 ||LEVEL.noBoss())	
 			LEVEL = new Map();
 		PLAYER = createCharacter();
 		WINDOW = new StartGamePanel(this);

@@ -37,18 +37,16 @@ public class Intro extends JFrame implements ActionListener
        TextBox.setLayout(null);
        Back.setVisible(false);
        RaceSelection.setText("Human");
-       // Add all Action Listeners
+
        // Set all Sizes
        Next.setSize(80,20);
        Back.setSize(80,20);
        Text.setSize(800,100);
        Text.setForeground(Color.black);
        
-       
-       Next.setLocation(600,150);
+       Next.setLocation(500,150);
        Back.setLocation(680,150);
        Text.setLocation(10,10);
-      
 
        // Add all Items to Panel
        TextBox.add(Next);
@@ -56,9 +54,8 @@ public class Intro extends JFrame implements ActionListener
        TextBox.add(Text);
        TextBox.add(RaceSelection);
        TextBox.add(Name);
-
-        //This is an Action Listener which reacts to clicking on 
-        //the test button called "Press"
+       
+        //Add all Action Listeners
    
         Next.addActionListener(this);
         Back.addActionListener(this);
@@ -117,7 +114,7 @@ public class Intro extends JFrame implements ActionListener
 	      {
 	      Text.setText("I'm Mushroom and you are?");
 	      Name.setSize(200,20);
-	      Name.setLocation(00,80);
+	      Name.setLocation(20,80);
 	      Name.setVisible(true);
 	      }
 

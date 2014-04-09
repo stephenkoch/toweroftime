@@ -14,7 +14,7 @@ import javax.swing.JProgressBar;
 public class GraphicPanel extends JPanel {
 	JLabel piclabel;
 	BufferedImage Room = ImageIO.read(new File("src/brick room.png"));
-	   public GraphicPanel() throws IOException {
+	   public GraphicPanel(Map m) throws IOException {
 		   setBounds(400, 0, 800, 600);
 		   setLayout(null);
 		   piclabel = new JLabel(new ImageIcon(Room));

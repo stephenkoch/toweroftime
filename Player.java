@@ -20,6 +20,7 @@ public class Player extends Character{
 		super.setIntelligence(11);
 		super.setDefense(11);
 		super.backpack = new Pack();
+		equipped = new ArmorWeaponEquip();
 		
 	}
 	

@@ -4,10 +4,11 @@ public class Equipment extends Item {
 	
 	Equipment() {}
 	
-	Equipment(String name, String id, String desc, char slot) {
+	Equipment(String name, String desc, char slot) {
 		super.name = name;
-		super.id = id;
 		super.description = desc;
 		this.slot = slot;
 	}
+	
+	public int getSlot(){return this.slot;}
 }

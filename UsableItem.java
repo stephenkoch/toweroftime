@@ -5,9 +5,8 @@ public class UsableItem extends Item{
 	UsableItem() {
 		
 	}
-	UsableItem(String name, String id, char effect, String desc) {
+	UsableItem(String name, char effect, String desc) {
 		super.name = name;
-		super.id = id;
 		this.effect = effect;
 		super.description = desc;
 	}

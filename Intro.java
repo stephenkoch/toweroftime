@@ -23,8 +23,11 @@ public class Intro extends JFrame implements ActionListener
     JTextField Name= new JTextField("Type Name");
 
     JComboBox Race = new JComboBox();
-    public Intro()
+    Game GAME;
+    
+    public Intro(Game g)
     {   
+    	GAME = g;
         setTitle("Character");
         setSize(800,200);
         setBackground(Color.DARK_GRAY);
@@ -38,7 +41,7 @@ public class Intro extends JFrame implements ActionListener
        Next.setSize(80,20);
        Back.setSize(80,20);
        Text.setSize(800,100);
-       Text.setForeground(Color.white);
+       Text.setForeground(Color.black);
        
        
        Next.setLocation(600,150);
@@ -119,6 +122,7 @@ public class Intro extends JFrame implements ActionListener
 
 	      if(NextText == 4)
 	      {
+	    	  Game.PLAYER.setName(Name.getText());
 	    	  Name.setSize(0,0);
 	      Text.setText("I see... Is that a Man's name or a Womans's name?");
 	      //hid the next button
@@ -171,6 +175,7 @@ public class Intro extends JFrame implements ActionListener
 	      }
 	      if(NextText == 6)
 	      {
+	    	  GameFrame THEGAMEWINDOW = new GameFrame(GAME);
 	      Next.setSize(80,20);
 	      Text.setText("Ah I see! Well, if you promise not to tell, I will let you out.");
 	      }

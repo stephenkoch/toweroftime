@@ -24,7 +24,7 @@ public class Game {
 		while(LEVEL.getRooms()<15 || LEVEL.getRooms()>30)	
 			LEVEL = new Map();
 		PLAYER = createCharacter();
-		WINDOW = new StartGamePanel(LEVEL, PLAYER);
+		WINDOW = new StartGamePanel(this);
 	}
 	
 	public static Player createCharacter() {
@@ -140,7 +140,6 @@ public class Game {
 		switch(action) {
 		case 1: {
 			PLAYER = createCharacter();
-			PLAYER.startingInventory();
 			//dungeon = new Dungeon(player)[100];
 			overworldOptions(PLAYER, dungeon);
 			break;

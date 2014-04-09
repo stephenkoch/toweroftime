@@ -17,21 +17,12 @@ public class StatEqItPanel extends JTabbedPane
     JButton Ring2 = new JButton("Ring 2");
     JButton Feet  = new JButton("Feet");
     
-    JLabel Health;
-    JLabel Mana;
-    JLabel Level;
-    JLabel LevelD;
-    JLabel Class;
-    JLabel ClassD;
-    JProgressBar HealthBar;
-    JProgressBar ManaBar;
-    
     // Add all Labels
     JButton Item = new JButton("Item");
     JButton Description = new JButton("Description");
     JButton Speed = new JButton("Speed");
     JButton Damage = new JButton("Damage");
-    JButton Defense = new JButton("Defense"); 
+    JButton ArmorDefense = new JButton("Defense"); 
     JButton Element = new JButton("Element");
     JButton Power = new JButton("Power");
     //------------------------------------------
@@ -40,7 +31,7 @@ public class StatEqItPanel extends JTabbedPane
     JButton DescriptionD = new JButton("-");
     JButton SpeedD = new JButton("-");
     JButton DamageD = new JButton("-");
-    JButton DefenseD = new JButton("-"); 
+    JButton ArmorDefenseD = new JButton("-"); 
     JButton ElementD = new JButton("-");
     JButton PowerD = new JButton("-");
     //-------------------------------------------
@@ -48,9 +39,11 @@ public class StatEqItPanel extends JTabbedPane
     JButton Stamina = new JButton("Stamina");
     JButton Mind = new JButton("Mind");
     JButton Intelligence = new JButton("Intelligence");
-    JButton DefenseStat  = new JButton("Defense");
+    JButton Defense  = new JButton("Defense");
+    JButton Dexterity = new JButton ("Dexterity");
     //-------------------------------------------
     JButton SkillPoints = new JButton("Skill Points");
+    
     int skillPoints = 4;
     int strengthPoints = 21;
     int staminaPoints = 23;
@@ -62,7 +55,8 @@ public class StatEqItPanel extends JTabbedPane
     JButton StaminaD = new JButton("");
     JButton MindD = new JButton("");
     JButton IntelligenceD  = new JButton("");
-    JButton DefenseDStat   = new JButton("");
+    JButton DefenseD   = new JButton("");
+    JButton DexterityD = new JButton ("");
     JButton SkillPointsD = new JButton("+1");
     
     //-------------------------------------------
@@ -71,6 +65,15 @@ public class StatEqItPanel extends JTabbedPane
     JButton MindPlus = new JButton("+1");
     JButton IntelligencePlus = new JButton("+1");
     JButton DefensePlus = new JButton("+1");
+    JButton DexterityPlus = new JButton ("+1");
+    
+    JButton StrengthModifier = new JButton("+1");
+    JButton StaminaModifier = new JButton("+1");
+    JButton MindModifier = new JButton("+1");
+    JButton IntelligenceModifier = new JButton("+1");
+    JButton DefenseModifier = new JButton("+1");
+    JButton DexterityModifier = new JButton ("+1");
+    
     //------------------------------------------
     JButton Unequip = new JButton("UNEQUIP");
     //------------------------------------------
@@ -106,69 +109,21 @@ public class StatEqItPanel extends JTabbedPane
     DefaultListModel item = new DefaultListModel();
     JList itemList = new JList(item);
     JScrollPane scroll = new JScrollPane(itemList);
-    JTabbedPane jtp;
     
     public StatEqItPanel() 
     {
        // Creating tabs
-    setBounds(0,160,400,400);
-       
-       Health = new JLabel("HEALTH");
-       Mana = new JLabel("MANA");
-       Level = new JLabel("LEVEL");
-       LevelD = new JLabel("");
-       Class = new JLabel("CLASS");
-       ClassD = new JLabel("");
+    	setBounds(0, 160, 400, 400);
 
        JPanel StatsPanel = new JPanel();//First Panel
        JPanel EquipmentPanel = new JPanel();//Second Panel
        JPanel BackpackPanel = new JPanel();//Third Panel
-       HealthBar = new JProgressBar(0,100);
-       ManaBar = new JProgressBar(0,100);
-       
-       Font newHealthFont = new Font(Health.getFont().getName(),Health.getFont().getStyle(),16);
-       Font newManaFont = new Font(Mana.getFont().getName(),Mana.getFont().getStyle(),16);
-       Health.setFont(newHealthFont);
-       Mana.setFont(newManaFont);
-     
-       Level.setLocation(350,10);
-       Level.setSize(100,40);
-      
-       LevelD.setLocation(400,10);
-       LevelD.setSize(100,40);
-      
-       Class.setLocation(350,30);
-       Class.setSize(100,40);
-      
-       ClassD.setLocation(400,30);
-       ClassD.setSize(100,40);
-      
-       // Set all Sizes
-       Health.setSize(100,40);
-       Health.setLocation(270,100);
-       HealthBar.setSize(150,25);
-       HealthBar.setLocation(340,100);
-      
-       HealthBar.setValue(50);
-       HealthBar.setStringPainted(true);
-       HealthBar.setForeground(Color.red);
-      
-       Mana.setSize(200,40);
-       Mana.setLocation(290,200);
-       ManaBar.setSize(150,25);
-       ManaBar.setLocation(340,200);
-     
-       ManaBar.setValue(80);
-       ManaBar.setStringPainted(true);
-       ManaBar.setForeground(Color.blue);
 
-
-        
        //Tab Creation
        addTab("Stats",StatsPanel);
        addTab("Equipment", EquipmentPanel);
        addTab("Backpack", BackpackPanel);
- 
+
        StatsPanel.setLayout(null);      //Custom button placement for first panel
        EquipmentPanel.setLayout(null);  //Reference line above, but for second panel
        BackpackPanel.setLayout(null);   //Backpack layout manager set to null
@@ -178,7 +133,7 @@ public class StatEqItPanel extends JTabbedPane
        StaminaD.setText(String.valueOf(staminaPoints));
        IntelligenceD.setText(String.valueOf(intelligencePoints));
        MindD.setText(String.valueOf(mindPoints));
-       DefenseDStat.setText(String.valueOf(defensePoints));
+       DefenseD.setText(String.valueOf(defensePoints));
        SkillPointsD.setText(String.valueOf(skillPoints));
        
        
@@ -187,28 +142,38 @@ public class StatEqItPanel extends JTabbedPane
        //---------------------------
        
        //Stats Panel 1 Buttons Sizes
-       Strength.setSize(100,40);
-       Stamina.setSize(100,40);
-       Intelligence.setSize(100,40);
-       Mind.setSize(100,40);
-       DefenseStat.setSize(100,40);
+       Strength.setSize(150,40);
+       Stamina.setSize(150,40);
+       Intelligence.setSize(150,40);
+       Mind.setSize(150,40);
+       Defense.setSize(150,40);
+       Dexterity.setSize(150,40);
        //----------------------------
        StrengthD.setSize(100,40);
        StaminaD.setSize(100,40);
        IntelligenceD.setSize(100,40);
        MindD.setSize(100,40);
-       DefenseDStat.setSize(100,40);
+       DefenseD.setSize(100,40);
+       DexterityD.setSize(100,40);
        //-----------------------------
-       StrengthPlus.setSize(50,40);
-       StaminaPlus.setSize(50,40);
-       IntelligencePlus.setSize(50,40);
-       MindPlus.setSize(50,40);
-       DefensePlus.setSize(50,40);
+       StrengthPlus.setSize(60,40);
+       StaminaPlus.setSize(60,40);
+       IntelligencePlus.setSize(60,40);
+       MindPlus.setSize(60,40);
+       DefensePlus.setSize(60,40);
+       DexterityPlus.setSize(60,40);
        //-----------------------------
-       SkillPoints.setSize(150,40);
-       SkillPointsD.setSize(50,40);
+       SkillPoints.setSize(150,50);
+       SkillPointsD.setSize(100,50);
        //-----------------------------
        Unequip.setSize(200,40);
+       
+       StrengthModifier.setSize(60,40);
+       StaminaModifier.setSize(60,40);
+       IntelligenceModifier.setSize(60,40);
+       MindModifier.setSize(60,40);
+       DefenseModifier.setSize(60,40);
+       DexterityModifier.setSize(60,40);
          
        
        //Equipment Panel 2 Buttons Sizes
@@ -229,7 +194,7 @@ public class StatEqItPanel extends JTabbedPane
        Description.setSize(400,30);
        Speed.setSize(125, 20);
        Damage.setSize(125, 20);
-       Defense.setSize(125, 20);
+       ArmorDefense.setSize(125, 20);
        Element.setSize(125, 20); 
        Power.setSize(125, 20);
        //-------------------------
@@ -237,7 +202,7 @@ public class StatEqItPanel extends JTabbedPane
        DescriptionD.setSize(400,20);
        SpeedD.setSize(125,20);
        DamageD.setSize(125,20);
-       DefenseD.setSize(125,20);
+       ArmorDefenseD.setSize(125,20);
        ElementD.setSize(125,20);
        PowerD.setSize(125,20);
        //--------------------
@@ -287,11 +252,11 @@ public class StatEqItPanel extends JTabbedPane
        Feet.setLocation(100,220); 
        Unequip.setLocation(200,230);  
        //-----------------------------
-       Item.setLocation(0,280);
-       Description.setLocation(0,330);
+       Item.setLocation(0,270);
+       Description.setLocation(0,320);
        //------------------------------
-       ItemD.setLocation(0,310);
-       DescriptionD.setLocation(0,360);
+       ItemD.setLocation(0,300);
+       DescriptionD.setLocation(0,350);
        //------------------------------
        Stats.setLocation(280,10);
        //------------------------------
@@ -303,16 +268,16 @@ public class StatEqItPanel extends JTabbedPane
        SpeedD.setLocation(280,140);
        Damage.setLocation(280,160);
        DamageD.setLocation(280,180);
-       Defense.setLocation(280,120);
-       DefenseD.setLocation(280,140);
+       ArmorDefense.setLocation(280,120);
+       ArmorDefenseD.setLocation(280,140);
        Element.setVisible(false);
        ElementD.setVisible(false);
        Speed.setVisible(false);
        SpeedD.setVisible(false);
        Damage.setVisible(false);
        DamageD.setVisible(false);
-       Defense.setVisible(false);
-       DefenseD.setVisible(false);
+       ArmorDefense.setVisible(false);
+       ArmorDefenseD.setVisible(false);
        Power.setVisible(false);
        PowerD.setVisible(false);
        
@@ -320,25 +285,36 @@ public class StatEqItPanel extends JTabbedPane
 
        //-----------------------------------
        Strength.setLocation(5,10);
-       Stamina.setLocation(5,70);
-       Mind.setLocation(5,130);
-       Intelligence.setLocation(5,190);
-       DefenseStat.setLocation(5,250);
+       Stamina.setLocation(5,60);
+       Mind.setLocation(5,110);
+       Intelligence.setLocation(5,160);
+       Defense.setLocation(5,210);
+       Dexterity.setLocation(5,260);
        //-----------------------------------
-       StrengthD.setLocation(105,10);
-       StaminaD.setLocation(105,70);
-       MindD.setLocation(105,130);
-       IntelligenceD.setLocation(105,190);
-       DefenseDStat.setLocation(105,250);
+       StrengthD.setLocation(155,10);
+       StaminaD.setLocation(155,60);
+       MindD.setLocation(155,110);
+       IntelligenceD.setLocation(155,160);
+       DefenseD.setLocation(155,210);
+       DexterityD.setLocation(155,260);
        //-----------------------------------
-       StrengthPlus.setLocation(205,10);
-       StaminaPlus.setLocation(205,70);
-       MindPlus.setLocation(205,130);
-       IntelligencePlus.setLocation(205,190);
-       DefensePlus.setLocation(205,250);
+       StrengthModifier.setLocation(255,10);
+       StaminaModifier.setLocation(255,60);
+       MindModifier.setLocation(255,110);
+       IntelligenceModifier.setLocation(255,160);
+       DefenseModifier.setLocation(255,210);
+       DexterityModifier.setLocation(255,260);
        //----------------------------------
-       SkillPoints.setLocation(25,300);
-       SkillPointsD.setLocation(175,300);
+       
+       StrengthPlus.setLocation(315,10);
+       StaminaPlus.setLocation(315,60);
+       MindPlus.setLocation(315,110);
+       IntelligencePlus.setLocation(315,160);
+       DefensePlus.setLocation(315,210);
+       DexterityPlus.setLocation(315,260);
+       
+       SkillPoints.setLocation(50,310);
+       SkillPointsD.setLocation(195,310);
        //-----------------------------------
        scroll.setLocation(110,40);
        
@@ -379,7 +355,8 @@ public class StatEqItPanel extends JTabbedPane
        Stamina.setBackground(Color.yellow);
        Intelligence.setBackground(Color.yellow);
        Mind.setBackground(Color.yellow);
-       DefenseStat.setBackground(Color.yellow);
+       Defense.setBackground(Color.yellow);
+       Dexterity.setBackground(Color.yellow);
        SkillPoints.setBackground(Color.orange);
        //-------------------------------------
        SkillPointsD.setBackground(Color.orange);
@@ -388,12 +365,28 @@ public class StatEqItPanel extends JTabbedPane
        IntelligencePlus.setBackground(Color.red);
        DefensePlus.setBackground(Color.red);
        MindPlus.setBackground(Color.red);
+       DexterityPlus.setBackground(Color.red);
        //-------------------------------------
        StrengthPlus.setForeground(Color.white);
        StaminaPlus.setForeground(Color.white);
        IntelligencePlus.setForeground(Color.white);
        DefensePlus.setForeground(Color.white);
        MindPlus.setForeground(Color.white);
+       DexterityPlus.setForeground(Color.white);
+       
+       StrengthModifier.setBackground(Color.green);
+       StaminaModifier.setBackground(Color.green);
+       IntelligenceModifier.setBackground(Color.green);
+       DefenseModifier.setBackground(Color.green);
+       MindModifier.setBackground(Color.green);
+       DexterityModifier.setBackground(Color.green);
+       //-------------------------------------
+       StrengthModifier.setForeground(Color.white);
+       StaminaModifier.setForeground(Color.white);
+       IntelligenceModifier.setForeground(Color.white);
+       DefenseModifier.setForeground(Color.white);
+       MindModifier.setForeground(Color.white);
+       DexterityModifier.setForeground(Color.white);
        //-------------------------------------
        Item.setForeground(Color.black);
        Description.setForeground(Color.black);
@@ -436,19 +429,29 @@ public class StatEqItPanel extends JTabbedPane
        StatsPanel.add(Stamina);
        StatsPanel.add(Mind);
        StatsPanel.add(Intelligence);
-       StatsPanel.add(DefenseStat);
+       StatsPanel.add(Defense);
+       StatsPanel.add(Dexterity);
        //--------------------------
        StatsPanel.add(StrengthD);
        StatsPanel.add(StaminaD);
        StatsPanel.add(MindD);
        StatsPanel.add(IntelligenceD);
-       StatsPanel.add(DefenseDStat);
+       StatsPanel.add(DefenseD);
+       StatsPanel.add(DexterityD);
        //--------------------------
        StatsPanel.add(StrengthPlus);
        StatsPanel.add(StaminaPlus);
        StatsPanel.add(MindPlus);
        StatsPanel.add(IntelligencePlus);
        StatsPanel.add(DefensePlus);
+       StatsPanel.add(DexterityPlus);
+       
+       StatsPanel.add(StrengthModifier);
+       StatsPanel.add(StaminaModifier);
+       StatsPanel.add(MindModifier);
+       StatsPanel.add(IntelligenceModifier);
+       StatsPanel.add(DefenseModifier);
+       StatsPanel.add(DexterityModifier);
        //--------------------------
        StatsPanel.add(SkillPoints);
        StatsPanel.add(SkillPointsD);
@@ -472,7 +475,7 @@ public class StatEqItPanel extends JTabbedPane
        EquipmentPanel.add(Description); 
        EquipmentPanel.add(Speed);
        EquipmentPanel.add(Damage);
-       EquipmentPanel.add(Defense);
+       EquipmentPanel.add(ArmorDefense);
        EquipmentPanel.add(Element);
        EquipmentPanel.add(Power);
        //---------------------------
@@ -480,7 +483,7 @@ public class StatEqItPanel extends JTabbedPane
        EquipmentPanel.add(DescriptionD); 
        EquipmentPanel.add(SpeedD);
        EquipmentPanel.add(DamageD);
-       EquipmentPanel.add(DefenseD);
+       EquipmentPanel.add(ArmorDefenseD);
        EquipmentPanel.add(ElementD);
        EquipmentPanel.add(PowerD);
        EquipmentPanel.add(Unequip);
@@ -535,6 +538,7 @@ public class StatEqItPanel extends JTabbedPane
         MindPlus.addActionListener(phandler);
         IntelligencePlus.addActionListener(phandler);
         DefensePlus.addActionListener(phandler);
+        DexterityPlus.addActionListener(phandler);
         SkillPointsD.addActionListener(phandler);
         
         IWeapon.addActionListener(phandler);
@@ -547,17 +551,17 @@ public class StatEqItPanel extends JTabbedPane
        
     }
     
-    private boolean setAlwaysOnTop(Color black) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+
     //UPDATE EVERYTHING ON THIS PANEL!!!!!!!
-    private void updatePanel() {
+    private void updatePanel() 
+    {
     	StrengthD.setText(Integer.toString(Game.PLAYER.getStrength()));
     	StaminaD.setText(Integer.toString(Game.PLAYER.getStamina()));
     	MindD.setText(Integer.toString(Game.PLAYER.getMind()));
     	IntelligenceD.setText(Integer.toString(Game.PLAYER.getIntelligence()));
     	DefenseD.setText(Integer.toString(Game.PLAYER.getDefense()));
+    	DexterityD.setText(Integer.toString(Game.PLAYER.getDexterity()));
+    	
     }
     //EVERYTHING ABOVE THIS IS IMPORTANT!!!!
     
@@ -589,17 +593,17 @@ public class StatEqItPanel extends JTabbedPane
         		SpeedD.setVisible(true);
         		Damage.setVisible(true);
         	    DamageD.setVisible(true);
-        	    Defense.setVisible(false);
-        		DefenseD.setVisible(false);
+        	    ArmorDefense.setVisible(false);
+        		ArmorDefenseD.setVisible(false);
         		Power.setVisible(true);
     			PowerD.setVisible(true);
         		
         		Sword.setBackground(Color.yellow);
-        	    ItemD.setText("Unarmed");
-        	    DescriptionD.setText("You don't have a Sword.");
-        	    SpeedD.setText("0");
-        	    DamageD.setText("0");
-        	    DefenseD.setText("-");
+        	    ItemD.setText(Game.PLAYER.equipped.getWeapon().getName());
+        	    DescriptionD.setText(Game.PLAYER.equipped.getWeapon().getDescription());
+        	    SpeedD.setText(Integer.toString(Game.PLAYER.equipped.getWeapon().getWeaponSpeed()));
+        	    DamageD.setText(Integer.toString(Game.PLAYER.equipped.getWeapon().getWeaponDamage()));
+        	    ArmorDefenseD.setText("-");
         	    ElementD.setText("-");
         	    PowerD.setText("-");
         		}
@@ -612,16 +616,16 @@ public class StatEqItPanel extends JTabbedPane
             		SpeedD.setVisible(false);
             		Damage.setVisible(false);
             	    DamageD.setVisible(false);
-            	    Defense.setVisible(true);
-            		DefenseD.setVisible(true);	
+            	    ArmorDefense.setVisible(true);
+            		ArmorDefenseD.setVisible(true);	
         			Power.setVisible(true);
         			PowerD.setVisible(true);
         		Shield.setBackground(Color.yellow);
-        	    ItemD.setText("Unarmed");
-        	    DescriptionD.setText("You don't have a shield.");
+        	    ItemD.setText(Game.PLAYER.equipped.getShield().getName());
+        	    DescriptionD.setText(Game.PLAYER.equipped.getShield().getDescription());
         	    SpeedD.setText("-");
         	    DamageD.setText("-");
-        	    DefenseD.setText("0");
+        	    ArmorDefenseD.setText(Integer.toString(Game.PLAYER.equipped.getShield().getArmorDefense()));
         	    ElementD.setText("-");
         	    PowerD.setText("-");
         		}
@@ -634,8 +638,8 @@ public class StatEqItPanel extends JTabbedPane
             		SpeedD.setVisible(false);
             		Damage.setVisible(false);
             	    DamageD.setVisible(false);
-            	    Defense.setVisible(true);
-            		DefenseD.setVisible(true);
+            	    ArmorDefense.setVisible(true);
+            		ArmorDefenseD.setVisible(true);
             		Power.setVisible(true);
         			PowerD.setVisible(true);
         		Helmet.setBackground(Color.yellow);
@@ -643,7 +647,7 @@ public class StatEqItPanel extends JTabbedPane
         	    DescriptionD.setText("You don't have a helmet.");
         	    SpeedD.setText("-");
         	    DamageD.setText("-");
-        	    DefenseD.setText("0");
+        	    ArmorDefenseD.setText("0");
         	    ElementD.setText("-");
         	    PowerD.setText("-");
         		}
@@ -656,8 +660,8 @@ public class StatEqItPanel extends JTabbedPane
             		SpeedD.setVisible(false);
             		Damage.setVisible(false);
             	    DamageD.setVisible(false);
-            	    Defense.setVisible(true);
-            		DefenseD.setVisible(true);
+            	    ArmorDefense.setVisible(true);
+            		ArmorDefenseD.setVisible(true);
             		Power.setVisible(true);
         			PowerD.setVisible(true);
         		Chest.setBackground(Color.yellow);
@@ -665,7 +669,7 @@ public class StatEqItPanel extends JTabbedPane
         	    DescriptionD.setText("You don't have a curiass.");
         	    SpeedD.setText("-");
         	    DamageD.setText("-");
-        	    DefenseD.setText("0");
+        	    ArmorDefenseD.setText("0");
         	    ElementD.setText("-");
         	    PowerD.setText("-");
         		}
@@ -678,8 +682,8 @@ public class StatEqItPanel extends JTabbedPane
             		SpeedD.setVisible(false);
             		Damage.setVisible(false);
             	    DamageD.setVisible(false);
-            	    Defense.setVisible(true);
-            		DefenseD.setVisible(true);
+            	    ArmorDefense.setVisible(true);
+                    ArmorDefenseD.setVisible(true);
             		Power.setVisible(true);
         			PowerD.setVisible(true);
         		Legs.setBackground(Color.yellow);
@@ -687,7 +691,7 @@ public class StatEqItPanel extends JTabbedPane
         	    DescriptionD.setText("You are lacking greaves.");
         	    SpeedD.setText("-");
         	    DamageD.setText("-");
-        	    DefenseD.setText("0");
+        	    ArmorDefenseD.setText("0");
         	    ElementD.setText("-");
         	    PowerD.setText("-");
         		}
@@ -700,8 +704,8 @@ public class StatEqItPanel extends JTabbedPane
             		SpeedD.setVisible(false);
             		Damage.setVisible(false);
             	    DamageD.setVisible(false);
-            	    Defense.setVisible(false);
-            		DefenseD.setVisible(false);
+            	    ArmorDefense.setVisible(false);
+            		ArmorDefenseD.setVisible(false);
             		Power.setVisible(true);
         			PowerD.setVisible(true);
         		Amulet.setBackground(Color.yellow);
@@ -709,7 +713,7 @@ public class StatEqItPanel extends JTabbedPane
         	    DescriptionD.setText("You don't have an amulet.");
         	    SpeedD.setText("-");
         	    DamageD.setText("-");
-        	    DefenseD.setText("-");
+        	    ArmorDefenseD.setText("-");
         	    ElementD.setText("-");
         	    PowerD.setText("-");
         		}
@@ -722,16 +726,17 @@ public class StatEqItPanel extends JTabbedPane
             		SpeedD.setVisible(false);
             		Damage.setVisible(false);
             	    DamageD.setVisible(false);
-            	    Defense.setVisible(false);
-            		DefenseD.setVisible(false);
+            	    ArmorDefense.setVisible(false);
+            		ArmorDefenseD.setVisible(false);
             		Power.setVisible(true);
         			PowerD.setVisible(true);
+        			
         		Belt.setBackground(Color.yellow);
         	    ItemD.setText("None");
         	    DescriptionD.setText("How are you going to keep your pants up now?");
         	    SpeedD.setText("-");
         	    DamageD.setText("-");
-        	    DefenseD.setText("-");
+        	    ArmorDefenseD.setText("-");
         	    ElementD.setText("-");
         	    PowerD.setText("-");
         		}
@@ -744,8 +749,8 @@ public class StatEqItPanel extends JTabbedPane
             		SpeedD.setVisible(false);
             		Damage.setVisible(false);
             	    DamageD.setVisible(false);
-            	    Defense.setVisible(true);
-            		DefenseD.setVisible(true);
+            	    ArmorDefense.setVisible(true);
+            		ArmorDefenseD.setVisible(true);
             		Power.setVisible(true);
         			PowerD.setVisible(true);
         		Hands.setBackground(Color.yellow);
@@ -753,7 +758,7 @@ public class StatEqItPanel extends JTabbedPane
         	    DescriptionD.setText("Caught bare handed.");
         	    SpeedD.setText("-");
         	    DamageD.setText("-");
-        	    DefenseD.setText("0");
+        	    ArmorDefenseD.setText("0");
         	    ElementD.setText("-");
         	    PowerD.setText("-");
         		}
@@ -766,8 +771,8 @@ public class StatEqItPanel extends JTabbedPane
             		SpeedD.setVisible(false);
             		Damage.setVisible(false);
             	    DamageD.setVisible(false);
-            	    Defense.setVisible(false);
-            		DefenseD.setVisible(false);
+            	    ArmorDefense.setVisible(false);
+            		ArmorDefenseD.setVisible(false);
             		Power.setVisible(true);
         			PowerD.setVisible(true);
         	    Ring1.setBackground(Color.yellow);
@@ -775,7 +780,7 @@ public class StatEqItPanel extends JTabbedPane
         	    DescriptionD.setText("Still single.");
         	    SpeedD.setText("-");
         	    DamageD.setText("-");
-        	    DefenseD.setText("-");
+        	    ArmorDefenseD.setText("-");
         	    ElementD.setText("-");
         	    PowerD.setText("-");
         		}
@@ -788,8 +793,8 @@ public class StatEqItPanel extends JTabbedPane
             		SpeedD.setVisible(false);
             		Damage.setVisible(false);
             	    DamageD.setVisible(false);
-            	    Defense.setVisible(false);
-            		DefenseD.setVisible(false);
+            	    ArmorDefense.setVisible(false);
+            		ArmorDefenseD.setVisible(false);
             		Power.setVisible(true);
         			PowerD.setVisible(true);
         	    Ring2.setBackground(Color.yellow);
@@ -797,7 +802,7 @@ public class StatEqItPanel extends JTabbedPane
         	    DescriptionD.setText("Ringless.");
         	    SpeedD.setText("-");
         	    DamageD.setText("-");
-        	    DefenseD.setText("-");
+        	    ArmorDefenseD.setText("-");
         	    ElementD.setText("-");
         	    PowerD.setText("-");
         		}
@@ -810,8 +815,8 @@ public class StatEqItPanel extends JTabbedPane
             		SpeedD.setVisible(false);
             		Damage.setVisible(false);
             	    DamageD.setVisible(false);
-            	    Defense.setVisible(true);
-            		DefenseD.setVisible(true);
+            	    ArmorDefense.setVisible(true);
+            		ArmorDefenseD.setVisible(true);
             		Power.setVisible(true);
         			PowerD.setVisible(true);
         	    Feet.setBackground(Color.yellow);
@@ -819,7 +824,7 @@ public class StatEqItPanel extends JTabbedPane
         	    DescriptionD.setText("You are barefoot.");
         	    SpeedD.setText("-");
         	    DamageD.setText("-");
-        	    DefenseD.setText("0");
+        	    ArmorDefenseD.setText("0");
         	    ElementD.setText("-");
         	    PowerD.setText("-");
         		}
@@ -870,7 +875,14 @@ public class StatEqItPanel extends JTabbedPane
             		skillPoints --;
             		defensePoints ++;
             		}
-        		
+        		}
+            	if(e.getSource() == DexterityPlus)
+            	{
+            	if(skillPoints > 0)
+                {
+                skillPoints --;
+                defensePoints ++;
+                }
         	    }
         		if(skillPoints == 0)
         		{
@@ -881,6 +893,7 @@ public class StatEqItPanel extends JTabbedPane
         		DefensePlus.setEnabled(false);
         		SkillPointsD.setEnabled(false);
         		SkillPoints.setEnabled(false);
+        		DexterityPlus.setEnabled(false);
         		
         		StrengthPlus.setBackground(Color.gray);
         		StaminaPlus.setBackground(Color.gray);
@@ -889,13 +902,14 @@ public class StatEqItPanel extends JTabbedPane
         		DefensePlus.setBackground(Color.gray);
         		SkillPointsD.setBackground(Color.gray);
         		SkillPoints.setBackground(Color.gray);
+        		DexterityPlus.setBackground(Color.gray);
         		}
         		   
         		  // StrengthD.setText(String.valueOf(strengthPoints));
         	       StaminaD.setText(String.valueOf(staminaPoints));
         	       IntelligenceD.setText(String.valueOf(intelligencePoints));
         	       MindD.setText(String.valueOf(mindPoints));
-        	       DefenseDStat.setText(String.valueOf(defensePoints));
+        	       DefenseD.setText(String.valueOf(defensePoints));
         	       SkillPointsD.setText(String.valueOf(skillPoints));
            //////////////BACKPACK\\\\\\\\\\\\
 

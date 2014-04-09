@@ -27,12 +27,10 @@ public class StartGamePanel extends JFrame implements MouseListener {
 	BufferedImage LOADGAMEIMAGE2 = ImageIO.read(new File("src/LoadGameButton2.jpg"));
 	BufferedImage EXITIMAGE2 = ImageIO.read(new File("src/ExitButton2.jpg"));
 	
-	Map m;
-	Player p;
+	Game GAME;
 	
-	public StartGamePanel(Map LEVEL, Player PLAYER) throws IOException {
-    	m=LEVEL; p=PLAYER;
-    	
+	public StartGamePanel(Game g) throws IOException {
+		GAME = g;
 		frame = new JFrame("Menu");
     	frame.setVisible(true);
     	frame.setTitle("Tower of Time");
@@ -78,8 +76,7 @@ public class StartGamePanel extends JFrame implements MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		if (e.getSource() == newGameButton) {
     	    frame.dispose();
-    	    Intro tab = new Intro();
-    	    GameFrame THEGAMEWINDOW = new GameFrame(m, p);
+    	    Intro tab = new Intro(GAME);
     	}
     	else if(e.getSource() == loadGameButton) {
     		//frame.disable();

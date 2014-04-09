@@ -1,105 +1,94 @@
 
 public class ArmorWeaponEquip {
-	private Armor helmet;
-	private Armor chest;
-	private Armor legs;
-	private Armor hands;
-	private Armor feet;
-	private Armor shield;
-	private Weapon weapon;
-	private Accessory amulet;
-	private Accessory ring1;
-	private Accessory ring2;
-	private Accessory belt;
+	private Armor helmet; //Slot 0
+	private Armor chest; //Slot 1
+	private Armor legs; //Slot 2
+	private Armor hands; //Slot 3
+	private Armor feet; //Slot 4
+	private Armor shield; //Slot 5
+	private Weapon weapon; //Slot 6
+	private Accessory amulet; //Slot 7
+	private Accessory ring1; //Slot 8
+	private Accessory ring2; //Slot 9
+	private Accessory belt; //Slot 10
+	
+	private Armor noHelmet = new Armor("", "You have nothing equipped", 0, 0);
+	private Armor noChest = new Armor("", "You have nothing equipped", 1, 0);
+	private Armor noLegs = new Armor("", "You have nothing equipped", 2, 0);
+	private Armor noHands = new Armor("", "You have nothing equipped", 3, 0);
+	private Armor noFeet = new Armor("", "You have nothing equipped", 4, 0);
+	private Armor noShield = new Armor("", "You have nothing equipped", 5, 0);
+	private Weapon noWeapon = new Weapon("", "You have nothing equipped", 6, 0, 0);
+	private Accessory noAmulet = new Accessory("", "You have nothing equipped", 7, "No effect",  0);
+	private Accessory noRing1 = new Accessory("", "You have nothing equipped", 8, "No effect", 0);
+	private Accessory noRing2 = new Accessory("", "You have nothing equipped", 9, "No effect", 0);
+	private Accessory noBelt = new Accessory("", "You have nothing equipped", 10, "No effect", 0);
 	
 	ArmorWeaponEquip() {
-		
+		helmet = noHelmet;
+		chest = noChest;
+		legs = noLegs;
+		hands = noHands;
+		feet = noFeet;
+		shield = noShield;
+		weapon = noWeapon;
+		amulet = noAmulet;
+		ring1 = noRing1;
+		ring2 = noRing2;
+		belt = noBelt;
 	}
-	
-	public void setWeapon(Weapon weapon){this.weapon = weapon;}
-	public String getWeaponName(){return weapon.name;}
-	public String getWeaponId(){return weapon.id;}
-	public String getWeaponDescription(){return weapon.description;}
-	public int getWeaponDamage(){return weapon.damage;}
-	public int getWeaponHands(){return weapon.hands;}
-	public int getWeaponSpeed(){return weapon.speed;}
-	public void unequipWeapon() {this.weapon = null;}
+	//Weapon
+	public void setWeapon(Weapon weapon) {this.weapon = weapon;}
+	public Weapon getWeapon() {return weapon;}
+	public void unequipWeapon() {this.weapon = noWeapon;}
 
-	public void setHelmet(Armor helmet){this.helmet = helmet;}
-	public String getHelmetName(){return helmet.name;}
-	public String getHelmetId(){return helmet.id;}
-	public String getHelmetDescription(){return helmet.description;}
-	public int getHelmetDefense(){return helmet.defense;}
-	public void unequipHelmet() {this.helmet = null;}
-
+	//Helmet
+	public void setHelmet(Armor helmet) {this.helmet = helmet;}
+	public Armor getHelmet() {return helmet;}
+	public void unequipHelmet() {this.helmet = noHelmet;}
 	
+	//Chest
 	public void setChest(Armor chest){this.chest = chest;}
-	public String getChestName(){return chest.name;}
-	public String getChestId(){return chest.id;}
-	public String getChestDescription(){return chest.description;}
-	public int getChestDefense(){return chest.defense;}
-	public void unequipChest() {this.chest = null;}
+	public Armor getChest() {return chest;}
+	public void unequipChest() {this.chest = noChest;}
 
-	
+	//Legs
 	public void setLegs(Armor legs){this.legs = legs;}
-	public String getLegsName(){return legs.name;}
-	public String getLegsId(){return legs.id;}
-	public String getLegsDescription(){return legs.description;}
-	public int getLegsDefense(){return legs.defense;}
-	public void unequipLegs() {this.legs = null;}
+	public Armor getLegs() {return legs;}
+	public void unequipLegs() {this.legs = noLegs;}
 
-	
+	//Hands
 	public void setHands(Armor hands){this.hands = hands;}
-	public String getHandsName(){return hands.name;}
-	public String getHandsId(){return hands.id;}
-	public String getHandsDescription(){return hands.description;}
-	public int getHandsDefense(){return hands.defense;}
-	public void unequipHands() {this.hands = null;}
+	public Armor getHands() {return hands;}
+	public void unequipHands() {this.hands = noHands;}
 
-	
+	//Feet
 	public void setFeet(Armor feet){this.feet = feet;}
-	public String getFeetName(){return feet.name;}
-	public String getFeetId(){return feet.id;}
-	public String getFeetDescription(){return feet.description;}
-	public int getFeetDefense(){return feet.defense;}
-	public void unequipFeet() {this.feet = null;}
+	public Armor getFeet() {return feet;}
+	public void unequipFeet() {this.feet = noFeet;}
 	
+	//Shield
 	public void setShield(Armor shield){this.shield = shield;}
-	public String getShieldName(){return shield.name;}
-	public String getShieldId(){return shield.id;}
-	public String getShieldDescription(){return shield.description;}
-	public int getShieldDefense(){return shield.defense;}
-	public void unequipShield() {this.shield = null;}
+	public Armor getShield() {return shield;}
+	public void unequipShield() {this.shield = noShield;}
 	
+	//Amulet
 	public void setAmulet(Accessory amulet){this.amulet = amulet;}
-	public String getAmuletName(){return amulet.name;}
-	public String getAmuletId(){return amulet.id;}
-	public String getAmuletDescription(){return amulet.description;}
-	public String getAmuletEffect(){return amulet.effect;}
-	public int getAmuletEffectStrength(){return amulet.effectStrength;}
-	public void unequipAmulet() {this.amulet = null;}
+	public Accessory getAmulet() {return amulet;}
+	public void unequipAmulet() {this.amulet = noAmulet;}
 
+	//Ring1
 	public void setRing1(Accessory ring1){this.ring1 = ring1;}
-	public String getRing1Name(){return ring1.name;}
-	public String getRing1Id(){return ring1.id;}
-	public String getRing1Description(){return ring1.description;}
-	public String getRing1Effect(){return ring1.effect;}
-	public int getRing1EffectStrength(){return ring1.effectStrength;}
-	public void unequipRing1() {this.ring1 = null;}
+	public Accessory getRing1() {return ring1;}
+	public void unequipRing1() {this.ring1 = noRing1;}
 	
+	//Ring2
 	public void setRing2(Accessory ring2){this.ring2 = ring2;}
-	public String getRing2Name(){return ring2.name;}
-	public String getRing2Id(){return ring2.id;}
-	public String getRing2Description(){return ring2.description;}
-	public String getRing2Effect(){return ring2.effect;}
-	public int getRing2EffectStrength(){return ring2.effectStrength;}
-	public void unequipRing2() {this.ring2 = null;}
+	public Accessory getRing2() {return ring2;}
+	public void unequipRing2() {this.ring2 = noRing2;}
 
+	//Belt
 	public void setBelt(Accessory belt){this.belt = belt;}
-	public String getBeltName(){return belt.name;}
-	public String getBeltId(){return belt.id;}
-	public String getBeltDescription(){return belt.description;}
-	public String getBeltEffect(){return belt.effect;}
-	public int getBeltEffectStrength(){return belt.effectStrength;}	
-	public void unequipBelt() {this.belt = null;}
+	public Accessory getBelt() {return belt;}
+	public void unequipBelt() {this.belt = noBelt;}
 }

@@ -159,13 +159,7 @@ public class Character {
 		}
 	}
 	
-	public void startingInventory() {
-		this.backpack.getItems().add(new UsableItem("Potion","ff" ,'a', "Heals 10 HP"));
-		this.backpack.getItems().add(new UsableItem("Potion", "ff",'a', "Heals 10 HP"));
-		this.backpack.getItems().add(new UsableItem("Potion", "ff",'a', "Heals 10 HP"));
-		this.backpack.getItems().add(new UsableItem("Ether", "aa",'b', "Restores 5 MP"));
-		this.backpack.getItems().add(new UsableItem("Ether", "aa",'b', "Restores 5 MP"));
-	}
+
 	public void startingSpells() {
 	}
 	public void showStatus() {

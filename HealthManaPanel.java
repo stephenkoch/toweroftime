@@ -101,5 +101,16 @@ public HealthManaPanel()
     add(You);
     
     setVisible(true);
+    updatePanel();
+}
+public void updatePanel() {
+	Name.setText(Game.PLAYER.getName());
+	LevelD.setText(Integer.toString(Game.PLAYER.getLevel()));
+	Class.setText(Game.PLAYER.getJob());
+	HealthBar.setMaximum(Game.PLAYER.getMaxHp());
+	ManaBar.setMaximum(Game.PLAYER.getMaxMp());
+	HealthBar.setValue(Game.PLAYER.getHp());
+	ManaBar.setValue(Game.PLAYER.getMp());
+	
 }
 }

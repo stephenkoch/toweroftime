@@ -33,7 +33,7 @@ public class Encounter {
 			System.out.println("You have encountered a(n) " + opponent.getRace() + "!");
 		else
 			System.out.println("You have encountered "+opponent.getName()+" the "+opponent.getRace()+"!");
-		Combat.combatOneOpponent(player, opponent);
+		Combat.combatOneOpponent(opponent);
 	}
 	private void toTreasure(Character player) {
 		System.out.println("Not yet implemented");

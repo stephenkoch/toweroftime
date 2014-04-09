@@ -94,72 +94,7 @@ public class Game {
                writer.close();
    }
        
-        public static void overworldOptions(Player PLAYER, Dungeon[] dungeon) {
-              PLAYER.shouldLevelUp();
-              Scanner console = new Scanner(System. in);
-               System.out.println( "Current Location: "+PLAYER.getLocationX()+","+PLAYER.getLocationY());
-               System.out.println( "1: Status 2: Inventory 3: SpellBook 4: Find Trouble 5: Save Game");
-               int action = console.nextInt();
-               switch(action) {
-                      case 1: {
-                           PLAYER.showStatus();
-                            break;
-                     }
-                      case 2: {
-                           PLAYER.itemOptions();
-                            break;
-                     }
-                      case 3: {
-                           PLAYER.SpellOptions();
-                            break;
-                     }
-                      case 4: {
-                           Encounter encounter = new Encounter();
-                           encounter.encounterIntro(PLAYER);
-                            break;
-                     }
-                      case 5: {
-                            saveCharacter(PLAYER);
-                            break;
-                     }
-                      
-                      default: {
-                            System.out.println( "Incorrect Input");
-                            break;
-                     }
-              }
-               overworldOptions(PLAYER, dungeon);
-       }
-	
-	public static void mainMenu() {
-		Scanner console = new Scanner(System.in);
-		System.out.println("Welcome to the game!");
-		
-		System.out.println("1: New Game 2: Load Game 3: Exit");
-		int action = console.nextInt();
-		switch(action) {
-		case 1: {
-			PLAYER = createCharacter();
-			//dungeon = new Dungeon(player)[100];
-			overworldOptions(PLAYER, dungeon);
-			break;
-		}
-		case 2: {
-			PLAYER = loadCharacter();
-			//Something something something about loading dungeon data...
-			overworldOptions(PLAYER, dungeon);
-			break;
-		}
-		case 3: {
-			System.exit(0);
-		}
-		default: {
-			System.out.println("Incorrect Input");
-			break;
-		}
-	}
-		mainMenu();
-	}
+       
 	
 	public static void main(String args[]) throws IOException {	
 		try{UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName() );

@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 
@@ -10,8 +11,8 @@ public class MapPanel extends JPanel{
 	
 	MapPanel(Map m) {
 
-		setBounds(0, 560, 720, 400);
-		
+		setBounds(0, 560, 510, 400);
+		setBackground(Color.green);
 		JPanel left = new JPanel();
 		JPanel right = new JPanel();
 		GridLayout a = new GridLayout(7,7,0,0);

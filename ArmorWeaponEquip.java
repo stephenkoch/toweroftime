@@ -12,17 +12,17 @@ public class ArmorWeaponEquip {
 	private Accessory ring2; //Slot 9
 	private Accessory belt; //Slot 10
 	
-	private Armor noHelmet = new Armor("", "You have nothing equipped", 0, 0);
-	private Armor noChest = new Armor("", "You have nothing equipped", 1, 0);
-	private Armor noLegs = new Armor("", "You have nothing equipped", 2, 0);
-	private Armor noHands = new Armor("", "You have nothing equipped", 3, 0);
-	private Armor noFeet = new Armor("", "You have nothing equipped", 4, 0);
-	private Armor noShield = new Armor("", "You have nothing equipped", 5, 0);
-	private Weapon noWeapon = new Weapon("", "You have nothing equipped", 6, 0, 0);
-	private Accessory noAmulet = new Accessory("", "You have nothing equipped", 7, "No effect",  0);
-	private Accessory noRing1 = new Accessory("", "You have nothing equipped", 8, "No effect", 0);
-	private Accessory noRing2 = new Accessory("", "You have nothing equipped", 9, "No effect", 0);
-	private Accessory noBelt = new Accessory("", "You have nothing equipped", 10, "No effect", 0);
+	private Armor noHelmet = new Armor("No Helmet Equipped", "You are headless!", 0, 0);
+	private Armor noChest = new Armor("No Cuirass Equipped", "You have nothing equipped", 1, 0);
+	private Armor noLegs = new Armor("No Greaves Equipped", "Try running...", 2, 0);
+	private Armor noHands = new Armor("No Gloves Equipped", "You are bare handed", 3, 0);
+	private Armor noFeet = new Armor("No Boots Equipped", "You have nothing equipped", 4, 0);
+	private Armor noShield = new Armor("No Shield Equipped", "You have nothing equipped", 5, 0);
+	private Weapon noWeapon = new Weapon("No Weapon Equipped", "Fight with your fists!", 6, 0, 0);
+	private Accessory noAmulet = new Accessory("No Amulet Equipped", "No Bling!", 7, "No effect",  0);
+	private Accessory noRing1 = new Accessory("No Ring Equipped", "Single and loving it?", 8, "No effect", 0);
+	private Accessory noRing2 = new Accessory("No Ring Equipped", "You have nothing equipped", 9, "No effect", 0);
+	private Accessory noBelt = new Accessory("No Belt Equipped", "You have nothing equipped", 10, "No effect", 0);
 	
 	ArmorWeaponEquip() {
 		helmet = noHelmet;

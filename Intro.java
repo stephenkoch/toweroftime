@@ -2,6 +2,7 @@ import javax.swing.*;
 
 import java.awt.Color;
 import java.awt.event.*;
+import java.io.IOException;
 
 
 public class Intro extends JFrame implements ActionListener
@@ -175,7 +176,12 @@ public class Intro extends JFrame implements ActionListener
 	      }
 	      if(NextText == 6)
 	      {
-	    	  GameFrame THEGAMEWINDOW = new GameFrame(GAME);
+	    	  try {
+				GameFrame THEGAMEWINDOW = new GameFrame(GAME);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 	      Next.setSize(80,20);
 	      Text.setText("Ah I see! Well, if you promise not to tell, I will let you out.");
 	      }

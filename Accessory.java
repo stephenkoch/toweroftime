@@ -6,7 +6,7 @@ public class Accessory extends Equipment{
 		
 	}
 	
-	Accessory(String name, String effect, int eS, String desc, int slot) {
+	Accessory(String name, String desc, int slot, String effect, int eS) {
 		super.name = name;
 		this.effect = effect;
 		this.effectStrength = eS;

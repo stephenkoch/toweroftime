@@ -548,7 +548,7 @@ public class StatEqItPanel extends JTabbedPane
         IShield.addActionListener(phandler);
         
         setVisible(true);
-       
+       updatePanel();
     }
     
 
@@ -643,11 +643,11 @@ public class StatEqItPanel extends JTabbedPane
             		Power.setVisible(true);
         			PowerD.setVisible(true);
         		Helmet.setBackground(Color.yellow);
-        	    ItemD.setText("Headless");
-        	    DescriptionD.setText("You don't have a helmet.");
+        	    ItemD.setText(Game.PLAYER.equipped.getHelmet().getName());
+        	    DescriptionD.setText(Game.PLAYER.equipped.getHelmet().getDescription());
         	    SpeedD.setText("-");
         	    DamageD.setText("-");
-        	    ArmorDefenseD.setText("0");
+        	    ArmorDefenseD.setText(Integer.toString(Game.PLAYER.equipped.getHelmet().getArmorDefense()));
         	    ElementD.setText("-");
         	    PowerD.setText("-");
         		}
@@ -665,11 +665,11 @@ public class StatEqItPanel extends JTabbedPane
             		Power.setVisible(true);
         			PowerD.setVisible(true);
         		Chest.setBackground(Color.yellow);
-        	    ItemD.setText("Shirtless");
-        	    DescriptionD.setText("You don't have a curiass.");
+        	    ItemD.setText(Game.PLAYER.equipped.getChest().getName());
+        	    DescriptionD.setText(Game.PLAYER.equipped.getChest().getDescription());
         	    SpeedD.setText("-");
         	    DamageD.setText("-");
-        	    ArmorDefenseD.setText("0");
+        	    ArmorDefenseD.setText(Integer.toString(Game.PLAYER.equipped.getChest().getArmorDefense()));
         	    ElementD.setText("-");
         	    PowerD.setText("-");
         		}
@@ -687,11 +687,11 @@ public class StatEqItPanel extends JTabbedPane
             		Power.setVisible(true);
         			PowerD.setVisible(true);
         		Legs.setBackground(Color.yellow);
-        	    ItemD.setText("None");
-        	    DescriptionD.setText("You are lacking greaves.");
+        	    ItemD.setText(Game.PLAYER.equipped.getLegs().getName());
+        	    DescriptionD.setText(Game.PLAYER.equipped.getLegs().getDescription());
         	    SpeedD.setText("-");
         	    DamageD.setText("-");
-        	    ArmorDefenseD.setText("0");
+        	    ArmorDefenseD.setText(Integer.toString(Game.PLAYER.equipped.getLegs().getArmorDefense()));
         	    ElementD.setText("-");
         	    PowerD.setText("-");
         		}
@@ -709,13 +709,13 @@ public class StatEqItPanel extends JTabbedPane
             		Power.setVisible(true);
         			PowerD.setVisible(true);
         		Amulet.setBackground(Color.yellow);
-        	    ItemD.setText("None");
-        	    DescriptionD.setText("You don't have an amulet.");
+        	    ItemD.setText(Game.PLAYER.equipped.getAmulet().getName());
+        	    DescriptionD.setText(Game.PLAYER.equipped.getAmulet().getDescription());
         	    SpeedD.setText("-");
         	    DamageD.setText("-");
         	    ArmorDefenseD.setText("-");
-        	    ElementD.setText("-");
-        	    PowerD.setText("-");
+        	    ElementD.setText(Game.PLAYER.equipped.getAmulet().getAccessoryEffect());
+        	    PowerD.setText(Integer.toString(Game.PLAYER.equipped.getAmulet().getAccessoryEffectStrength()));
         		}
         		
         		if(e.getSource() == Belt)
@@ -732,13 +732,13 @@ public class StatEqItPanel extends JTabbedPane
         			PowerD.setVisible(true);
         			
         		Belt.setBackground(Color.yellow);
-        	    ItemD.setText("None");
-        	    DescriptionD.setText("How are you going to keep your pants up now?");
+        	    ItemD.setText(Game.PLAYER.equipped.getBelt().getName());
+        	    DescriptionD.setText(Game.PLAYER.equipped.getBelt().getDescription());
         	    SpeedD.setText("-");
         	    DamageD.setText("-");
         	    ArmorDefenseD.setText("-");
-        	    ElementD.setText("-");
-        	    PowerD.setText("-");
+        	    ElementD.setText(Game.PLAYER.equipped.getBelt().getAccessoryEffect());
+        	    PowerD.setText(Integer.toString(Game.PLAYER.equipped.getBelt().getAccessoryEffectStrength()));
         		}
         		
         		if(e.getSource() == Hands)
@@ -753,14 +753,14 @@ public class StatEqItPanel extends JTabbedPane
             		ArmorDefenseD.setVisible(true);
             		Power.setVisible(true);
         			PowerD.setVisible(true);
-        		Hands.setBackground(Color.yellow);
-        	    ItemD.setText("None");
-        	    DescriptionD.setText("Caught bare handed.");
-        	    SpeedD.setText("-");
-        	    DamageD.setText("-");
-        	    ArmorDefenseD.setText("0");
-        	    ElementD.setText("-");
-        	    PowerD.setText("-");
+            		Hands.setBackground(Color.yellow);
+            	    ItemD.setText(Game.PLAYER.equipped.getHands().getName());
+            	    DescriptionD.setText(Game.PLAYER.equipped.getHands().getDescription());
+            	    SpeedD.setText("-");
+            	    DamageD.setText("-");
+            	    ArmorDefenseD.setText(Integer.toString(Game.PLAYER.equipped.getHands().getArmorDefense()));
+            	    ElementD.setText("-");
+            	    PowerD.setText("-");
         		}
         		
         		if(e.getSource() == Ring1)
@@ -776,13 +776,13 @@ public class StatEqItPanel extends JTabbedPane
             		Power.setVisible(true);
         			PowerD.setVisible(true);
         	    Ring1.setBackground(Color.yellow);
-        	    ItemD.setText("None");
-        	    DescriptionD.setText("Still single.");
+        	    ItemD.setText(Game.PLAYER.equipped.getRing1().getName());
+        	    DescriptionD.setText(Game.PLAYER.equipped.getRing1().getDescription());
         	    SpeedD.setText("-");
         	    DamageD.setText("-");
         	    ArmorDefenseD.setText("-");
-        	    ElementD.setText("-");
-        	    PowerD.setText("-");
+        	    ElementD.setText(Game.PLAYER.equipped.getRing1().getAccessoryEffect());
+        	    PowerD.setText(Integer.toString(Game.PLAYER.equipped.getRing1().getAccessoryEffectStrength()));
         		}
         		
         		if(e.getSource() == Ring2)
@@ -798,13 +798,13 @@ public class StatEqItPanel extends JTabbedPane
             		Power.setVisible(true);
         			PowerD.setVisible(true);
         	    Ring2.setBackground(Color.yellow);
-        	    ItemD.setText("None");
-        	    DescriptionD.setText("Ringless.");
+        	    ItemD.setText(Game.PLAYER.equipped.getRing2().getName());
+        	    DescriptionD.setText(Game.PLAYER.equipped.getRing2().getDescription());
         	    SpeedD.setText("-");
         	    DamageD.setText("-");
         	    ArmorDefenseD.setText("-");
-        	    ElementD.setText("-");
-        	    PowerD.setText("-");
+        	    ElementD.setText(Game.PLAYER.equipped.getRing2().getAccessoryEffect());
+        	    PowerD.setText(Integer.toString(Game.PLAYER.equipped.getRing2().getAccessoryEffectStrength()));
         		}
         		
         		if(e.getSource() == Feet)
@@ -820,11 +820,11 @@ public class StatEqItPanel extends JTabbedPane
             		Power.setVisible(true);
         			PowerD.setVisible(true);
         	    Feet.setBackground(Color.yellow);
-        	    ItemD.setText("None");
-        	    DescriptionD.setText("You are barefoot.");
+           	    ItemD.setText(Game.PLAYER.equipped.getFeet().getName());
+        	    DescriptionD.setText(Game.PLAYER.equipped.getFeet().getDescription());
         	    SpeedD.setText("-");
         	    DamageD.setText("-");
-        	    ArmorDefenseD.setText("0");
+        	    ArmorDefenseD.setText(Integer.toString(Game.PLAYER.equipped.getFeet().getArmorDefense()));
         	    ElementD.setText("-");
         	    PowerD.setText("-");
         		}

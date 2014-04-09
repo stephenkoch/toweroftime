@@ -37,7 +37,7 @@ public class Map {
 					if(numTreas<6){
 						totalRooms++;
 						int g=grid[i][j].getExits();
-						out.println(g);
+						//out.println(g);
 						int t=rand.nextInt(100);
 						switch(g){
 						case 4: if(t<10){

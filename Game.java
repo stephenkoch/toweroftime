@@ -5,11 +5,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
+
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
-
-import java.awt.Color;
 
 import java.awt.*;
 
@@ -17,18 +16,25 @@ public class Game {
 	public static boolean inCombat = false;
 	public static Dungeon[] dungeon;
 	public static Player PLAYER;
-	public static StartGamePanel newgame;
+	public static StartGamePanel WINDOW;
+	public Map LEVEL;
+	
+	public Game() throws IOException {
+		LEVEL = new Map();
+		while(LEVEL.getRooms()<15 || LEVEL.getRooms()>30)	
+			LEVEL = new Map();
+		PLAYER = createCharacter();
+		WINDOW = new StartGamePanel(LEVEL, PLAYER);
+	}
 	
 	public static Player createCharacter() {
-
-    
 
         Player intplayer = new Player("Panda");
         intplayer.setRace(intplayer.selectRace());
         return intplayer;
 	}
 	
-public static Player loadCharacter() {
+	public static Player loadCharacter() {
               Scanner console = new Scanner(System. in);
                System.out.println( "What is the name of your character?" );
               String input = console.nextLine();
@@ -162,7 +168,5 @@ public static Player loadCharacter() {
 			e.printStackTrace();
 		}
 		Game GAME = new Game();
-		PLAYER = createCharacter();
-		new StartGamePanel();
 	}
 }

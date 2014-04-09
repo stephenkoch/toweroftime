@@ -7,17 +7,11 @@ import javax.swing.JPanel;
 
 
 public class MapPanel extends JPanel{
-	Map m = new Map();
 	
-	MapPanel() {
+	MapPanel(Map m) {
 
 		setBounds(0, 560, 720, 400);
-		while(m.getRooms()<15 || m.getRooms()>30)
-		{	//every once in a while it makes a really small map, and I can't 
-			//figure out why so I added this. It only gets called maybe once
-			// every 15 runs or so, so it shouldn't effect performance.
-			m = new Map();
-		}
+		
 		JPanel left = new JPanel();
 		JPanel right = new JPanel();
 		GridLayout a = new GridLayout(7,7,0,0);
@@ -29,8 +23,6 @@ public class MapPanel extends JPanel{
 				String imageName = "";
 				DungeonRoom room  = m.get(j, i);
 				if(room!=null){
-					if(room.hasTreasure())
-						imageName+="d";
 					for(int k=0;k<4;k++){
 						if(room.getExits(k))
 							imageName+="t";

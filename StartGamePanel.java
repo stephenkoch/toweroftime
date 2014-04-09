@@ -19,23 +19,26 @@ public class StartGamePanel extends JFrame implements MouseListener {
     JPanel panel;
     JLabel picLabel;
     JButton newGameButton, loadGameButton, exitButton;
-	BufferedImage STARTBACKGROUND = ImageIO.read(new File("/Users/Jose/Documents/workspace/TestMC/src/StartGameBackground.jpg"));
-	BufferedImage NEWGAMEIMAGE = ImageIO.read(new File("/Users/Jose/Documents/workspace/TestMC/src/NewGameButton1.jpg"));
-	BufferedImage LOADGAMEIMAGE = ImageIO.read(new File("/Users/Jose/Documents/workspace/TestMC/src/LoadGameButton1.jpg"));
-	BufferedImage EXITIMAGE = ImageIO.read(new File("/Users/Jose/Documents/workspace/TestMC/src/ExitButton1.jpg"));
-	BufferedImage NEWGAMEIMAGE2 = ImageIO.read(new File("/Users/Jose/Documents/workspace/TestMC/src/NewGameButton2.jpg"));
-	BufferedImage LOADGAMEIMAGE2 = ImageIO.read(new File("/Users/Jose/Documents/workspace/TestMC/src/LoadGameButton2.jpg"));
-	BufferedImage EXITIMAGE2 = ImageIO.read(new File("/Users/Jose/Documents/workspace/TestMC/src/ExitButton2.jpg"));
-	public StartGamePanel() throws IOException {
-    	frame = new JFrame("Menu");
+	BufferedImage STARTBACKGROUND = ImageIO.read(new File("src/StartGameBackground.jpg"));
+	BufferedImage NEWGAMEIMAGE = ImageIO.read(new File("src/NewGameButton1.jpg"));
+	BufferedImage LOADGAMEIMAGE = ImageIO.read(new File("src/LoadGameButton1.jpg"));
+	BufferedImage EXITIMAGE = ImageIO.read(new File("src/ExitButton1.jpg"));
+	BufferedImage NEWGAMEIMAGE2 = ImageIO.read(new File("src/NewGameButton2.jpg"));
+	BufferedImage LOADGAMEIMAGE2 = ImageIO.read(new File("src/LoadGameButton2.jpg"));
+	BufferedImage EXITIMAGE2 = ImageIO.read(new File("src/ExitButton2.jpg"));
+	
+	Map m;
+	Player p;
+	
+	public StartGamePanel(Map LEVEL, Player PLAYER) throws IOException {
+    	m=LEVEL; p=PLAYER;
+    	
+		frame = new JFrame("Menu");
     	frame.setVisible(true);
     	frame.setTitle("Tower of Time");
     	frame.setSize(WIDTH,HEIGHT);
     	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	frame.setResizable(false);
-    	
-
-
     	
 		
     	
@@ -76,7 +79,7 @@ public class StartGamePanel extends JFrame implements MouseListener {
 		if (e.getSource() == newGameButton) {
     	    frame.dispose();
     	    Intro tab = new Intro();
-    	    GameFrame THEGAMEWINDOW = new GameFrame();
+    	    GameFrame THEGAMEWINDOW = new GameFrame(m, p);
     	}
     	else if(e.getSource() == loadGameButton) {
     		//frame.disable();

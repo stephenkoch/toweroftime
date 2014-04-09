@@ -3,7 +3,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.*;
 
-public class StatEqItPanel extends JFrame
+public class StatEqItPanel extends JTabbedPane
 {
     JButton Sword = new JButton("Sword");
     JButton Shield = new JButton("Shield");
@@ -111,7 +111,7 @@ public class StatEqItPanel extends JFrame
     public StatEqItPanel() 
     {
        // Creating tabs
-       jtp = new JTabbedPane();
+    setBounds(0,160,400,400);
        
        Health = new JLabel("HEALTH");
        Mana = new JLabel("MANA");
@@ -165,9 +165,9 @@ public class StatEqItPanel extends JFrame
 
         
        //Tab Creation
-       jtp.addTab("Stats",StatsPanel);
-       jtp.addTab("Equipment", EquipmentPanel);
-       jtp.addTab("Backpack", BackpackPanel);
+       addTab("Stats",StatsPanel);
+       addTab("Equipment", EquipmentPanel);
+       addTab("Backpack", BackpackPanel);
  
        StatsPanel.setLayout(null);      //Custom button placement for first panel
        EquipmentPanel.setLayout(null);  //Reference line above, but for second panel

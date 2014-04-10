@@ -6,10 +6,7 @@
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.File;
 
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -26,7 +23,6 @@ public class HealthManaPanel extends JPanel
     JLabel LevelD = new JLabel("9");
     JLabel Class = new JLabel("Warrior");
     JLabel Name = new JLabel("John Doe");
-    JLabel Pic = new JLabel(new ImageIcon("src/panda2.jpg"));
     
     JProgressBar HealthBar;
     JProgressBar ManaBar;
@@ -59,12 +55,6 @@ public HealthManaPanel()
   
     Name.setLocation(10,0);
     Name.setSize(100,40); 
-    
-    Pic.setLocation(35,35);
-    Pic.setVisible(true);
-    Pic.setSize(100,100);
-	add(Pic);
-
     
     Class.setLocation(275,20);
     Class.setSize(100,40);

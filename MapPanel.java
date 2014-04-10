@@ -1,6 +1,8 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -12,7 +14,7 @@ import static java.lang.System.out;
 
 
 
-public class MapPanel extends JPanel implements MouseListener{
+public class MapPanel extends JPanel implements ActionListener{
 	
 	protected Map m;
 	JPanel left, right;
@@ -33,7 +35,19 @@ public class MapPanel extends JPanel implements MouseListener{
 		JPanel left = makeMapLeft();
 		JPanel right = makeRight();
 		
-		
+		 	north.addActionListener(this);   
+		    east.addActionListener(this);     
+		    south.addActionListener(this); 
+		    west.addActionListener(this);  
+			north.setBounds(100,20,60,80);
+			north.setContentAreaFilled(false); north.setBorderPainted(false);
+			west.setBounds(10,70,90,60);
+			west.setContentAreaFilled(false); west.setBorderPainted(false);
+			east.setBounds(160,70,90,60);
+			east.setContentAreaFilled(false); east.setBorderPainted(false);
+			south.setBounds(100,120,60,80);
+			south.setContentAreaFilled(false); south.setBorderPainted(false);   
+			
 		setLayout(null);
 		left.setBounds(0,0,210,210);
 		right.setBounds(210,0,300,200);
@@ -41,7 +55,7 @@ public class MapPanel extends JPanel implements MouseListener{
 		add(right);
 	    setVisible(true);
 	    
-	
+	   
 	}
 	public JPanel makeRight(){
 		
@@ -49,18 +63,6 @@ public class MapPanel extends JPanel implements MouseListener{
 		r.setLayout(null);
 		
 		//Direction Panel
-		north.addMouseListener(this);
-		west.addMouseListener(this);
-		south.addMouseListener(this);
-		east.addMouseListener(this);
-		north.setBounds(100,20,60,80);
-		north.setContentAreaFilled(false); north.setBorderPainted(false);
-		west.setBounds(10,70,90,60);
-		west.setContentAreaFilled(false); west.setBorderPainted(false);
-		east.setBounds(160,70,90,60);
-		east.setContentAreaFilled(false); east.setBorderPainted(false);
-		south.setBounds(100,120,60,80);
-		south.setContentAreaFilled(false); south.setBorderPainted(false);
 		r.add(north);
 		r.add(east);
 		r.add(south);
@@ -131,41 +133,7 @@ public class MapPanel extends JPanel implements MouseListener{
 				return l;
 	}
 	
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		
-	}
 	
-
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		if(e.getSource()==north){
-			m.movePlayer(0);
-		}else if(e.getSource()==east){
-			m.movePlayer(1);
-		}else if(e.getSource()==south){
-			m.movePlayer(2);
-		}else if(e.getSource()==west){
-			m.movePlayer(3);
-		}
-		updateMap();
-	}
 	public void updateMap(){
 		this.setVisible(false);
 		this.removeAll();
@@ -177,5 +145,17 @@ public class MapPanel extends JPanel implements MouseListener{
 		add(right);
 		this.setVisible(true);
 	}
+	
+	public void actionPerformed(ActionEvent e) {
+       if(e.getSource()==east)
+    	   m.movePlayer(1);
+       else if (e.getSource()==south)
+    	   m.movePlayer(2);
+       else if (e.getSource()==west)
+    	   m.movePlayer(3);
+       else
+    	   m.movePlayer(0);
+        updateMap();
+    }
 }
 	

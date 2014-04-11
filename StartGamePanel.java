@@ -38,6 +38,9 @@ public class StartGamePanel extends JFrame implements MouseListener {
     	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	frame.setResizable(false);
     	
+    	Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+    	frame.setLocation(dim.width/4-this.getSize().width/4, dim.height/4-this.getSize().height/4);
+    	
 		
     	
     	panel = new JPanel();

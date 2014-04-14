@@ -19,13 +19,13 @@ public class StartGamePanel extends JFrame implements MouseListener {
     JPanel panel;
     JLabel picLabel;
     JButton newGameButton, loadGameButton, exitButton;
-	BufferedImage STARTBACKGROUND = ImageIO.read(new File("StartGameBackground.jpg"));
-	BufferedImage NEWGAMEIMAGE = ImageIO.read(new File("NewGameButton1.jpg"));
-	BufferedImage LOADGAMEIMAGE = ImageIO.read(new File("LoadGameButton1.jpg"));
-	BufferedImage EXITIMAGE = ImageIO.read(new File("ExitButton1.jpg"));
-	BufferedImage NEWGAMEIMAGE2 = ImageIO.read(new File("NewGameButton2.jpg"));
-	BufferedImage LOADGAMEIMAGE2 = ImageIO.read(new File("LoadGameButton2.jpg"));
-	BufferedImage EXITIMAGE2 = ImageIO.read(new File("ExitButton2.jpg"));
+	BufferedImage STARTBACKGROUND = ImageIO.read(new File("src/StartGameBackground.jpg"));
+	BufferedImage NEWGAMEIMAGE = ImageIO.read(new File("src/NewGameButton1.jpg"));
+	BufferedImage LOADGAMEIMAGE = ImageIO.read(new File("src/LoadGameButton1.jpg"));
+	BufferedImage EXITIMAGE = ImageIO.read(new File("src/ExitButton1.jpg"));
+	BufferedImage NEWGAMEIMAGE2 = ImageIO.read(new File("src/NewGameButton2.jpg"));
+	BufferedImage LOADGAMEIMAGE2 = ImageIO.read(new File("src/LoadGameButton2.jpg"));
+	BufferedImage EXITIMAGE2 = ImageIO.read(new File("src/ExitButton2.jpg"));
 	
 	Game GAME;
 	

@@ -26,7 +26,11 @@ public class HealthManaPanel extends JPanel
     JLabel LevelD = new JLabel("9");
     JLabel Class = new JLabel("Warrior");
     JLabel Name = new JLabel("John Doe");
+<<<<<<< HEAD
   // JLabel Pic = new JLabel(new ImageIcon("panda2.jpg"));
+=======
+    JLabel Pic = new JLabel(new ImageIcon("src/panda2.jpg"));
+>>>>>>> FETCH_HEAD
     
     JProgressBar HealthBar;
     JProgressBar ManaBar;
@@ -65,6 +69,12 @@ public HealthManaPanel()
   //  Pic.setVisible(true);
   //  Pic.setSize(100,100);
 //	add(Pic);
+
+    
+    Pic.setLocation(35,35);
+    Pic.setVisible(true);
+    Pic.setSize(100,100);
+	add(Pic);
 
     
     Class.setLocation(275,20);

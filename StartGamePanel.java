@@ -41,7 +41,11 @@ public class StartGamePanel extends JFrame implements MouseListener {
     	Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
     	frame.setLocation(dim.width/4-this.getSize().width/4, dim.height/4-this.getSize().height/4);
     	
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> FETCH_HEAD
     	
     	panel = new JPanel();
     	this.setLayout(null);

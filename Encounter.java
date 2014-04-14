@@ -3,27 +3,27 @@ import java.util.Random;
 
 public class Encounter {
 	private int encountID;
+	Game GAME;
 	
-	public Encounter() {
+	public Encounter(Game g) {
 		Random encountGen = new Random();
 		encountID = (encountGen.nextInt()%3+1);
+		this.GAME = g;
 	}
 	
 	public void encounterIntro(Player player) {
-		switch(encountID) {
-			case 1: { //Combat encounter
-				toCombat(player);
-				break;
-			}
-			case 2: { //Treasure encounter
-				toTreasure(player);
-				break;
-			}
-			default: { //Empty Room
-				System.out.println("The room is empty");
-				break;
-			}
+		if (encountID%2 == 1) {
+			//COMBAT
+			GAME.inCombat = true;
+			toCombat(player);
+			
 		}
+		if (GAME.LEVEL.grid[GAME.LEVEL.playerLocation.x][GAME.LEVEL.playerLocation.y].getTreasure()) {
+			//TREASURE
+			GAME.LEVEL.grid[GAME.LEVEL.playerLocation.x][GAME.LEVEL.playerLocation.y].setTreasure(false);
+		}
+		//EMPTY ROOM
+		GAME.
 		
 	}
 	

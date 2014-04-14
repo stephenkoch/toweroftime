@@ -13,7 +13,7 @@ public class GameFrame extends JFrame implements ActionListener{
 	MapPanel PANELD;
 	HealthManaPanel PANELB; 
 	GraphicPanel PANELC;
-	ActionPanel PANELE;
+	public ActionPanel PANELE;
 	
 	public GameFrame(Game g) throws IOException {
 		JFrame fullGameFrame = new JFrame("Tower of Time");
@@ -29,11 +29,11 @@ public class GameFrame extends JFrame implements ActionListener{
 		fullGameFrame.add(PANELA);
 		PANELB = new HealthManaPanel();
 		fullGameFrame.add(PANELB);
-		PANELC = new GraphicPanel();
+		PANELC = new GraphicPanel(g.LEVEL);
 		fullGameFrame.add(PANELC);
 		PANELD = new MapPanel(g.LEVEL);
 		fullGameFrame.add(PANELD);
-		PANELE = new ActionPanel();
+		PANELE = new ActionPanel(g);
 		fullGameFrame.add(PANELE);		
 	}
 

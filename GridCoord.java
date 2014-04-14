@@ -6,6 +6,7 @@ public class GridCoord {
 		this.x = x;
 		this.y = y;
 	}
-	public GridCoord(){
+	public String toString(){
+		return "("+x+","+y+")";
 	}
 }

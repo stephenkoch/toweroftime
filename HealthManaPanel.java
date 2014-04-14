@@ -6,7 +6,10 @@
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -23,17 +26,19 @@ public class HealthManaPanel extends JPanel
     JLabel LevelD = new JLabel("9");
     JLabel Class = new JLabel("Warrior");
     JLabel Name = new JLabel("John Doe");
+  // JLabel Pic = new JLabel(new ImageIcon("panda2.jpg"));
     
     JProgressBar HealthBar;
     JProgressBar ManaBar;
-    JButton You = new JButton(new ImageIcon(((new ImageIcon("Man.png")).getImage()).getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));  
-
+    JButton You = new JButton(new ImageIcon(((new ImageIcon("src/Man.png")).getImage()).getScaledInstance(125,125, java.awt.Image.SCALE_SMOOTH)));  
+    
 public HealthManaPanel()
 
 {
+	setBackground(Color.gray);
 	setBounds(0, 0, 400, 160);
     setLayout(null);
-    You.setBounds(10,30,90,90);
+    You.setBounds(10,30,125,125);
 	You.setContentAreaFilled(false); You.setBorderPainted(false);
     HealthBar = new JProgressBar(0,100);
     ManaBar = new JProgressBar(0,100);
@@ -54,7 +59,13 @@ public HealthManaPanel()
     
   
     Name.setLocation(10,0);
-    Name.setSize(100,40); 
+    Name.setSize(300,40); 
+    
+   // Pic.setLocation(35,35);
+  //  Pic.setVisible(true);
+  //  Pic.setSize(100,100);
+//	add(Pic);
+
     
     Class.setLocation(275,20);
     Class.setSize(100,40);
@@ -111,6 +122,5 @@ public void updatePanel() {
 	ManaBar.setMaximum(Game.PLAYER.getMaxMp());
 	HealthBar.setValue(Game.PLAYER.getHp());
 	ManaBar.setValue(Game.PLAYER.getMp());
-	
 }
 }

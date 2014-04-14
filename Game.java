@@ -10,22 +10,26 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
-import java.awt.*;
 
 public class Game {
-	public static boolean inCombat = false;
+	public boolean inCombat;
 	public static Dungeon[] dungeon;
 	public static Player PLAYER;
 	public static StartGamePanel WINDOW;
+	public static GameFrame THEGAMEFRAME;
 	public Map LEVEL;
 	
 	public Game() throws IOException {
+		inCombat = false;
 		LEVEL = new Map();
-		while(LEVEL.getRooms()<15 || LEVEL.getRooms()>30)	
+		while(LEVEL.getRooms()<15 || LEVEL.getRooms()>30 ||LEVEL.noBoss())	
 			LEVEL = new Map();
 		PLAYER = createCharacter();
 		WINDOW = new StartGamePanel(this);
+		//THEGAMEFRAME = new GameFrame(this);
 	}
+	
+	
 	
 	public static Player createCharacter() {
 

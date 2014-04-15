@@ -197,19 +197,24 @@ public class Map {
 				moveTo = prev.getEast();
 				moveTo.setDiscoveredTrue();
 				playerLocation.x+=1;
+				
 			break;
 			case 2: //SOUTH
 				moveTo = prev.getSouth();
 				moveTo.setDiscoveredTrue();
 				playerLocation.y+=1;
+
 			break;
 			case 3: //WEST
 				moveTo = prev.getWest();
 				moveTo.setDiscoveredTrue();
 				playerLocation.x-=1;
+				
+
 			break;
 			}
 		}
+		grid[playerLocation.x][playerLocation.y].engage();
 	}	
 
 	public DungeonRoom get(int x, int y){

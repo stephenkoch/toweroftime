@@ -11,10 +11,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import static java.lang.System.out;
-<<<<<<< HEAD
-
-
-
 
 public class MapPanel extends JPanel implements ActionListener{
 
@@ -30,44 +26,18 @@ public class MapPanel extends JPanel implements ActionListener{
 	JButton west = new JButton(westImage);
 	JButton east = new JButton(eastImage);
 	JButton south = new JButton(southImage);
+	Game GAME;
 
-	public MapPanel(Map m) {
+	public MapPanel(Map m, Game g) {
 		this.m=m;
-=======
-
-
-
->>>>>>> FETCH_HEAD
-
-public class MapPanel extends JPanel implements ActionListener{
-	
-	protected Map m;
-	JPanel left, right;
-	ImageIcon northImage = new ImageIcon("src/north.png");
-	ImageIcon eastImage = new ImageIcon("src/east.png");
-	ImageIcon southImage = new ImageIcon("src/south.png");
-	ImageIcon westImage = new ImageIcon("src/west.png");
-	JButton north = new JButton(northImage);
-	JButton west = new JButton(westImage);
-	JButton east = new JButton(eastImage);
-	JButton south = new JButton(southImage);
-	
-	public MapPanel(Map m) {
-		this.m=m;
-		
+		GAME = g;
 		setBounds(0, 560, 510, 400);
-<<<<<<< HEAD
 		JPanel left = makeMapLeft();
 		JPanel right = makeRight();
 
 		mapPanelBackground = new JLabel(mapPanelBackgroundImage);
 		mapPanelBackground.setLocation(0, 0);
 		mapPanelBackground.setSize(510, 400);
-=======
-		setBackground(Color.green);
-		JPanel left = makeMapLeft();
-		JPanel right = makeRight();
->>>>>>> FETCH_HEAD
 		
 		 	north.addActionListener(this);   
 		    east.addActionListener(this);     
@@ -81,11 +51,7 @@ public class MapPanel extends JPanel implements ActionListener{
 			east.setContentAreaFilled(false); east.setBorderPainted(false);
 			south.setBounds(100,120,60,80);
 			south.setContentAreaFilled(false); south.setBorderPainted(false);   
-<<<<<<< HEAD
 
-=======
-			
->>>>>>> FETCH_HEAD
 		setLayout(null);
 		left.setBounds(0,0,210,210);
 		right.setBounds(210,0,300,200);
@@ -93,7 +59,6 @@ public class MapPanel extends JPanel implements ActionListener{
 		add(left);
 		add(right);
 	    setVisible(true);
-<<<<<<< HEAD
 
 
 	}
@@ -102,16 +67,6 @@ public class MapPanel extends JPanel implements ActionListener{
 		JPanel r = new JPanel();
 		r.setLayout(null);
 
-=======
-	    
-	   
-	}
-	public JPanel makeRight(){
-		
-		JPanel r = new JPanel();
-		r.setLayout(null);
-		
->>>>>>> FETCH_HEAD
 		//Direction Panel
 		r.add(north);
 		r.add(east);
@@ -123,15 +78,9 @@ public class MapPanel extends JPanel implements ActionListener{
 	public JPanel makeMapLeft(){
 		JPanel l = new JPanel();
 		l.setLayout(null);
-<<<<<<< HEAD
 
 		MapSquare[][] pan = new MapSquare[7][7];
 
-=======
-		
-		MapSquare[][] pan = new MapSquare[7][7];
-		
->>>>>>> FETCH_HEAD
 		//actual game with fog of war
 				for(int i=0; i<7; i++){
 					for(int j=0;j<7;j++){
@@ -187,7 +136,6 @@ public class MapPanel extends JPanel implements ActionListener{
 					}
 				}*/
 				return l;
-<<<<<<< HEAD
 	}
 
 
@@ -203,32 +151,23 @@ public class MapPanel extends JPanel implements ActionListener{
 		this.setVisible(true);
 	}
 
-=======
-	}
-	
-	
-	public void updateMap(){
-		this.setVisible(false);
-		this.removeAll();
-		left = makeMapLeft();
-		right = makeRight();
-		left.setBounds(0,0,210,210);
-		right.setBounds(210,0,300,200);
-		add(left);
-		add(right);
-		this.setVisible(true);
-	}
-	
->>>>>>> FETCH_HEAD
 	public void actionPerformed(ActionEvent e) {
-       if(e.getSource()==east)
+       if(e.getSource()==east) {
     	   m.movePlayer(1);
-       else if (e.getSource()==south)
+    	   TowerOfTime.GAME.THEGAMEFRAME.PANELE.actionLog.addElement("You moved east.");
+       }
+       else if (e.getSource()==south) {
     	   m.movePlayer(2);
-       else if (e.getSource()==west)
+    	   TowerOfTime.GAME.THEGAMEFRAME.PANELE.actionLog.addElement("You moved south.");
+       }
+       else if (e.getSource()==west) {
     	   m.movePlayer(3);
-       else
+    	   TowerOfTime.GAME.THEGAMEFRAME.PANELE.actionLog.addElement("You moved west.");
+       }
+       else {
     	   m.movePlayer(0);
-        updateMap();
+    	   TowerOfTime.GAME.THEGAMEFRAME.PANELE.actionLog.addElement("You moved north.");
+       }
+        TowerOfTime.GAME.THEGAMEFRAME.update();
     }
 }

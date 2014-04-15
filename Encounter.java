@@ -4,37 +4,38 @@ import java.util.Random;
 public class Encounter {
 	private int encountID;
 	Game GAME;
+	private Combat combat;
 	
-	public Encounter(Game g) {
+	public Encounter() {
 		Random encountGen = new Random();
 		encountID = (encountGen.nextInt()%3+1);
-		this.GAME = g;
 	}
 	
-	public void encounterIntro(Player player) {
+	public void encounterIntro() {
 		if (encountID%2 == 1) {
 			//COMBAT
 			GAME.inCombat = true;
-			toCombat(player);
+			startCombat();
 			
 		}
-		if (GAME.LEVEL.grid[GAME.LEVEL.playerLocation.x][GAME.LEVEL.playerLocation.y].getTreasure()) {
+		//if (GAME.LEVEL.grid[GAME.LEVEL.playerLocation.x][GAME.LEVEL.playerLocation.y].getTreasure()) {
 			//TREASURE
-			GAME.LEVEL.grid[GAME.LEVEL.playerLocation.x][GAME.LEVEL.playerLocation.y].setTreasure(false);
+		//	GAME.LEVEL.grid[GAME.LEVEL.playerLocation.x][GAME.LEVEL.playerLocation.y].setTreasure(false);
 		}
 		//EMPTY ROOM
-		GAME.
 		
+		
+	
+	
+	private void startCombat() {
+		combat = new Combat(enemyGen());
+		//TODO:DISABLE ALL PANELS EXCEPT FOR ACTION PANEL
+		if (combat.getEnemy().getName() == null)
+			System.out.println("You have encountered a(n) " + combat.getEnemy().getRace() + "!");
+		else
+			System.out.println("You have encountered "+combat.getEnemy().getName()+" the "+combat.getEnemy().getRace()+"!");
 	}
 	
-	private void toCombat(Player player) {
-		Character opponent = enemyGen();
-		if (opponent.getName() == null)
-			System.out.println("You have encountered a(n) " + opponent.getRace() + "!");
-		else
-			System.out.println("You have encountered "+opponent.getName()+" the "+opponent.getRace()+"!");
-		Combat.combatOneOpponent(opponent);
-	}
 	private void toTreasure(Character player) {
 		System.out.println("Not yet implemented");
 	}
@@ -64,4 +65,5 @@ public class Encounter {
 		}
 		return opp;
 	}
+	public Combat getCombat() {return combat;}
 }

@@ -41,11 +41,7 @@ public class StartGamePanel extends JFrame implements MouseListener {
     	Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
     	frame.setLocation(dim.width/4-this.getSize().width/4, dim.height/4-this.getSize().height/4);
     	
-<<<<<<< HEAD
 
-=======
-		
->>>>>>> FETCH_HEAD
     	
     	panel = new JPanel();
     	this.setLayout(null);
@@ -86,7 +82,7 @@ public class StartGamePanel extends JFrame implements MouseListener {
 		if (e.getSource() == newGameButton) {
     	    frame.dispose();
     	    try {
-				Intro tab = new Intro(GAME);
+				Intro introPanel = new Intro(GAME);
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

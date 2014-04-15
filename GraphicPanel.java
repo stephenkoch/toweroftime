@@ -16,50 +16,32 @@ import java.awt.Graphics;
 
 
 public class GraphicPanel extends JPanel {
-<<<<<<< HEAD
 
 	Map m;
-
-=======
-	
-	Map m;
-	
->>>>>>> FETCH_HEAD
-	   public GraphicPanel(Map m) throws IOException {
+	Game GAME;
+	   public GraphicPanel(Map m, Game g) throws IOException {
+		   GAME = g;
 		   this.m=m;
-		   setBounds(400, 0, 800, 600);
+		   setBounds(410, 10, 800, 600);
 		   setLayout(null);
 		   setVisible(true);
 	}
-<<<<<<< HEAD
 
-=======
-	   
->>>>>>> FETCH_HEAD
 	   public void paintComponent(Graphics g)
 		{
 			super.paintComponent(g);
 			ImageIcon room = new ImageIcon("src/brick room.png");
 			room.paintIcon(this, g, 0, 0);
-<<<<<<< HEAD
 
 			int x,y;
 
 			   x = m.playerLocation.x;
 			   y = m.playerLocation.y;
 
-=======
-			
-			int x,y;
-			   
-			   x = m.playerLocation.x;
-			   y = m.playerLocation.y;
-			   
->>>>>>> FETCH_HEAD
 			   DungeonRoom current = m.grid[x][y];
-			   for (int j =0; j <4; j++) 
+			   for (int j = 0; j < 4; j++) 
 			   {
-				   if( current.getExits(j))
+				   if(current.getExits(j))
 				   {
 					   switch(j)
 					   {
@@ -79,8 +61,4 @@ public class GraphicPanel extends JPanel {
 				   }
 			   }
 		}  
-<<<<<<< HEAD
 	}
-=======
-	}
->>>>>>> FETCH_HEAD

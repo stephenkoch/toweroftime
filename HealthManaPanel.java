@@ -26,19 +26,14 @@ public class HealthManaPanel extends JPanel
     JLabel LevelD = new JLabel("9");
     JLabel Class = new JLabel("Warrior");
     JLabel Name = new JLabel("John Doe");
-<<<<<<< HEAD
   // JLabel Pic = new JLabel(new ImageIcon("panda2.jpg"));
-=======
-    JLabel Pic = new JLabel(new ImageIcon("src/panda2.jpg"));
->>>>>>> FETCH_HEAD
     
     JProgressBar HealthBar;
     JProgressBar ManaBar;
     JButton You = new JButton(new ImageIcon(((new ImageIcon("src/Man.png")).getImage()).getScaledInstance(125,125, java.awt.Image.SCALE_SMOOTH)));  
-    
-public HealthManaPanel()
-
-{
+    Game GAME;
+public HealthManaPanel(Game g) {
+	GAME = g;
 	setBackground(Color.gray);
 	setBounds(0, 0, 400, 160);
     setLayout(null);
@@ -69,12 +64,6 @@ public HealthManaPanel()
   //  Pic.setVisible(true);
   //  Pic.setSize(100,100);
 //	add(Pic);
-
-    
-    Pic.setLocation(35,35);
-    Pic.setVisible(true);
-    Pic.setSize(100,100);
-	add(Pic);
 
     
     Class.setLocation(275,20);

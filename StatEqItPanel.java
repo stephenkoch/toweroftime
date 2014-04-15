@@ -121,8 +121,10 @@ public class StatEqItPanel extends JTabbedPane
     JList itemList = new JList(item);
     JScrollPane scroll = new JScrollPane(itemList);
     
-    public StatEqItPanel() 
+    Game GAME;
+    public StatEqItPanel(Game g) 
     {
+    	GAME = g;
     	IUse.setVisible(false);
 
        // Creating tabs

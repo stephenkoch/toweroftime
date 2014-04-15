@@ -21,7 +21,7 @@ public class DungeonRoom {
 		exits[3] = false;
 		minDistFromStart=50;
 		discovered = false;
-		//encounter = new Encounter();
+		encounter = new Encounter();
 		location = a;
 	}
 
@@ -43,6 +43,7 @@ public class DungeonRoom {
 	public int getX() { return location.x; }
 	public int getY() { return location.y; }
 	public boolean getDiscovered() { return discovered; }
+	public Encounter getEncounter() {return encounter; }
 	public boolean getNearby(){
 		boolean r = false;
 		for(int i=0; i<4;i++){
@@ -89,7 +90,7 @@ public class DungeonRoom {
 		}
 	}*/
 	public void engage() {
-		encounter.encounterIntro(Game.PLAYER);
+		encounter.encounterIntro();
 	}
 
 }

@@ -12,30 +12,26 @@ import javax.swing.UIManager;
 
 
 public class Game {
-	public boolean inCombat;
-	public static Dungeon[] dungeon;
+	public static boolean inCombat = false;
 	public static Player PLAYER;
 	public static StartGamePanel WINDOW;
-	public static GameFrame THEGAMEFRAME;
-	public Map LEVEL;
+	public GameFrame THEGAMEFRAME;
+	public static Map LEVEL;
 	
 	public Game() throws IOException {
-		inCombat = false;
-		LEVEL = new Map();
-		while(LEVEL.getRooms()<15 || LEVEL.getRooms()>30 ||LEVEL.noBoss())	
-			LEVEL = new Map();
-		PLAYER = createCharacter();
+		loadMap();
+		createCharacter();
 		WINDOW = new StartGamePanel(this);
-		//THEGAMEFRAME = new GameFrame(this);
 	}
 	
-	
-	
-	public static Player createCharacter() {
-
-        Player intplayer = new Player("Panda");
-        intplayer.setRace(intplayer.selectRace());
-        return intplayer;
+	private static void loadMap() {
+		LEVEL = new Map();
+		while(LEVEL.getRooms()<15 || LEVEL.getRooms()>30 ||LEVEL.noBoss()) {
+			LEVEL = new Map();}
+	}
+	public static void createCharacter() {
+		PLAYER = new Player("");
+        PLAYER.setRace(PLAYER.selectRace());
 	}
 	
 	public static Player loadCharacter() {
@@ -97,14 +93,4 @@ public class Game {
                            PLAYER.getMind()+ "~"+PLAYER.getDefense());
                writer.close();
    }
-       
-       
-	
-	public static void main(String args[]) throws IOException {	
-		try{UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName() );
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		Game GAME = new Game();
-	}
 }

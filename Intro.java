@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> FETCH_HEAD
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.event.*;
@@ -18,11 +14,7 @@ import javax.swing.JTextField;
 
 public class Intro extends JFrame implements ActionListener
 {
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> FETCH_HEAD
     int NextText = 0;
     String personname, sex, race;
     JButton Next = new JButton("->");
@@ -51,21 +43,12 @@ public class Intro extends JFrame implements ActionListener
     
     // Creating Custom Font
     Font ft = new Font("Times New Roman", Font.BOLD,16);
-<<<<<<< HEAD
     
     
     public Intro(Game g) throws IOException
     {
 
 
-=======
-    
-    
-    public Intro(Game g) throws IOException
-    {
-			
-	
->>>>>>> FETCH_HEAD
     	
     	Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
     	this.setLocation(dim.width/5-this.getSize().width/5, dim.height/4-this.getSize().height/4);
@@ -136,28 +119,16 @@ public class Intro extends JFrame implements ActionListener
 		WARRIOR.setVisible(false);
 		Continue.setVisible(false);
 
-<<<<<<< HEAD
 
 		//All buttons are hidden until they are needed
 
 		if((e.getSource() == Next) ||(e.getSource() == Continue) ||(e.getSource() == ELF)||(e.getSource() == ORC)||(e.getSource() == HUMAN)||(e.getSource() == DWARF)||(e.getSource() == GNOME)||(e.getSource() == HALFLING)||(e.getSource() == M)||(e.getSource() == F)||(e.getSource() == MARKSMAN)||(e.getSource() == MAGE)||(e.getSource() == WARRIOR)){
 
-=======
-		
-		//All buttons are hidden until they are needed
-
-		if((e.getSource() == Next) ||(e.getSource() == Continue) ||(e.getSource() == ELF)||(e.getSource() == ORC)||(e.getSource() == HUMAN)||(e.getSource() == DWARF)||(e.getSource() == GNOME)||(e.getSource() == HALFLING)||(e.getSource() == M)||(e.getSource() == F)||(e.getSource() == MARKSMAN)||(e.getSource() == MAGE)||(e.getSource() == WARRIOR)){
-			
->>>>>>> FETCH_HEAD
 			// getting the persons name
 			if(NextText==3){
 				personname = Name.getText();
 				System.out.print(personname);}
-<<<<<<< HEAD
 
-=======
-			
->>>>>>> FETCH_HEAD
 			// getting M or F choice
 			if(NextText==4){
 				if(e.getSource() == M){
@@ -166,17 +137,12 @@ public class Intro extends JFrame implements ActionListener
 				else
 					sex = "FEMALE";
 					System.out.print("FEMALE");}
-<<<<<<< HEAD
 
-=======
-			
->>>>>>> FETCH_HEAD
 			// getting Race choice
 			if(NextText==5){
 				if(e.getSource()==ELF){
 					race="ELF";
 					System.out.print("ELF");}
-<<<<<<< HEAD
 
 				if(e.getSource()==ORC){
 					race="ORC";
@@ -194,34 +160,11 @@ public class Intro extends JFrame implements ActionListener
 					race="GNOME";
 					System.out.print("GNOME");}
 
-=======
-				
-				if(e.getSource()==ORC){
-					race="ORC";
-					System.out.print("ORC");}
-				
-				if(e.getSource()==HUMAN){
-						race="HUMAN";
-						System.out.print("HUMAN");}
-				
-				if(e.getSource()==DWARF){
-					race="DWARF";
-					System.out.print("DWARF");}
-				
-				if(e.getSource()==GNOME){
-					race="GNOME";
-					System.out.print("GNOME");}
-				
->>>>>>> FETCH_HEAD
 				if(e.getSource()==HALFLING){
 					race="HALFLING";
 					System.out.print("HALFLING");}
 			}
-<<<<<<< HEAD
 
-=======
-			
->>>>>>> FETCH_HEAD
 			if(NextText==6){
 				if(e.getSource()==MARKSMAN){
 					race="MARKSMAN";
@@ -232,17 +175,10 @@ public class Intro extends JFrame implements ActionListener
 				if(e.getSource()==WARRIOR){
 						race="WARRIOR";
 						System.out.print("WARRIOR");}
-<<<<<<< HEAD
 
 			}
 
 
-=======
-				
-			}
-			
-			
->>>>>>> FETCH_HEAD
 		NextText++;	
 		}
 
@@ -295,7 +231,6 @@ public class Intro extends JFrame implements ActionListener
 	       DWARF.setSize(80,20);
 	       GNOME.setSize(80,20);
 	       HALFLING.setSize(120,20);
-<<<<<<< HEAD
 
 	       ELF.setLocation(10,90);
 	       ORC.setLocation(100,90);
@@ -335,74 +270,21 @@ public class Intro extends JFrame implements ActionListener
 		       MAGE.setVisible(true);
 		       WARRIOR.setVisible(true);
 
-=======
-
-	       ELF.setLocation(10,90);
-	       ORC.setLocation(100,90);
-	       HUMAN.setLocation(200,90);
-	       DWARF.setLocation(300,90);
-	       GNOME.setLocation(400,90);
-	       HALFLING.setLocation(500,90);
-
-	       ELF.setVisible(true);
-	       ORC.setVisible(true);
-	       HUMAN.setVisible(true);
-	       DWARF.setVisible(true);
-	       GNOME.setVisible(true);
-	       HALFLING.setVisible(true);
-
-	       TextBox.add(ELF);
-	       TextBox.add(ORC);
-	       TextBox.add(HUMAN);
-	       TextBox.add(DWARF);
-	       TextBox.add(GNOME);
-	       TextBox.add(HALFLING);
-
-	      }
-	      
-	      if(NextText ==6){
-	    	  Text.setText("He responds, Ah, I see... What do you do for a living? You seem quite classy.");
-	    	  
-	    	   MARKSMAN.setSize(120,20);
-		       MAGE.setSize(120,20);
-		       WARRIOR.setSize(120,20);
-		    
-		       MARKSMAN.setLocation(10,90);
-		       MAGE.setLocation(140,90);
-		       WARRIOR.setLocation(270,90);
-		      
-		       MARKSMAN.setVisible(true);
-		       MAGE.setVisible(true);
-		       WARRIOR.setVisible(true);
-		        
->>>>>>> FETCH_HEAD
 		       TextBox.add(MARKSMAN);
 		       TextBox.add(MAGE);
 		       TextBox.add(WARRIOR);
 	      }
-<<<<<<< HEAD
 
-=======
-	      
->>>>>>> FETCH_HEAD
 	      if(NextText == 7)
 	      {
 	    	  dispose();
 	    	  try {
-				GameFrame newGame = new GameFrame(GAME);
+				GAME.THEGAMEFRAME = new GameFrame(GAME);
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-<<<<<<< HEAD
 
 	      }
 	}
 }
-=======
-	     
-	      }
-	}
-}
-
->>>>>>> FETCH_HEAD

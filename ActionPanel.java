@@ -1,10 +1,12 @@
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 
 
@@ -15,9 +17,10 @@ public class ActionPanel extends JPanel implements MouseListener{
 	JButton attackButton;
 	JButton spellsButton;
 	JButton itemsButton;
-	DefaultListModel<String> actionLog; 
-    JList<String> actionLogList; 
+	DefaultListModel actionLog; 
+    JList actionLogList; 
     JScrollPane actionLogScroll;
+    JScrollBar vertical;
 	
 	Game GAME;
 	ActionPanel(Game g) {
@@ -44,8 +47,8 @@ public class ActionPanel extends JPanel implements MouseListener{
 		
 		
 		
-		actionLog = new DefaultListModel<String>();
-		actionLogList = new JList<String>(actionLog);
+		actionLog = new DefaultListModel();
+		actionLogList = new JList(actionLog);
 		actionLogScroll = new JScrollPane(actionLogList);
 		actionLogScroll.setSize(650, 160);
 		actionLogScroll.setLocation(20, 20);
@@ -58,21 +61,12 @@ public class ActionPanel extends JPanel implements MouseListener{
 		add(spellsButton);
 		add(itemsButton);
 		add(actionLogScroll);
-		actionLog.addElement("lol");
-		actionLog.addElement("loaaal");
-		actionLog.addElement("losssl");
-		actionLog.addElement("lol");
-		actionLog.addElement("lodddl");
-		actionLog.addElement("lol");
-		actionLog.addElement("lol");
-		actionLog.addElement("lofffl");
-		actionLog.addElement("lol");
-		actionLog.addElement("logggl");
 		
 		
 		setVisible(true);
 	}
-	public void updatePanel() {
+	public void updatePanel() 
+	{
 		if(TowerOfTime.GAME.inCombat) {
 			attackButton.setVisible(true);
 			spellsButton.setVisible(true);
@@ -87,11 +81,15 @@ public class ActionPanel extends JPanel implements MouseListener{
 			actionLogScroll.setSize(650, 160);
 			actionLogScroll.setLocation(20, 20);
 		}
+		JScrollBar vertical = actionLogScroll.getVerticalScrollBar(); 
+		vertical.setValue(vertical.getMaximum());
 	}
-	public void updateActionLog(String s) {
+	public void updateActionLog(String s) 
+	{
 		actionLog.addElement(s);
 	}
-	private void attack() {
+	private void attack() 
+	{
 		Game.LEVEL.grid[Game.LEVEL.playerLocation.x][Game.LEVEL.playerLocation.y].getEncounter().getCombat().attack();
 	}
 	

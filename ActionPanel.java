@@ -4,6 +4,7 @@ import java.awt.event.MouseListener;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
@@ -23,28 +24,33 @@ public class ActionPanel extends JPanel implements MouseListener{
     JScrollBar vertical;
 	
 	Game GAME;
-	ActionPanel(Game g) {
+	ActionPanel(Game g) 
+	{
 	
 		setBounds(510,600,690, 200);
 		setLayout(null);
-		setBackground(Color.cyan);
+		setBackground(Color.gray);
+		
+
 		
 		attackButton = new JButton("Attack");
 		attackButton.setLocation(45, 25);
 		attackButton.setSize(150,50);
 		attackButton.setVisible(false);
 		attackButton.addMouseListener(this);
+		attackButton.setBackground(Color.yellow);
 		
 		spellsButton = new JButton("Spells");
 		spellsButton.setLocation(270, 25);
 		spellsButton.setSize(150,50);
 		spellsButton.setVisible(false);
+		spellsButton.setBackground(Color.yellow);
 		
 		itemsButton = new JButton("Items");
 		itemsButton.setLocation(495, 25);
 		itemsButton.setSize(150,50);
 		itemsButton.setVisible(false);
-		
+		itemsButton.setBackground(Color.yellow);
 		
 		
 		actionLog = new DefaultListModel();
@@ -53,6 +59,7 @@ public class ActionPanel extends JPanel implements MouseListener{
 		actionLogScroll.setSize(650, 160);
 		actionLogScroll.setLocation(20, 20);
 		actionLogScroll.setVisible(true);
+		
 		//actionLogScroll.set
 
 		GAME = g;
@@ -87,6 +94,7 @@ public class ActionPanel extends JPanel implements MouseListener{
 	public void updateActionLog(String s) 
 	{
 		actionLog.addElement(s);
+		updatePanel(); 
 	}
 	private void attack() 
 	{

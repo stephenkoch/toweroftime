@@ -13,9 +13,9 @@ public class Graphics extends JPanel
 	public void paintComponent(java.awt.Graphics g)
 	{
 		super.paintComponent(g);
-		ImageIcon i = new ImageIcon("C:\\Users\\Samsung\\workspace\\Game\\src\\brick room.png");
+		ImageIcon i = new ImageIcon("brick room.png");
 		i.paintIcon(this, g, 600, 0);
-		ImageIcon door = new ImageIcon("C:\\Users\\Samsung\\workspace\\Game\\src\\dooronly.png");
+		ImageIcon door = new ImageIcon("dooronly.png");
 		door.paintIcon(this, g, 800, 260);
 		
 	}

@@ -173,17 +173,6 @@ public class Character {
 		System.out.println("-----------------------------------");
 	}
 	
-
-	
-	public void SpellOptionSelector(Character opponent) {
-		if (Game.inCombat) {
-			SpellOptions(opponent);
-		}
-		else {
-			SpellOptions();
-		}
-	}
-	
 	public void SpellOptions() { //Out of combat
 		Scanner console = new Scanner(System.in);
 		this.getSpellBook().showSpells();

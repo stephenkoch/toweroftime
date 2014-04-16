@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class StartGamePanel extends JFrame implements MouseListener {
-	
+
     private static int WIDTH = 600;
     private static int HEIGHT = 400;
     private static int BUTTONWIDTH = 150;
@@ -26,9 +26,9 @@ public class StartGamePanel extends JFrame implements MouseListener {
 	BufferedImage NEWGAMEIMAGE2 = ImageIO.read(new File("src/NewGameButton2.jpg"));
 	BufferedImage LOADGAMEIMAGE2 = ImageIO.read(new File("src/LoadGameButton2.jpg"));
 	BufferedImage EXITIMAGE2 = ImageIO.read(new File("src/ExitButton2.jpg"));
-	
+
 	Game GAME;
-	
+
 	public StartGamePanel(Game g) throws IOException {
 		GAME = g;
 		frame = new JFrame("Menu");
@@ -38,7 +38,10 @@ public class StartGamePanel extends JFrame implements MouseListener {
     	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	frame.setResizable(false);
     	
-		
+    	Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+    	frame.setLocation(dim.width/4-this.getSize().width/4, dim.height/4-this.getSize().height/4);
+    	
+
     	
     	panel = new JPanel();
     	this.setLayout(null);
@@ -65,18 +68,25 @@ public class StartGamePanel extends JFrame implements MouseListener {
     	exitButton.setLocation(225, 250);
     	exitButton.addMouseListener(this);
     	
-    	frame.add(panel);
+    	
     	panel.add(newGameButton);
     	panel.add(loadGameButton);
     	panel.add(exitButton);
     	panel.add(picLabel);
+    	frame.add(panel);
+    	frame.validate();
     	
     }
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if (e.getSource() == newGameButton) {
     	    frame.dispose();
-    	    Intro tab = new Intro(GAME);
+    	    try {
+				Intro introPanel = new Intro(GAME);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
     	}
     	else if(e.getSource() == loadGameButton) {
     		//frame.disable();
@@ -90,12 +100,12 @@ public class StartGamePanel extends JFrame implements MouseListener {
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 	@Override
 	public void mouseEntered(MouseEvent e) {
@@ -120,6 +130,6 @@ public class StartGamePanel extends JFrame implements MouseListener {
 	    	else if(e.getSource() == exitButton) {
 	    		exitButton.setIcon(new ImageIcon(EXITIMAGE));
 	    	}
-		
+
 	}
 }

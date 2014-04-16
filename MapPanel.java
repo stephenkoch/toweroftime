@@ -1,66 +1,73 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import static java.lang.System.out;
 
+public class MapPanel extends JPanel implements ActionListener{
 
-
-
-public class MapPanel extends JPanel implements MouseListener{
-	
 	protected Map m;
+	JLabel mapPanelBackground;
 	JPanel left, right;
 	ImageIcon northImage = new ImageIcon("src/north.png");
 	ImageIcon eastImage = new ImageIcon("src/east.png");
 	ImageIcon southImage = new ImageIcon("src/south.png");
 	ImageIcon westImage = new ImageIcon("src/west.png");
+	ImageIcon mapPanelBackgroundImage = new ImageIcon("src/maptexture.jpg");
 	JButton north = new JButton(northImage);
 	JButton west = new JButton(westImage);
 	JButton east = new JButton(eastImage);
 	JButton south = new JButton(southImage);
-	
-	public MapPanel(Map m) {
+	Game GAME;
+
+	public MapPanel(Map m, Game g) {
 		this.m=m;
-		
+		GAME = g;
 		setBounds(0, 560, 510, 400);
-		setBackground(Color.green);
 		JPanel left = makeMapLeft();
 		JPanel right = makeRight();
+
+		mapPanelBackground = new JLabel(mapPanelBackgroundImage);
+		mapPanelBackground.setLocation(0, 0);
+		mapPanelBackground.setSize(510, 400);
 		
-		
+		 	north.addActionListener(this);   
+		    east.addActionListener(this);     
+		    south.addActionListener(this); 
+		    west.addActionListener(this);  
+			north.setBounds(100,20,60,80);
+			north.setContentAreaFilled(false); north.setBorderPainted(false);
+			west.setBounds(10,70,90,60);
+			west.setContentAreaFilled(false); west.setBorderPainted(false);
+			east.setBounds(160,70,90,60);
+			east.setContentAreaFilled(false); east.setBorderPainted(false);
+			south.setBounds(100,120,60,80);
+			south.setContentAreaFilled(false); south.setBorderPainted(false);   
+
 		setLayout(null);
 		left.setBounds(0,0,210,210);
 		right.setBounds(210,0,300,200);
+		//add(mapPanelBackground);
 		add(left);
 		add(right);
 	    setVisible(true);
-	    
-	
+
+
 	}
 	public JPanel makeRight(){
-		
+
 		JPanel r = new JPanel();
 		r.setLayout(null);
-		
+
 		//Direction Panel
-		north.addMouseListener(this);
-		west.addMouseListener(this);
-		south.addMouseListener(this);
-		east.addMouseListener(this);
-		north.setBounds(100,20,60,80);
-		north.setContentAreaFilled(false); north.setBorderPainted(false);
-		west.setBounds(10,70,90,60);
-		west.setContentAreaFilled(false); west.setBorderPainted(false);
-		east.setBounds(160,70,90,60);
-		east.setContentAreaFilled(false); east.setBorderPainted(false);
-		south.setBounds(100,120,60,80);
-		south.setContentAreaFilled(false); south.setBorderPainted(false);
 		r.add(north);
 		r.add(east);
 		r.add(south);
@@ -71,9 +78,9 @@ public class MapPanel extends JPanel implements MouseListener{
 	public JPanel makeMapLeft(){
 		JPanel l = new JPanel();
 		l.setLayout(null);
-		
+
 		MapSquare[][] pan = new MapSquare[7][7];
-		
+
 		//actual game with fog of war
 				for(int i=0; i<7; i++){
 					for(int j=0;j<7;j++){
@@ -130,42 +137,8 @@ public class MapPanel extends JPanel implements MouseListener{
 				}*/
 				return l;
 	}
-	
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		
-	}
-	
 
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		if(e.getSource()==north){
-			m.movePlayer(0);
-		}else if(e.getSource()==east){
-			m.movePlayer(1);
-		}else if(e.getSource()==south){
-			m.movePlayer(2);
-		}else if(e.getSource()==west){
-			m.movePlayer(3);
-		}
-		updateMap();
-	}
+
 	public void updateMap(){
 		this.setVisible(false);
 		this.removeAll();
@@ -177,5 +150,24 @@ public class MapPanel extends JPanel implements MouseListener{
 		add(right);
 		this.setVisible(true);
 	}
+
+	public void actionPerformed(ActionEvent e) {
+       if(e.getSource()==east) {
+    	   m.movePlayer(1);
+    	   TowerOfTime.GAME.THEGAMEFRAME.PANELE.actionLog.addElement("You moved east.");
+       }
+       else if (e.getSource()==south) {
+    	   m.movePlayer(2);
+    	   TowerOfTime.GAME.THEGAMEFRAME.PANELE.actionLog.addElement("You moved south.");
+       }
+       else if (e.getSource()==west) {
+    	   m.movePlayer(3);
+    	   TowerOfTime.GAME.THEGAMEFRAME.PANELE.actionLog.addElement("You moved west.");
+       }
+       else {
+    	   m.movePlayer(0);
+    	   TowerOfTime.GAME.THEGAMEFRAME.PANELE.actionLog.addElement("You moved north.");
+       }
+        TowerOfTime.GAME.THEGAMEFRAME.update();
+    }
 }
-	

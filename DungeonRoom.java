@@ -43,6 +43,7 @@ public class DungeonRoom {
 	public int getX() { return location.x; }
 	public int getY() { return location.y; }
 	public boolean getDiscovered() { return discovered; }
+	public Encounter getEncounter() {return encounter; }
 	public boolean getNearby(){
 		boolean r = false;
 		for(int i=0; i<4;i++){
@@ -74,6 +75,9 @@ public class DungeonRoom {
 	public void setSouth(DungeonRoom room) { this.south = room; exits[2]=true; }
 	public void setWest(DungeonRoom room) { this.west = room; exits[3]=true; }
 	public void setDiscoveredTrue() {this.discovered = true;}
+	
+	public boolean getTreasure() {return this.treasure;}
+	public void setTreasure(boolean treasure) {this.treasure = treasure;}
 	/*
 	private void randomDoors() {
 		Random gen = new Random();
@@ -86,7 +90,7 @@ public class DungeonRoom {
 		}
 	}*/
 	public void engage() {
-		encounter.encounterIntro(Game.PLAYER);
+		encounter.encounterIntro();
 	}
 
 }

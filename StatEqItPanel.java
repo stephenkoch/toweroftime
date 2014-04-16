@@ -1,11 +1,21 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
+
+import com.sun.media.sound.Toolkit;
+
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class StatEqItPanel extends JTabbedPane
 {
-    JButton Sword = new JButton("Sword");
+	JLabel piclabel;
+	
+    JButton Weapon = new JButton("Weapon");
     JButton Shield = new JButton("Shield");
     JButton Helmet = new JButton("Helmet");
     JButton Chest = new JButton("Chest");
@@ -104,14 +114,19 @@ public class StatEqItPanel extends JTabbedPane
     JButton IPowerD   = new JButton("5");
     
     JButton IEquip   = new JButton("EQUIP");
+    JButton IUse   = new JButton("USE");
     
     
     DefaultListModel item = new DefaultListModel();
     JList itemList = new JList(item);
     JScrollPane scroll = new JScrollPane(itemList);
     
-    public StatEqItPanel() 
+    Game GAME;
+    public StatEqItPanel(Game g) 
     {
+    	GAME = g;
+    	IUse.setVisible(false);
+
        // Creating tabs
     	setBounds(0, 160, 400, 400);
 
@@ -128,6 +143,9 @@ public class StatEqItPanel extends JTabbedPane
        EquipmentPanel.setLayout(null);  //Reference line above, but for second panel
        BackpackPanel.setLayout(null);   //Backpack layout manager set to null
        
+       StatsPanel.setBackground(Color.DARK_GRAY);
+       EquipmentPanel.setBackground(Color.DARK_GRAY);
+       BackpackPanel.setBackground(Color.DARK_GRAY);
        
        StrengthD.setText(String.valueOf(strengthPoints));
        StaminaD.setText(String.valueOf(staminaPoints));
@@ -166,7 +184,7 @@ public class StatEqItPanel extends JTabbedPane
        SkillPoints.setSize(150,50);
        SkillPointsD.setSize(100,50);
        //-----------------------------
-       Unequip.setSize(200,40);
+       Unequip.setSize(150,40);
        
        StrengthModifier.setSize(60,40);
        StaminaModifier.setSize(60,40);
@@ -177,8 +195,8 @@ public class StatEqItPanel extends JTabbedPane
          
        
        //Equipment Panel 2 Buttons Sizes
-       Sword.setSize(80,80);
-       Shield.setSize(80,80);
+       Weapon.setSize(90,80);
+       Shield.setSize(90,80);
        Helmet.setSize(80,50);
        Chest.setSize(80,70);
        Legs.setSize(80,70);
@@ -190,8 +208,8 @@ public class StatEqItPanel extends JTabbedPane
        Feet.setSize(80,50);
        //-------------------------
        Stats.setSize(125,30);
-       Item.setSize(400,30);
-       Description.setSize(400,30);
+       Item.setSize(400,25);
+       Description.setSize(400,25);
        Speed.setSize(125, 20);
        Damage.setSize(125, 20);
        ArmorDefense.setSize(125, 20);
@@ -234,13 +252,14 @@ public class StatEqItPanel extends JTabbedPane
        IElementD.setSize(90,20);
        IPowerD.setSize(90,20);
        
-       IEquip.setSize(90,40);
+       IEquip.setSize(150,40);
+       IUse.setSize(150,40);
        
        //------------------------------------
        // LOCATION
        //------------------------------------
-       Sword.setLocation(10,10);
-       Shield.setLocation(10,95);
+       Weapon.setLocation(5,10);
+       Shield.setLocation(5,95);
        Helmet.setLocation(100,10);
        Chest.setLocation(100,70);
        Legs.setLocation(100,145);
@@ -252,8 +271,8 @@ public class StatEqItPanel extends JTabbedPane
        Feet.setLocation(100,220); 
        Unequip.setLocation(200,230);  
        //-----------------------------
-       Item.setLocation(0,270);
-       Description.setLocation(0,320);
+       Item.setLocation(0,275);
+       Description.setLocation(0,325);
        //------------------------------
        ItemD.setLocation(0,300);
        DescriptionD.setLocation(0,350);
@@ -316,9 +335,9 @@ public class StatEqItPanel extends JTabbedPane
        SkillPoints.setLocation(50,310);
        SkillPointsD.setLocation(195,310);
        //-----------------------------------
-       scroll.setLocation(110,40);
+       scroll.setLocation(105,40);
        
-       Title.setLocation(110,10);
+       Title.setLocation(105,10);
        
        IWeapon.setLocation(10,10);
        IArmor.setLocation(10,60);
@@ -331,22 +350,23 @@ public class StatEqItPanel extends JTabbedPane
        IDescription.setLocation(0,320);
        IDescriptionD.setLocation(0,350);
        
-       IDamage.setLocation(310,10);
-       IDamageD.setLocation(310,30);
+       IDamage.setLocation(305,10);
+       IDamageD.setLocation(305,30);
        
-       ISpeed.setLocation(310,50);
-       ISpeedD.setLocation(310,70);
+       ISpeed.setLocation(305,50);
+       ISpeedD.setLocation(305,70);
        
-       IDefense.setLocation(310,90);
-       IDefenseD.setLocation(310,110);
+       IDefense.setLocation(305,90);
+       IDefenseD.setLocation(305,110);
        
-       IElement.setLocation(310,130);
-       IElementD.setLocation(310,150);
+       IElement.setLocation(305,130);
+       IElementD.setLocation(305,150);
        
-       IPower.setLocation(310,170);
-       IPowerD.setLocation(310,190);
+       IPower.setLocation(305,170);
+       IPowerD.setLocation(305,190);
        
-       IEquip.setLocation(310,220);
+       IEquip.setLocation(130,225);
+       IUse.setLocation(130,225);
        //------------------------------------
        // COLORS
        //------------------------------------
@@ -380,25 +400,28 @@ public class StatEqItPanel extends JTabbedPane
        DefenseModifier.setBackground(Color.green);
        MindModifier.setBackground(Color.green);
        DexterityModifier.setBackground(Color.green);
+       
+       IDamage.setBackground(Color.yellow);
+       ISpeed.setBackground(Color.yellow);
+       IDefense.setBackground(Color.yellow);
+       IElement.setBackground(Color.yellow);
+       IPower.setBackground(Color.yellow);
+       Title.setBackground(Color.orange);
+       IItem.setBackground(Color.yellow);
+       IDescription.setBackground(Color.yellow);
        //-------------------------------------
-       StrengthModifier.setForeground(Color.white);
-       StaminaModifier.setForeground(Color.white);
-       IntelligenceModifier.setForeground(Color.white);
-       DefenseModifier.setForeground(Color.white);
-       MindModifier.setForeground(Color.white);
-       DexterityModifier.setForeground(Color.white);
-       //-------------------------------------
+
        Item.setForeground(Color.black);
        Description.setForeground(Color.black);
        Speed.setForeground(Color.black);
        Damage.setForeground(Color.black);
-       Defense.setForeground(Color.black);
+       ArmorDefense.setForeground(Color.black);
        Element.setForeground(Color.black);
        Power.setForeground(Color.black);
        //-------------------------------------
        
        // PANEL 2
-       Sword.setBackground(Color.LIGHT_GRAY);
+       Weapon.setBackground(Color.LIGHT_GRAY);
        Shield.setBackground(Color.LIGHT_GRAY);
        Helmet.setBackground(Color.LIGHT_GRAY);
        Chest.setBackground(Color.LIGHT_GRAY);
@@ -415,12 +438,19 @@ public class StatEqItPanel extends JTabbedPane
        Description.setBackground(Color.ORANGE);
        Speed.setBackground(Color.yellow);
        Damage.setBackground(Color.YELLOW);
-       Defense.setBackground(Color.YELLOW);
+       ArmorDefense.setBackground(Color.YELLOW);
        Element.setBackground(Color.YELLOW);
        Power.setBackground(Color.YELLOW);
        //----------------------------------
        Unequip.setBackground(Color.yellow);
        
+       IWeapon.setBackground(Color.LIGHT_GRAY);
+       IArmor.setBackground(Color.LIGHT_GRAY);
+       IPotion.setBackground(Color.LIGHT_GRAY);
+       IShield.setBackground(Color.LIGHT_GRAY);
+       IRings.setBackground(Color.LIGHT_GRAY);
+       IEquip.setBackground(Color.orange);
+       IUse.setBackground(Color.orange);
 
        //---------------------------------
        //ADD TO PANEL
@@ -458,7 +488,7 @@ public class StatEqItPanel extends JTabbedPane
        
        
        //PANEL 2
-       EquipmentPanel.add(Sword);
+       EquipmentPanel.add(Weapon);
        EquipmentPanel.add(Shield);
        EquipmentPanel.add(Helmet);
        EquipmentPanel.add(Chest);
@@ -514,14 +544,14 @@ public class StatEqItPanel extends JTabbedPane
        BackpackPanel.add(IPowerD);
        
        BackpackPanel.add(IEquip);
-
+       BackpackPanel.add(IUse);
         //-----------------------------------
         // ADD ACTION LISTENERS
         //-----------------------------------
        
         // Create action listener and Button Handler
         ButtonHandler phandler = new ButtonHandler();
-        Sword.addActionListener(phandler);
+        Weapon.addActionListener(phandler);
         Shield.addActionListener(phandler);
         Helmet.addActionListener(phandler);
         Chest.addActionListener(phandler);
@@ -546,6 +576,8 @@ public class StatEqItPanel extends JTabbedPane
         IRings.addActionListener(phandler);
         IPotion.addActionListener(phandler);
         IShield.addActionListener(phandler);
+        IEquip.addActionListener(phandler);
+        IUse.addActionListener(phandler);
         
         setVisible(true);
        updatePanel();
@@ -572,8 +604,7 @@ public class StatEqItPanel extends JTabbedPane
            {
         	   if(e.getSource() != Unequip)
         	   {
-        		
-        	    Sword.setBackground(Color.LIGHT_GRAY);
+        	    Weapon.setBackground(Color.LIGHT_GRAY);
         	    Shield.setBackground(Color.LIGHT_GRAY);
         	    Helmet.setBackground(Color.LIGHT_GRAY);
         	    Chest.setBackground(Color.LIGHT_GRAY);
@@ -585,7 +616,16 @@ public class StatEqItPanel extends JTabbedPane
         	    Ring2.setBackground(Color.LIGHT_GRAY);
         	    Feet.setBackground(Color.LIGHT_GRAY);
         	   }
-        		if(e.getSource() == Sword)
+        	    if(e.getSource() != IEquip)
+        	    {
+        	    IWeapon.setBackground(Color.LIGHT_GRAY);
+        	    IArmor.setBackground(Color.LIGHT_GRAY);
+        	    IPotion.setBackground(Color.LIGHT_GRAY);
+        	    IShield.setBackground(Color.LIGHT_GRAY);
+        	    IRings.setBackground(Color.LIGHT_GRAY);
+        	    }
+        	   
+        		if(e.getSource() == Weapon)
         		{
         		Element.setVisible(true);
         		ElementD.setVisible(true);
@@ -598,7 +638,7 @@ public class StatEqItPanel extends JTabbedPane
         		Power.setVisible(true);
     			PowerD.setVisible(true);
         		
-        		Sword.setBackground(Color.yellow);
+        		Weapon.setBackground(Color.yellow);
         	    ItemD.setText(Game.PLAYER.equipped.getWeapon().getName());
         	    DescriptionD.setText(Game.PLAYER.equipped.getWeapon().getDescription());
         	    SpeedD.setText(Integer.toString(Game.PLAYER.equipped.getWeapon().getWeaponSpeed()));
@@ -915,6 +955,7 @@ public class StatEqItPanel extends JTabbedPane
 
            if(e.getSource() == IWeapon)
            {
+           IWeapon.setBackground(Color.yellow);
            Title.setText("Weapons");
            item.clear();
            item.addElement("Mace");
@@ -923,6 +964,7 @@ public class StatEqItPanel extends JTabbedPane
            
            if(e.getSource() == IArmor)
            {
+           IArmor.setBackground(Color.yellow);
            Title.setText("Armor");
            item.clear();
            item.addElement("Curiass");
@@ -931,14 +973,45 @@ public class StatEqItPanel extends JTabbedPane
            
            if(e.getSource() == IRings)
            {
+           IRings.setBackground(Color.yellow);
            Title.setText("Rings");
            item.clear();
            item.addElement("Golden Ring of Fire");
            item.addElement("Silver Ring of Healing");
            }
            
+           if(e.getSource() != IUse)
+           {
+       		IEquip.setVisible(true);
+    		IUse.setVisible(false);
+           }
+           
+           if(e.getSource() == IUse)
+           {
+           if(item.getSize() > 0)
+           {
+           int index = itemList.getSelectedIndex();
+           IItemD.setText((String) item.getElementAt(index));
+           item.remove(index);
+           }
+           IPotion.setBackground(Color.yellow);
+           }
+           
+           if(e.getSource() == IEquip)
+           {
+           if(item.getSize() > 0)
+           {
+           int index = itemList.getSelectedIndex();
+           IItemD.setText((String) item.getElementAt(index));
+           item.remove(index);
+           }
+           }
+           
            if(e.getSource() == IPotion)
            {
+           IUse.setVisible(true);
+           IEquip.setVisible(false);
+           IPotion.setBackground(Color.yellow);
            Title.setText("Potions");
            item.clear();
            item.addElement("Potion of Healing");
@@ -947,6 +1020,7 @@ public class StatEqItPanel extends JTabbedPane
            
            if(e.getSource() == IShield)
            {
+           IShield.setBackground(Color.yellow);
            Title.setText("Shields");
            item.clear();
            item.addElement("Riot Shield");

@@ -34,14 +34,12 @@ public class GameFrame extends JFrame implements ActionListener{
 		PANELD = new MapPanel(g.LEVEL, g);
 		fullGameFrame.add(PANELD);
 		PANELE = new ActionPanel(g);
-		fullGameFrame.add(PANELE);
-		update();
+		fullGameFrame.add(PANELE);		
 	}
-	public void update() 
-	{
+	public void update() {
 		PANELA.updatePanel();
 		PANELB.updatePanel();
-		//PANELC.updatePanel();
+		//PANELC.update(g);
 		PANELD.updateMap();
 		PANELE.updatePanel();
 		//PANELE.actionLogList.set

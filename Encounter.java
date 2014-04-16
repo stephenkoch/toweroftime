@@ -30,10 +30,14 @@ public class Encounter {
 	private void startCombat() {
 		combat = new Combat(enemyGen());
 		//TODO:DISABLE ALL PANELS EXCEPT FOR ACTION PANEL
-		if (combat.getEnemy().getName() == null)
+		if (combat.getEnemy().getName() == null){
 			System.out.println("You have encountered a(n) " + combat.getEnemy().getRace() + "!");
-		else
+			TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("You have encountered a(n) " + combat.getEnemy().getRace() + "!");
+		}
+		else{
 			System.out.println("You have encountered "+combat.getEnemy().getName()+" the "+combat.getEnemy().getRace()+"!");
+			TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("You have encountered "+combat.getEnemy().getName()+" the "+combat.getEnemy().getRace()+"!");
+		}
 	}
 	
 	private void toTreasure(Character player) {
@@ -54,13 +58,20 @@ public class Encounter {
 				opp = new LegendaryEnemy("Brodin", "Swohella God", 15, 80, 40, 40, 35, 30, 35);
 				break;
 			}
-			default: {
+			default: 
+			{
 				if(s > 500) {
-					opp = new Enemy(null, "Goblin", 1, 5, 4, 2, 3, 3, 4);
+					//String name, String race,level,hp,str,dex,sta,inte,def
+					opp = new Enemy(null, "Goblin", 3, 2, 2, 2, 2, 1, 2);
 				}
-				else {
-					opp = new Enemy(null, "Kobold", 1, 3, 2, 1, 2, 2, 2);
+				else if (s > 250)
+				{
+					opp = new Enemy(null, "Kobold", 2, 2, 2, 1, 1, 1, 2);
 				}
+				else if (s > 100)
+					opp = new Enemy(null, "Rat",1,1,1,1,0,0,0);
+				else
+					opp = new Enemy(null, "Spider",1,1,0,2,0,0,0);
 			}
 		}
 		return opp;

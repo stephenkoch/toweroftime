@@ -29,12 +29,14 @@ public class Combat {
 				System.out.println("Miss!");
 				TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("You missed!");
 			}
+			TowerOfTime.GAME.THEGAMEFRAME.update();
 			checkCombatWinnerPlayer();
 	}
 
 	private static void enemyAttack() {
 		int attackerBaseAttackBonus = enemy.getDexterity()/3;
 		int defenderArmorClass = TowerOfTime.GAME.PLAYER.getCurrentDefense()/3;
+		System.out.println("Defender " + defenderArmorClass);
 		String update;
 		Random dice = new Random();
 		if ((attackerBaseAttackBonus+(dice.nextInt(19)+1)) > (defenderArmorClass+(dice.nextInt(19)+1))) {
@@ -45,14 +47,15 @@ public class Combat {
 			update = (damage +" damage to you!");
 			
 			System.out.print(damage +" damage to you!\n");
-			TowerOfTime.GAME.THEGAMEFRAME.PANELE.actionLog.addElement(update);
+			TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog(update);
 
 		}
 		else {
 			System.out.println("Miss!");
-			TowerOfTime.GAME.THEGAMEFRAME.PANELE.actionLog.addElement("Miss!");
+			TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("Miss!");
 
 		}
+		TowerOfTime.GAME.THEGAMEFRAME.update();
 		checkCombatWinnerEnemy();
 }
 	
@@ -88,13 +91,16 @@ public class Combat {
 	
 	public static void win() {
 		System.out.println("You have slain the enemy."); //change to say "You have slain X!" where X is the enemy.
-		TowerOfTime.GAME.THEGAMEFRAME.PANELE.actionLog.addElement("You have slain the enemy.");
+		TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("You have slain the enemy.");
 	}
 	
-	public static void assignExp(Character enemy) {
-		int exp = Game.PLAYER.getExp()+(enemy.getLevel()*10);
-		Game.PLAYER.setExp(exp);
-		TowerOfTime.GAME.THEGAMEFRAME.PANELE.actionLog.addElement("You have gained " + exp + " experience!");
+	public static void assignExp(Character enemy) 
+	{
+		int exp = enemy.getLevel() * 10;
+		TowerOfTime.GAME.PLAYER.setExp((TowerOfTime.GAME.PLAYER.getExp()+ exp));
+		TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog(Integer.toString(TowerOfTime.GAME.PLAYER.getExp()+ exp));
+		TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("You have gained " + exp + " experience!");
+		TowerOfTime.GAME.PLAYER.shouldLevelUp();
 
 	}
 	public Character getEnemy() {return enemy;}

@@ -35,6 +35,7 @@ public class GameFrame extends JFrame implements ActionListener{
 		fullGameFrame.add(PANELD);
 		PANELE = new ActionPanel(g);
 		fullGameFrame.add(PANELE);		
+		update();
 	}
 	public void update() {
 		PANELA.updatePanel();

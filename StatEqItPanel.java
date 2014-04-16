@@ -113,6 +113,67 @@ public class StatEqItPanel extends JTabbedPane
     JButton IUse   = new JButton("USE");
     
     
+    JButton Fire = new JButton ("FIRE");
+    JButton Ice = new JButton ("ICE");
+    
+    JButton Holy = new JButton ("HOLY");
+    JButton Shadow = new JButton ("SHADOW");
+   
+    JButton Energy = new JButton ("ENERGY");
+    JButton Earth =  new JButton ("EARTH");
+    
+    JButton Air = new JButton ("AIR");
+    JButton Water = new JButton ("WATER");
+    
+    
+    JButton Fire1 = new JButton ("1");
+    JButton Fire2 = new JButton ("2");
+    JButton Fire3 = new JButton ("3");
+    JButton Fire4 = new JButton ("4");
+    JButton Fire5 = new JButton ("5");
+    
+    JButton Ice1 = new JButton ("1");
+    JButton Ice2 = new JButton ("2");
+    JButton Ice3 = new JButton ("3");
+    JButton Ice4 = new JButton ("4");
+    JButton Ice5 = new JButton ("5");
+    
+    JButton Holy1 = new JButton ("1");
+    JButton Holy2 = new JButton ("2");
+    JButton Holy3 = new JButton ("3");
+    JButton Holy4 = new JButton ("4");
+    JButton Holy5 = new JButton ("5");
+    
+    JButton Shadow1 = new JButton ("1");
+    JButton Shadow2 = new JButton ("2");
+    JButton Shadow3 = new JButton ("3");
+    JButton Shadow4 = new JButton ("4");
+    JButton Shadow5 = new JButton ("5");
+   
+    JButton Energy1 = new JButton ("1");
+    JButton Energy2 = new JButton ("2");
+    JButton Energy3 = new JButton ("3");
+    JButton Energy4 = new JButton ("4");
+    JButton Energy5 = new JButton ("5");
+    
+    JButton Earth1 =  new JButton ("1");
+    JButton Earth2 =  new JButton ("2");
+    JButton Earth3 =  new JButton ("3");
+    JButton Earth4 =  new JButton ("4");
+    JButton Earth5 =  new JButton ("5");
+    
+    JButton Air1 = new JButton ("1");
+    JButton Air2 = new JButton ("2");
+    JButton Air3 = new JButton ("3");
+    JButton Air4 = new JButton ("4");
+    JButton Air5 = new JButton ("5");
+    
+    JButton Water1 = new JButton ("1");
+    JButton Water2 = new JButton ("2");
+    JButton Water3 = new JButton ("3");
+    JButton Water4 = new JButton ("4");
+    JButton Water5 = new JButton ("5");
+    
     DefaultListModel item = new DefaultListModel();
     JList itemList = new JList(item);
     JScrollPane scroll = new JScrollPane(itemList);
@@ -129,20 +190,23 @@ public class StatEqItPanel extends JTabbedPane
        JPanel StatsPanel = new JPanel();//First Panel
        JPanel EquipmentPanel = new JPanel();//Second Panel
        JPanel BackpackPanel = new JPanel();//Third Panel
+       JPanel SpellPanel = new JPanel();
 
        //Tab Creation
        addTab("Stats",StatsPanel);
        addTab("Equipment", EquipmentPanel);
        addTab("Backpack", BackpackPanel);
+       addTab("Spells", SpellPanel);
 
        StatsPanel.setLayout(null);      //Custom button placement for first panel
        EquipmentPanel.setLayout(null);  //Reference line above, but for second panel
        BackpackPanel.setLayout(null);   //Backpack layout manager set to null
+       SpellPanel.setLayout(null);
        
        StatsPanel.setBackground(Color.DARK_GRAY);
        EquipmentPanel.setBackground(Color.DARK_GRAY);
        BackpackPanel.setBackground(Color.DARK_GRAY);
-
+       SpellPanel.setBackground(Color.DARK_GRAY);
        
        
        //---------------------------
@@ -248,6 +312,66 @@ public class StatEqItPanel extends JTabbedPane
        
        IEquip.setSize(150,40);
        IUse.setSize(150,40);
+       
+       Fire.setSize(100,20);
+       Ice.setSize(100,20);
+       Holy.setSize(100,20);
+       Shadow.setSize(100,20);
+       Energy.setSize(100,20);
+       Earth.setSize(100,20);
+       Air.setSize(100,20);
+       Water.setSize(100,20);
+       
+       
+       Ice1.setSize(50,20);
+       Ice2.setSize(50,20);
+       Ice3.setSize(50,20);
+       Ice4.setSize(50,20);
+       Ice5.setSize(50,20);
+       
+       Holy1.setSize(50,20);
+       Holy2.setSize(50,20);
+       Holy3.setSize(50,20);
+       Holy4.setSize(50,20);
+       Holy5.setSize(50,20);
+       
+       Fire1.setSize(50,20);
+       Fire2.setSize(50,20);
+       Fire3.setSize(50,20);
+       Fire4.setSize(50,20);
+       Fire5.setSize(50,20);
+       
+
+      
+       Shadow1.setSize(50,20);
+       Shadow2.setSize(50,20);
+       Shadow3.setSize(50,20);
+       Shadow4.setSize(50,20);
+       Shadow5.setSize(50,20);
+       
+       Energy1.setSize(50,20);
+       Energy2.setSize(50,20);
+       Energy3.setSize(50,20);
+       Energy4.setSize(50,20);
+       Energy5.setSize(50,20);
+       
+       Earth1.setSize(50,20);
+       Earth2.setSize(50,20);
+       Earth3.setSize(50,20);
+       Earth4.setSize(50,20);
+       Earth5.setSize(50,20);
+       
+       Air1.setSize(50,20);
+       Air2.setSize(50,20);
+       Air3.setSize(50,20);
+       Air4.setSize(50,20);
+       Air5.setSize(50,20);
+       
+       Water1.setSize(50,20);
+       Water2.setSize(50,20);
+       Water3.setSize(50,20);
+       Water4.setSize(50,20);
+       Water5.setSize(50,20);
        
        //------------------------------------
        // LOCATION
@@ -365,6 +489,66 @@ public class StatEqItPanel extends JTabbedPane
        
        IEquip.setLocation(130,225);
        IUse.setLocation(130,225);
+       
+       
+       Fire.setLocation(10,10);
+       Ice.setLocation(10,40);
+       Holy.setLocation(10,70);
+       Shadow.setLocation(10,100);     
+       Energy.setLocation(10,130);
+       Earth.setLocation(10,160);
+       Air.setLocation(10,190);
+       Water.setLocation(10,220);
+       
+       Fire1.setLocation(110,10);
+       Fire2.setLocation(160,10);
+       Fire3.setLocation(210,10);
+       Fire4.setLocation(260,10);
+       Fire5.setLocation(310,10);
+       
+       Ice1.setLocation(110,40);
+       Ice2.setLocation(160,40);
+       Ice3.setLocation(210,40);
+       Ice4.setLocation(260,40);
+       Ice5.setLocation(310,40);
+       
+       Holy1.setLocation(110,70);
+       Holy2.setLocation(160,70);
+       Holy3.setLocation(210,70);
+       Holy4.setLocation(260,70);
+       Holy5.setLocation(310,70);
+       
+
+      
+       Shadow1.setLocation(110,100);
+       Shadow2.setLocation(160,100);
+       Shadow3.setLocation(210,100);
+       Shadow4.setLocation(260,100);
+       Shadow5.setLocation(310,100);
+       
+       Energy1.setLocation(110,130);
+       Energy2.setLocation(160,130);
+       Energy3.setLocation(210,130);
+       Energy4.setLocation(260,130);
+       Energy5.setLocation(310,130);
+       
+       Earth1.setLocation(110,160);
+       Earth2.setLocation(160,160);
+       Earth3.setLocation(210,160);
+       Earth4.setLocation(260,160);
+       Earth5.setLocation(310,160);
+       
+       Air1.setLocation(110,190);
+       Air2.setLocation(160,190);
+       Air3.setLocation(210,190);
+       Air4.setLocation(260,190);
+       Air5.setLocation(310,190);
+       
+       Water1.setLocation(110,220);
+       Water2.setLocation(160,220);
+       Water3.setLocation(210,220);
+       Water4.setLocation(260,220);
+       Water5.setLocation(310,220);
        //------------------------------------
        // COLORS
        //------------------------------------
@@ -455,6 +639,14 @@ public class StatEqItPanel extends JTabbedPane
        IEquip.setBackground(Color.orange);
        IUse.setBackground(Color.orange);
 
+       Fire.setBackground(Color.YELLOW);
+       Ice.setBackground(Color.YELLOW);
+       Holy.setBackground(Color.YELLOW);
+       Shadow.setBackground(Color.YELLOW);
+       Energy.setBackground(Color.YELLOW);
+       Earth.setBackground(Color.YELLOW);
+       Air.setBackground(Color.YELLOW);
+       Water.setBackground(Color.YELLOW);
        //---------------------------------
        //ADD TO PANEL
        //---------------------------------
@@ -552,6 +744,64 @@ public class StatEqItPanel extends JTabbedPane
        
        BackpackPanel.add(IEquip);
        BackpackPanel.add(IUse);
+       
+       
+       SpellPanel.add(Fire);
+       SpellPanel.add(Ice);
+       SpellPanel.add(Holy);
+       SpellPanel.add(Shadow);
+       SpellPanel.add(Energy);
+       SpellPanel.add(Earth);
+       SpellPanel.add(Air);
+       SpellPanel.add(Water);
+       
+       SpellPanel.add(Fire1);
+       SpellPanel.add(Fire2);
+       SpellPanel.add(Fire3);
+       SpellPanel.add(Fire4);
+       SpellPanel.add(Fire5);
+       
+       SpellPanel.add(Ice1);
+       SpellPanel.add(Ice2);
+       SpellPanel.add(Ice3);
+       SpellPanel.add(Ice4);
+       SpellPanel.add(Ice5);
+       
+       SpellPanel.add(Holy1);
+       SpellPanel.add(Holy2);
+       SpellPanel.add(Holy3);
+       SpellPanel.add(Holy4);
+       SpellPanel.add(Holy5);
+       
+       SpellPanel.add(Shadow1);
+       SpellPanel.add(Shadow2);
+       SpellPanel.add(Shadow3);
+       SpellPanel.add(Shadow4);
+       SpellPanel.add(Shadow5);
+       
+       SpellPanel.add(Energy1);
+       SpellPanel.add(Energy2);
+       SpellPanel.add(Energy3);
+       SpellPanel.add(Energy4);
+       SpellPanel.add(Energy5);
+       
+       SpellPanel.add(Earth1);
+       SpellPanel.add(Earth2);
+       SpellPanel.add(Earth3);
+       SpellPanel.add(Earth4);
+       SpellPanel.add(Earth5);
+       
+       SpellPanel.add(Air1);
+       SpellPanel.add(Air2);
+       SpellPanel.add(Air3);
+       SpellPanel.add(Air4);
+       SpellPanel.add(Air5);
+       
+       SpellPanel.add(Water1);
+       SpellPanel.add(Water2);
+       SpellPanel.add(Water3);
+       SpellPanel.add(Water4);
+       SpellPanel.add(Water5);
         //-----------------------------------
         // ADD ACTION LISTENERS
         //-----------------------------------

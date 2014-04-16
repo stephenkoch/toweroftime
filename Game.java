@@ -31,7 +31,6 @@ public class Game {
 	}
 	public static void createCharacter() {
 		PLAYER = new Player("");
-        PLAYER.setRace(PLAYER.selectRace());
 	}
 	
 	public static Player loadCharacter() {

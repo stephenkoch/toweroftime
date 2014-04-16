@@ -16,7 +16,7 @@ public class Intro extends JFrame implements ActionListener
 {
 
     int NextText = 0;
-    String personname, sex, race;
+    String personname, sex, race,job;
     JButton Next = new JButton("->");
     JButton Continue = new JButton("Continue");
     
@@ -133,49 +133,50 @@ public class Intro extends JFrame implements ActionListener
 			if(NextText==4){
 				if(e.getSource() == M){
 					sex="MALE";
-					System.out.print("MALE");}
-				else
+				}
+				else {
 					sex = "FEMALE";
-					System.out.print("FEMALE");}
+				}
+			}
 
 			// getting Race choice
 			if(NextText==5){
 				if(e.getSource()==ELF){
 					race="ELF";
-					System.out.print("ELF");}
+				}
 
 				if(e.getSource()==ORC){
 					race="ORC";
-					System.out.print("ORC");}
+				}
 
 				if(e.getSource()==HUMAN){
-						race="HUMAN";
-						System.out.print("HUMAN");}
+					race="HUMAN";
+				}
 
 				if(e.getSource()==DWARF){
 					race="DWARF";
-					System.out.print("DWARF");}
+				}
 
 				if(e.getSource()==GNOME){
 					race="GNOME";
-					System.out.print("GNOME");}
+				}
 
 				if(e.getSource()==HALFLING){
 					race="HALFLING";
-					System.out.print("HALFLING");}
+				}
 			}
 
 			if(NextText==6){
-				if(e.getSource()==MARKSMAN){
-					race="MARKSMAN";
-					System.out.print("MARKSMAN");}
-				if(e.getSource()==MAGE){
-					race="MAGE";
-					System.out.print("MAGE");}
-				if(e.getSource()==WARRIOR){
-						race="WARRIOR";
-						System.out.print("WARRIOR");}
-
+				if(e.getSource()==MARKSMAN ){
+					job="MARKSMAN";
+				}
+				if(e.getSource()==MAGE) {
+					job="MAGE";
+				}
+				if(e.getSource()==WARRIOR) {
+					job="WARRIOR";
+				}
+				TowerOfTime.GAME.PLAYER.startingStats(job, race);
 			}
 
 
@@ -219,15 +220,17 @@ public class Intro extends JFrame implements ActionListener
 		   TextBox.add(F);
 		   M.setVisible(true);
 		   F.setVisible(true);
+		   
 	      }
 
 	      if(NextText == 5)
 	      {    
+	      TowerOfTime.GAME.PLAYER.setGender(sex);
 	      Text.setText(" He exclaims, Excellent! Using my intuition, I can say that you are an Elf. Am I correct?");
 	      // Selecting ethnicity 
 	       ELF.setSize(80,20);
 	       ORC.setSize(80,20);
-	       HUMAN.setSize(80,20);
+	       HUMAN.setSize(100,20);
 	       DWARF.setSize(80,20);
 	       GNOME.setSize(80,20);
 	       HALFLING.setSize(120,20);
@@ -235,9 +238,9 @@ public class Intro extends JFrame implements ActionListener
 	       ELF.setLocation(10,90);
 	       ORC.setLocation(100,90);
 	       HUMAN.setLocation(200,90);
-	       DWARF.setLocation(300,90);
-	       GNOME.setLocation(400,90);
-	       HALFLING.setLocation(500,90);
+	       DWARF.setLocation(320,90);
+	       GNOME.setLocation(420,90);
+	       HALFLING.setLocation(520,90);
 
 	       ELF.setVisible(true);
 	       ORC.setVisible(true);

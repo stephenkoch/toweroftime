@@ -14,7 +14,7 @@ import java.io.IOException;
 public class StatEqItPanel extends JTabbedPane
 {
 	JLabel piclabel;
-	
+
     JButton Weapon = new JButton("Weapon");
     JButton Shield = new JButton("Shield");
     JButton Helmet = new JButton("Helmet");
@@ -491,64 +491,62 @@ public class StatEqItPanel extends JTabbedPane
        IUse.setLocation(130,225);
        
        
-       Fire.setLocation(10,10);
-       Ice.setLocation(10,40);
-       Holy.setLocation(10,70);
-       Shadow.setLocation(10,100);     
-       Energy.setLocation(10,130);
-       Earth.setLocation(10,160);
-       Air.setLocation(10,190);
-       Water.setLocation(10,220);
+       Fire.setLocation(20,10);
+       Ice.setLocation(20,40);
+       Holy.setLocation(20,70);
+       Shadow.setLocation(20,100);     
+       Energy.setLocation(20,130);
+       Earth.setLocation(20,160);
+       Air.setLocation(20,190);
+       Water.setLocation(20,220);
        
-       Fire1.setLocation(110,10);
-       Fire2.setLocation(160,10);
-       Fire3.setLocation(210,10);
-       Fire4.setLocation(260,10);
-       Fire5.setLocation(310,10);
+       Fire1.setLocation(120,10);
+       Fire2.setLocation(170,10);
+       Fire3.setLocation(220,10);
+       Fire4.setLocation(270,10);
+       Fire5.setLocation(320,10);
        
-       Ice1.setLocation(110,40);
-       Ice2.setLocation(160,40);
-       Ice3.setLocation(210,40);
-       Ice4.setLocation(260,40);
-       Ice5.setLocation(310,40);
+       Ice1.setLocation(120,40);
+       Ice2.setLocation(170,40);
+       Ice3.setLocation(220,40);
+       Ice4.setLocation(270,40);
+       Ice5.setLocation(320,40);
        
-       Holy1.setLocation(110,70);
-       Holy2.setLocation(160,70);
-       Holy3.setLocation(210,70);
-       Holy4.setLocation(260,70);
-       Holy5.setLocation(310,70);
-       
-
+       Holy1.setLocation(120,70);
+       Holy2.setLocation(170,70);
+       Holy3.setLocation(220,70);
+       Holy4.setLocation(270,70);
+       Holy5.setLocation(320,70);
       
-       Shadow1.setLocation(110,100);
-       Shadow2.setLocation(160,100);
-       Shadow3.setLocation(210,100);
-       Shadow4.setLocation(260,100);
-       Shadow5.setLocation(310,100);
+       Shadow1.setLocation(120,100);
+       Shadow2.setLocation(170,100);
+       Shadow3.setLocation(220,100);
+       Shadow4.setLocation(270,100);
+       Shadow5.setLocation(320,100);
        
-       Energy1.setLocation(110,130);
-       Energy2.setLocation(160,130);
-       Energy3.setLocation(210,130);
-       Energy4.setLocation(260,130);
-       Energy5.setLocation(310,130);
+       Energy1.setLocation(120,130);
+       Energy2.setLocation(170,130);
+       Energy3.setLocation(220,130);
+       Energy4.setLocation(270,130);
+       Energy5.setLocation(320,130);
        
-       Earth1.setLocation(110,160);
-       Earth2.setLocation(160,160);
-       Earth3.setLocation(210,160);
-       Earth4.setLocation(260,160);
-       Earth5.setLocation(310,160);
+       Earth1.setLocation(120,160);
+       Earth2.setLocation(170,160);
+       Earth3.setLocation(220,160);
+       Earth4.setLocation(270,160);
+       Earth5.setLocation(320,160);
        
-       Air1.setLocation(110,190);
-       Air2.setLocation(160,190);
-       Air3.setLocation(210,190);
-       Air4.setLocation(260,190);
-       Air5.setLocation(310,190);
+       Air1.setLocation(120,190);
+       Air2.setLocation(170,190);
+       Air3.setLocation(220,190);
+       Air4.setLocation(270,190);
+       Air5.setLocation(320,190);
        
-       Water1.setLocation(110,220);
-       Water2.setLocation(160,220);
-       Water3.setLocation(210,220);
-       Water4.setLocation(260,220);
-       Water5.setLocation(310,220);
+       Water1.setLocation(120,220);
+       Water2.setLocation(170,220);
+       Water3.setLocation(220,220);
+       Water4.setLocation(270,220);
+       Water5.setLocation(320,220);
        //------------------------------------
        // COLORS
        //------------------------------------
@@ -639,14 +637,17 @@ public class StatEqItPanel extends JTabbedPane
        IEquip.setBackground(Color.orange);
        IUse.setBackground(Color.orange);
 
-       Fire.setBackground(Color.YELLOW);
-       Ice.setBackground(Color.YELLOW);
+       Fire.setBackground(Color.red);
+       Fire.setForeground(Color.white);
+       Ice.setBackground(Color.cyan);
        Holy.setBackground(Color.YELLOW);
-       Shadow.setBackground(Color.YELLOW);
+       Shadow.setBackground(Color.black);
+       Shadow.setForeground(Color.white);
        Energy.setBackground(Color.YELLOW);
-       Earth.setBackground(Color.YELLOW);
-       Air.setBackground(Color.YELLOW);
-       Water.setBackground(Color.YELLOW);
+       Earth.setBackground(Color.green);
+       Air.setBackground(Color.white);
+       Water.setBackground(Color.blue);
+       Water.setForeground(Color.white);
        //---------------------------------
        //ADD TO PANEL
        //---------------------------------
@@ -890,7 +891,7 @@ public class StatEqItPanel extends JTabbedPane
 		DefensePlus.setEnabled(false);
 		DexterityPlus.setEnabled(false);
 		AgilityPlus.setEnabled(false);
-		
+
 		StrengthPlus.setBackground(Color.gray);
 		StaminaPlus.setBackground(Color.gray);
 		IntelligencePlus.setBackground(Color.gray);

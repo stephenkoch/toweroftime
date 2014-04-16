@@ -51,15 +51,9 @@ public class StatEqItPanel extends JTabbedPane
     JButton Intelligence = new JButton("Intelligence");
     JButton Defense  = new JButton("Defense");
     JButton Dexterity = new JButton ("Dexterity");
+    JButton Agility = new JButton ("Agility");
     //-------------------------------------------
     JButton SkillPoints = new JButton("Skill Points");
-    
-    int skillPoints = 4;
-    int strengthPoints = 21;
-    int staminaPoints = 23;
-    int mindPoints = 12;
-    int intelligencePoints = 17;
-    int defensePoints = 32;
     //-------------------------------------------
     JButton StrengthD = new JButton("");
     JButton StaminaD = new JButton("");
@@ -67,6 +61,7 @@ public class StatEqItPanel extends JTabbedPane
     JButton IntelligenceD  = new JButton("");
     JButton DefenseD   = new JButton("");
     JButton DexterityD = new JButton ("");
+    JButton AgilityD = new JButton("");
     JButton SkillPointsD = new JButton("+1");
     
     //-------------------------------------------
@@ -76,6 +71,7 @@ public class StatEqItPanel extends JTabbedPane
     JButton IntelligencePlus = new JButton("+1");
     JButton DefensePlus = new JButton("+1");
     JButton DexterityPlus = new JButton ("+1");
+    JButton AgilityPlus = new JButton("+1");
     
     JButton StrengthModifier = new JButton("+1");
     JButton StaminaModifier = new JButton("+1");
@@ -83,7 +79,7 @@ public class StatEqItPanel extends JTabbedPane
     JButton IntelligenceModifier = new JButton("+1");
     JButton DefenseModifier = new JButton("+1");
     JButton DexterityModifier = new JButton ("+1");
-    
+    JButton AgilityModifier = new JButton("+1");
     //------------------------------------------
     JButton Unequip = new JButton("UNEQUIP");
     //------------------------------------------
@@ -146,13 +142,7 @@ public class StatEqItPanel extends JTabbedPane
        StatsPanel.setBackground(Color.DARK_GRAY);
        EquipmentPanel.setBackground(Color.DARK_GRAY);
        BackpackPanel.setBackground(Color.DARK_GRAY);
-       
-       StrengthD.setText(String.valueOf(strengthPoints));
-       StaminaD.setText(String.valueOf(staminaPoints));
-       IntelligenceD.setText(String.valueOf(intelligencePoints));
-       MindD.setText(String.valueOf(mindPoints));
-       DefenseD.setText(String.valueOf(defensePoints));
-       SkillPointsD.setText(String.valueOf(skillPoints));
+
        
        
        //---------------------------
@@ -160,38 +150,42 @@ public class StatEqItPanel extends JTabbedPane
        //---------------------------
        
        //Stats Panel 1 Buttons Sizes
-       Strength.setSize(150,40);
-       Stamina.setSize(150,40);
-       Intelligence.setSize(150,40);
-       Mind.setSize(150,40);
-       Defense.setSize(150,40);
-       Dexterity.setSize(150,40);
+       Strength.setSize(110,30);
+       Stamina.setSize(110,30);
+       Intelligence.setSize(110,30);
+       Mind.setSize(110,30);
+       Defense.setSize(110,30);
+       Dexterity.setSize(110,30);
+       Agility.setSize(110,30);
        //----------------------------
-       StrengthD.setSize(100,40);
-       StaminaD.setSize(100,40);
-       IntelligenceD.setSize(100,40);
-       MindD.setSize(100,40);
-       DefenseD.setSize(100,40);
-       DexterityD.setSize(100,40);
+       StrengthD.setSize(100,30);
+       StaminaD.setSize(100,30);
+       IntelligenceD.setSize(100,30);
+       MindD.setSize(100,30);
+       DefenseD.setSize(100,30);
+       DexterityD.setSize(100,30);
+       AgilityD.setSize(100,30);
        //-----------------------------
-       StrengthPlus.setSize(60,40);
-       StaminaPlus.setSize(60,40);
-       IntelligencePlus.setSize(60,40);
-       MindPlus.setSize(60,40);
-       DefensePlus.setSize(60,40);
-       DexterityPlus.setSize(60,40);
+       StrengthPlus.setSize(60,30);
+       StaminaPlus.setSize(60,30);
+       IntelligencePlus.setSize(60,30);
+       MindPlus.setSize(60,30);
+       DefensePlus.setSize(60,30);
+       DexterityPlus.setSize(60,30);
+       AgilityPlus.setSize(60,30);
        //-----------------------------
        SkillPoints.setSize(150,50);
        SkillPointsD.setSize(100,50);
        //-----------------------------
        Unequip.setSize(150,40);
        
-       StrengthModifier.setSize(60,40);
-       StaminaModifier.setSize(60,40);
-       IntelligenceModifier.setSize(60,40);
-       MindModifier.setSize(60,40);
-       DefenseModifier.setSize(60,40);
-       DexterityModifier.setSize(60,40);
+       StrengthModifier.setSize(100,30);
+       StaminaModifier.setSize(100,30);
+       IntelligenceModifier.setSize(100,30);
+       MindModifier.setSize(100,30);
+       DefenseModifier.setSize(100,30);
+       DexterityModifier.setSize(100,30);
+       AgilityModifier.setSize(100,30);
          
        
        //Equipment Panel 2 Buttons Sizes
@@ -303,34 +297,38 @@ public class StatEqItPanel extends JTabbedPane
       
 
        //-----------------------------------
-       Strength.setLocation(5,10);
+       Strength.setLocation(5,20);
        Stamina.setLocation(5,60);
-       Mind.setLocation(5,110);
-       Intelligence.setLocation(5,160);
-       Defense.setLocation(5,210);
-       Dexterity.setLocation(5,260);
+       Mind.setLocation(5,100);
+       Intelligence.setLocation(5,140);
+       Defense.setLocation(5,180);
+       Dexterity.setLocation(5,220);
+       Agility.setLocation(5,260);
        //-----------------------------------
-       StrengthD.setLocation(155,10);
-       StaminaD.setLocation(155,60);
-       MindD.setLocation(155,110);
-       IntelligenceD.setLocation(155,160);
-       DefenseD.setLocation(155,210);
-       DexterityD.setLocation(155,260);
+       StrengthD.setLocation(215,20);
+       StaminaD.setLocation(215,60);
+       MindD.setLocation(215,100);
+       IntelligenceD.setLocation(215,140);
+       DefenseD.setLocation(215,180);
+       DexterityD.setLocation(215,220);
+       AgilityD.setLocation(215,260);
        //-----------------------------------
-       StrengthModifier.setLocation(255,10);
-       StaminaModifier.setLocation(255,60);
-       MindModifier.setLocation(255,110);
-       IntelligenceModifier.setLocation(255,160);
-       DefenseModifier.setLocation(255,210);
-       DexterityModifier.setLocation(255,260);
+       StrengthModifier.setLocation(115,20);
+       StaminaModifier.setLocation(115,60);
+       MindModifier.setLocation(115,100);
+       IntelligenceModifier.setLocation(115,140);
+       DefenseModifier.setLocation(115,180);
+       DexterityModifier.setLocation(115,220);
+       AgilityModifier.setLocation(115,260);
        //----------------------------------
        
-       StrengthPlus.setLocation(315,10);
+       StrengthPlus.setLocation(315,20);
        StaminaPlus.setLocation(315,60);
-       MindPlus.setLocation(315,110);
-       IntelligencePlus.setLocation(315,160);
-       DefensePlus.setLocation(315,210);
-       DexterityPlus.setLocation(315,260);
+       MindPlus.setLocation(315,100);
+       IntelligencePlus.setLocation(315,140);
+       DefensePlus.setLocation(315,180);
+       DexterityPlus.setLocation(315,220);
+       AgilityPlus.setLocation(315,260);
        
        SkillPoints.setLocation(50,310);
        SkillPointsD.setLocation(195,310);
@@ -377,6 +375,8 @@ public class StatEqItPanel extends JTabbedPane
        Mind.setBackground(Color.yellow);
        Defense.setBackground(Color.yellow);
        Dexterity.setBackground(Color.yellow);
+       Agility.setBackground(Color.yellow);
+       //--------------------------------------
        SkillPoints.setBackground(Color.orange);
        //-------------------------------------
        SkillPointsD.setBackground(Color.orange);
@@ -386,6 +386,7 @@ public class StatEqItPanel extends JTabbedPane
        DefensePlus.setBackground(Color.red);
        MindPlus.setBackground(Color.red);
        DexterityPlus.setBackground(Color.red);
+       AgilityPlus.setBackground(Color.red);
        //-------------------------------------
        StrengthPlus.setForeground(Color.white);
        StaminaPlus.setForeground(Color.white);
@@ -393,13 +394,15 @@ public class StatEqItPanel extends JTabbedPane
        DefensePlus.setForeground(Color.white);
        MindPlus.setForeground(Color.white);
        DexterityPlus.setForeground(Color.white);
-       
+       AgilityPlus.setForeground(Color.white);
+       //--------------------------------------
        StrengthModifier.setBackground(Color.green);
        StaminaModifier.setBackground(Color.green);
        IntelligenceModifier.setBackground(Color.green);
        DefenseModifier.setBackground(Color.green);
        MindModifier.setBackground(Color.green);
        DexterityModifier.setBackground(Color.green);
+       AgilityModifier.setBackground(Color.green);
        
        IDamage.setBackground(Color.yellow);
        ISpeed.setBackground(Color.yellow);
@@ -461,6 +464,7 @@ public class StatEqItPanel extends JTabbedPane
        StatsPanel.add(Intelligence);
        StatsPanel.add(Defense);
        StatsPanel.add(Dexterity);
+       StatsPanel.add(Agility);
        //--------------------------
        StatsPanel.add(StrengthD);
        StatsPanel.add(StaminaD);
@@ -468,6 +472,7 @@ public class StatEqItPanel extends JTabbedPane
        StatsPanel.add(IntelligenceD);
        StatsPanel.add(DefenseD);
        StatsPanel.add(DexterityD);
+       StatsPanel.add(AgilityD);
        //--------------------------
        StatsPanel.add(StrengthPlus);
        StatsPanel.add(StaminaPlus);
@@ -475,6 +480,7 @@ public class StatEqItPanel extends JTabbedPane
        StatsPanel.add(IntelligencePlus);
        StatsPanel.add(DefensePlus);
        StatsPanel.add(DexterityPlus);
+       StatsPanel.add(AgilityPlus);
        
        StatsPanel.add(StrengthModifier);
        StatsPanel.add(StaminaModifier);
@@ -482,6 +488,7 @@ public class StatEqItPanel extends JTabbedPane
        StatsPanel.add(IntelligenceModifier);
        StatsPanel.add(DefenseModifier);
        StatsPanel.add(DexterityModifier);
+       StatsPanel.add(AgilityModifier);
        //--------------------------
        StatsPanel.add(SkillPoints);
        StatsPanel.add(SkillPointsD);
@@ -569,7 +576,7 @@ public class StatEqItPanel extends JTabbedPane
         IntelligencePlus.addActionListener(phandler);
         DefensePlus.addActionListener(phandler);
         DexterityPlus.addActionListener(phandler);
-        SkillPointsD.addActionListener(phandler);
+        AgilityPlus.addActionListener(phandler);
         
         IWeapon.addActionListener(phandler);
         IArmor.addActionListener(phandler);
@@ -578,14 +585,13 @@ public class StatEqItPanel extends JTabbedPane
         IShield.addActionListener(phandler);
         IEquip.addActionListener(phandler);
         IUse.addActionListener(phandler);
-        
         setVisible(true);
        updatePanel();
     }
     
 
     //UPDATE EVERYTHING ON THIS PANEL!!!!!!!
-    private void updatePanel() 
+    public void updatePanel() 
     {
     	StrengthD.setText(Integer.toString(Game.PLAYER.getStrength()));
     	StaminaD.setText(Integer.toString(Game.PLAYER.getStamina()));
@@ -593,12 +599,64 @@ public class StatEqItPanel extends JTabbedPane
     	IntelligenceD.setText(Integer.toString(Game.PLAYER.getIntelligence()));
     	DefenseD.setText(Integer.toString(Game.PLAYER.getDefense()));
     	DexterityD.setText(Integer.toString(Game.PLAYER.getDexterity()));
+    	AgilityD.setText(Integer.toString(Game.PLAYER.getAgility()));
+    	//-------------------------------------------------------------------
+    	SkillPointsD.setText(Integer.toString(Game.PLAYER.getSkillPoints()));
+    	//-------------------------------------------------------------------
+    	StrengthModifier.setText(Integer.toString(Game.PLAYER.getCurrentStrength()));
+    	StaminaModifier.setText(Integer.toString(Game.PLAYER.getCurrentStamina()));
+    	MindModifier.setText(Integer.toString(Game.PLAYER.getCurrentMind()));
+    	IntelligenceModifier.setText(Integer.toString(Game.PLAYER.getCurrentIntelligence()));
+    	DefenseModifier.setText(Integer.toString(Game.PLAYER.getCurrentDefense()));
+    	DexterityModifier.setText(Integer.toString(Game.PLAYER.getCurrentDexterity()));
+    	AgilityModifier.setText(Integer.toString(Game.PLAYER.getCurrentAgility()));
+    	
+    	if((TowerOfTime.GAME.PLAYER.getSkillPoints()) > 0)
+		{
+    		StrengthPlus.setEnabled(true);
+    		StaminaPlus.setEnabled(true);
+    		IntelligencePlus.setEnabled(true);
+    		MindPlus.setEnabled(true);
+    		DefensePlus.setEnabled(true);
+    		DexterityPlus.setEnabled(true);
+    		AgilityPlus.setEnabled(true);
+    		
+    		StrengthPlus.setBackground(Color.red);
+    		StaminaPlus.setBackground(Color.red);
+    		IntelligencePlus.setBackground(Color.red);
+    		MindPlus.setBackground(Color.red);
+    		DefensePlus.setBackground(Color.red);
+    		SkillPointsD.setBackground(Color.orange);
+    		SkillPoints.setBackground(Color.orange);
+    		DexterityPlus.setBackground(Color.red);
+    		AgilityPlus.setBackground(Color.red);
+		}
+    	if((TowerOfTime.GAME.PLAYER.getSkillPoints()) == 0)
+		{
+		StrengthPlus.setEnabled(false);
+		StaminaPlus.setEnabled(false);
+		IntelligencePlus.setEnabled(false);
+		MindPlus.setEnabled(false);
+		DefensePlus.setEnabled(false);
+		DexterityPlus.setEnabled(false);
+		AgilityPlus.setEnabled(false);
+		
+		StrengthPlus.setBackground(Color.gray);
+		StaminaPlus.setBackground(Color.gray);
+		IntelligencePlus.setBackground(Color.gray);
+		MindPlus.setBackground(Color.gray);
+		DefensePlus.setBackground(Color.gray);
+		SkillPointsD.setBackground(Color.gray);
+		SkillPoints.setBackground(Color.gray);
+		DexterityPlus.setBackground(Color.gray);
+		AgilityPlus.setBackground(Color.gray);
+		}
     	
     }
     //EVERYTHING ABOVE THIS IS IMPORTANT!!!!
     
     
-	class ButtonHandler implements ActionListener
+	public class ButtonHandler implements ActionListener
     {
            public void actionPerformed(ActionEvent e)
            {
@@ -870,69 +928,43 @@ public class StatEqItPanel extends JTabbedPane
         		}
         		
         		////////////STATS\\\\\\\\\\\\\\\\\
-        		if(e.getSource() == StrengthPlus)
+        		if((TowerOfTime.GAME.PLAYER.getSkillPoints()) > 0)
         		{
-        		if(skillPoints > 0)
-        		{
-        		skillPoints --;
-        		strengthPoints ++;
-        		}
-
-        	    }
+        		if(e.getSource() == StrengthPlus){TowerOfTime.GAME.PLAYER.setStrength(TowerOfTime.GAME.PLAYER.getStrength()+1);
+        		TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("You have chose to increase STRENGTH! (+1)");}
         		
-        		if(e.getSource() == StaminaPlus)
-        		{
-        		if(skillPoints > 0)
-            		{
-            		skillPoints --;
-            		staminaPoints ++;
-            		}
-        	    }
+        		if(e.getSource() == StaminaPlus){TowerOfTime.GAME.PLAYER.setStamina(TowerOfTime.GAME.PLAYER.getStamina()+1);
+        		TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("You have chose to increase STAMINA! (+1)");
+        		TowerOfTime.GAME.PLAYER.setMaxHp(TowerOfTime.GAME.PLAYER.getMaxHp()+ TowerOfTime.GAME.PLAYER.getStamina()/3);}
         		
-        		if(e.getSource() == IntelligencePlus)
-        		{
-        			if(skillPoints > 0)
-            		{
-            		skillPoints --;
-            		intelligencePoints ++;
-            		}
-        	    }
+        		if(e.getSource() == IntelligencePlus){TowerOfTime.GAME.PLAYER.setIntelligence(TowerOfTime.GAME.PLAYER.getIntelligence()+1);
+        		TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("You have chose to increase INTELLIGENCE! (+1)");}
         		
-        		if(e.getSource() == MindPlus)
-        		{
-        			if(skillPoints > 0)
-            		{
-            		skillPoints --;
-            		mindPoints ++;
-            		}
+        		if(e.getSource() == MindPlus){TowerOfTime.GAME.PLAYER.setMind(TowerOfTime.GAME.PLAYER.getMind()+1);
+        		TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("You have chose to increase MIND! (+1)");
+        		TowerOfTime.GAME.PLAYER.setMaxMp(TowerOfTime.GAME.PLAYER.getMaxMp()+ TowerOfTime.GAME.PLAYER.getMind()/3);}
+        		
+        		if(e.getSource() == DefensePlus){TowerOfTime.GAME.PLAYER.setDefense(TowerOfTime.GAME.PLAYER.getDefense()+1);
+        		TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("You have chose to increase DEFENSE! (+1)");}
             	
-        	    }
-    
-        		if(e.getSource() == DefensePlus)
-        		{
-        			if(skillPoints > 0)
-            		{
-            		skillPoints --;
-            		defensePoints ++;
-            		}
+        		if(e.getSource() == DexterityPlus){TowerOfTime.GAME.PLAYER.setDexterity(TowerOfTime.GAME.PLAYER.getDexterity()+1);
+        		TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("You have chose to increase DEXTERITY! (+1)");}
+            	
+        		if(e.getSource() == AgilityPlus){TowerOfTime.GAME.PLAYER.setAgility(TowerOfTime.GAME.PLAYER.getAgility()+1);
+        		TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("You have chose to increase AGILITY! (+1)");}
+        		
+        		TowerOfTime.GAME.PLAYER.setSkillPoints(TowerOfTime.GAME.PLAYER.getSkillPoints() -1);
+        		
+        		TowerOfTime.GAME.THEGAMEFRAME.update();
         		}
-            	if(e.getSource() == DexterityPlus)
-            	{
-            	if(skillPoints > 0)
-                {
-                skillPoints --;
-                defensePoints ++;
-                }
-        	    }
-        		if(skillPoints == 0)
+        		
+            	if((TowerOfTime.GAME.PLAYER.getSkillPoints()) == 0)
         		{
         		StrengthPlus.setEnabled(false);
         		StaminaPlus.setEnabled(false);
         		IntelligencePlus.setEnabled(false);
         		MindPlus.setEnabled(false);
         		DefensePlus.setEnabled(false);
-        		SkillPointsD.setEnabled(false);
-        		SkillPoints.setEnabled(false);
         		DexterityPlus.setEnabled(false);
         		
         		StrengthPlus.setBackground(Color.gray);
@@ -943,14 +975,9 @@ public class StatEqItPanel extends JTabbedPane
         		SkillPointsD.setBackground(Color.gray);
         		SkillPoints.setBackground(Color.gray);
         		DexterityPlus.setBackground(Color.gray);
+        		TowerOfTime.GAME.THEGAMEFRAME.update();
         		}
         		   
-        		  // StrengthD.setText(String.valueOf(strengthPoints));
-        	       StaminaD.setText(String.valueOf(staminaPoints));
-        	       IntelligenceD.setText(String.valueOf(intelligencePoints));
-        	       MindD.setText(String.valueOf(mindPoints));
-        	       DefenseD.setText(String.valueOf(defensePoints));
-        	       SkillPointsD.setText(String.valueOf(skillPoints));
            //////////////BACKPACK\\\\\\\\\\\\
 
            if(e.getSource() == IWeapon)

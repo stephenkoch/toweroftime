@@ -114,8 +114,48 @@ public class Player extends Character
 			this.mind += 2;
 		}
 	}
-	
-			
+	public void updateCurrentStats() {
+		//TODO WHEN ARMOR IS IMPLEMENTED FIX THIS TO ADD THEARMOR/WEAPON/ACCESSORY BONUS
+		this.currentAgility = super.agility;
+		this.currentDefense = super.defense;
+		this.currentDexterity = super.dexterity;
+		this.currentIntelligence = super.intelligence;
+		this.currentMind = super.mind;
+		this.currentStamina = super.stamina;
+		this.currentStrength = super.strength;
+	}
+	private void levelUp() 
+	{
+		level++;
+		TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("+--=-=-=-=-=-LEVEL UP-=-=-=-=-=--+");
+		TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("+--=-=-=-=-=-LEVEL  "+level+"-=-=-=-=-=--+");
+		maxHp += stamina/3;
+		maxMp += mind/3;
+		maxExp = (level * 100);
+		
+		exp = 0;
+		hp = maxHp;
+		mp = maxMp;
+		TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("HP Increased by "+(stamina/3)+" ---> "+maxHp);
+		TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("MP Increased by "+(mind/3)+" ---> "+maxMp);
+		strength++; TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("STR Increased by 1 ---> "+strength);
+		stamina++; TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("STA Increased by 1 ---> "+stamina);
+		dexterity++; TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("DEX Increased by 1 ---> "+dexterity);
+		intelligence++; TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("INT Increased by 1 ---> "+intelligence);
+		mind ++; TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("MND Increased by 1 ---> "+mind);
+		defense++; TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("DEF Increased by 1 ---> "+defense);
+		agility++; TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("AGL Increased by 1 ---> "+agility);
+		
+		skillPoints += 2;
+		TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("You have "+skillPoints +" stat point to increase a stat!");
+		TowerOfTime.GAME.THEGAMEFRAME.update();
+		}
+	public void shouldLevelUp() {
+		if((this.exp >= maxExp))
+		{
+			this.levelUp();
+		}
+	}
 		
 	
 }

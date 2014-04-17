@@ -154,19 +154,15 @@ public class MapPanel extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
        if(e.getSource()==east) {
     	   m.movePlayer(1);
-    	   TowerOfTime.GAME.THEGAMEFRAME.PANELE.actionLog.addElement("You moved east.");
        }
        else if (e.getSource()==south) {
     	   m.movePlayer(2);
-    	   TowerOfTime.GAME.THEGAMEFRAME.PANELE.actionLog.addElement("You moved south.");
        }
        else if (e.getSource()==west) {
     	   m.movePlayer(3);
-    	   TowerOfTime.GAME.THEGAMEFRAME.PANELE.actionLog.addElement("You moved west.");
        }
        else {
     	   m.movePlayer(0);
-    	   TowerOfTime.GAME.THEGAMEFRAME.PANELE.actionLog.addElement("You moved north.");
        }
         TowerOfTime.GAME.THEGAMEFRAME.update();
     }

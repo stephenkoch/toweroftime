@@ -98,10 +98,8 @@ public class Combat {
 	{
 		int exp = enemy.getLevel() * 10;
 		TowerOfTime.GAME.PLAYER.setExp((TowerOfTime.GAME.PLAYER.getExp()+ exp));
-		TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog(Integer.toString(TowerOfTime.GAME.PLAYER.getExp()+ exp));
 		TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("You have gained " + exp + " experience!");
 		TowerOfTime.GAME.PLAYER.shouldLevelUp();
-
 	}
 	public Character getEnemy() {return enemy;}
 }

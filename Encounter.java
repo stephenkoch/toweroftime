@@ -51,27 +51,27 @@ public class Encounter {
 		Character opp;
 		switch(s) {
 			case 1: {
-				opp = new LegendaryEnemy("Thor", "Asgardian God", 15, 80, 40, 40, 35, 30, 35);
+				opp = EnemyCatalog.KoboldDefender;
 				break;
 			}
 			case 2: {
-				opp = new LegendaryEnemy("Brodin", "Swohella God", 15, 80, 40, 40, 35, 30, 35);
+				opp = EnemyCatalog.GoblinAssassin;
 				break;
 			}
 			default: 
 			{
 				if(s > 500) {
 					//String name, String race,level,hp,str,dex,sta,inte,def
-					opp = new Enemy(null, "Goblin", 3, 2, 2, 2, 2, 1, 2);
+					opp = EnemyCatalog.KoboldDefender;
 				}
 				else if (s > 250)
 				{
-					opp = new Enemy(null, "Kobold", 2, 2, 2, 1, 1, 1, 2);
+					opp = EnemyCatalog.KoboldMarauder;
 				}
 				else if (s > 100)
-					opp = new Enemy(null, "Rat",1,1,1,1,0,0,0);
+					opp = EnemyCatalog.Rat;
 				else
-					opp = new Enemy(null, "Spider",1,1,0,2,0,0,0);
+					opp = EnemyCatalog.Spider;
 			}
 		}
 		return opp;

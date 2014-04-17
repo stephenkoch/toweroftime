@@ -192,25 +192,25 @@ public class Map {
 				playerLocation.y-=1;
 			//TODO: ????redisplay board????
 					//	HOW?!?!?
+		    	TowerOfTime.GAME.THEGAMEFRAME.PANELE.actionLog.addElement("You moved north.");
 			break;
 			case 1: //EAST
 				moveTo = prev.getEast();
 				moveTo.setDiscoveredTrue();
 				playerLocation.x+=1;
-				
+				TowerOfTime.GAME.THEGAMEFRAME.PANELE.actionLog.addElement("You moved east.");
 			break;
 			case 2: //SOUTH
 				moveTo = prev.getSouth();
 				moveTo.setDiscoveredTrue();
 				playerLocation.y+=1;
-
+		    	TowerOfTime.GAME.THEGAMEFRAME.PANELE.actionLog.addElement("You moved south.");
 			break;
 			case 3: //WEST
 				moveTo = prev.getWest();
 				moveTo.setDiscoveredTrue();
 				playerLocation.x-=1;
-				
-
+				TowerOfTime.GAME.THEGAMEFRAME.PANELE.actionLog.addElement("You moved west.");
 			break;
 			}
 		}

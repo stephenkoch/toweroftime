@@ -3,6 +3,8 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -12,7 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import static java.lang.System.out;
 
-public class MapPanel extends JPanel implements ActionListener{
+public class MapPanel extends JPanel implements ActionListener, KeyListener{
 
 	protected Map m;
 	JLabel mapPanelBackground;
@@ -31,7 +33,7 @@ public class MapPanel extends JPanel implements ActionListener{
 	public MapPanel(Map m, Game g) {
 		this.m=m;
 		GAME = g;
-		setBounds(0, 560, 510, 400);
+		setBounds(0, 560, 400, 400);
 		JPanel left = makeMapLeft();
 		JPanel right = makeRight();
 
@@ -43,13 +45,13 @@ public class MapPanel extends JPanel implements ActionListener{
 		    east.addActionListener(this);     
 		    south.addActionListener(this); 
 		    west.addActionListener(this);  
-			north.setBounds(100,20,60,80);
+			north.setBounds(90,20,60,80);
 			north.setContentAreaFilled(false); north.setBorderPainted(false);
-			west.setBounds(10,70,90,60);
+			west.setBounds(0,70,90,60);
 			west.setContentAreaFilled(false); west.setBorderPainted(false);
-			east.setBounds(160,70,90,60);
+			east.setBounds(150,70,90,60);
 			east.setContentAreaFilled(false); east.setBorderPainted(false);
-			south.setBounds(100,120,60,80);
+			south.setBounds(90,120,60,80);
 			south.setContentAreaFilled(false); south.setBorderPainted(false);   
 
 		setLayout(null);
@@ -72,6 +74,7 @@ public class MapPanel extends JPanel implements ActionListener{
 		r.add(east);
 		r.add(south);
 		r.add(west);
+		r.addKeyListener(this);
 		//end Direction Panel
 		return r;
 	}
@@ -140,6 +143,7 @@ public class MapPanel extends JPanel implements ActionListener{
 
 
 	public void updateMap(){
+		if (!TowerOfTime.GAME.inCombat) {
 		this.setVisible(false);
 		this.removeAll();
 		left = makeMapLeft();
@@ -149,6 +153,26 @@ public class MapPanel extends JPanel implements ActionListener{
 		add(left);
 		add(right);
 		this.setVisible(true);
+		north.setEnabled(true);
+		south.setEnabled(true);
+		east.setEnabled(true);
+		west.setEnabled(true);
+		}
+		else if (TowerOfTime.GAME.inCombat) {
+			this.setVisible(false);
+			this.removeAll();
+			left = makeMapLeft();
+			right = makeRight();
+			left.setBounds(0,0,210,210);
+			right.setBounds(210,0,300,200);
+			add(left);
+			add(right);
+			this.setVisible(true);
+			north.setEnabled(false);
+			south.setEnabled(false);
+			east.setEnabled(false);
+			west.setEnabled(false);
+		}
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -166,4 +190,34 @@ public class MapPanel extends JPanel implements ActionListener{
        }
         TowerOfTime.GAME.THEGAMEFRAME.update();
     }
+	@Override
+	public void keyTyped(KeyEvent e) {
+	    int keyCode = e.getKeyCode();
+	    if (!TowerOfTime.GAME.inCombat) {
+	    	switch( keyCode ) { 
+	    		case KeyEvent.VK_UP:
+	    			// handle up 
+	    			break;
+	    		case KeyEvent.VK_DOWN:
+	    			// handle down 
+	    			break;
+	    		case KeyEvent.VK_LEFT:
+	    			// handle left
+	    			break;
+	    		case KeyEvent.VK_RIGHT :
+	    			// handle right
+	    			break;
+	    	}
+	    }
+	}
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 }

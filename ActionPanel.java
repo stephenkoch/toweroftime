@@ -1,4 +1,6 @@
 import java.awt.Color;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -12,7 +14,7 @@ import javax.swing.JScrollPane;
 
 
 @SuppressWarnings("serial")
-public class ActionPanel extends JPanel implements MouseListener{
+public class ActionPanel extends JPanel implements MouseListener, KeyListener{
 
 	
 	JButton attackButton;
@@ -27,29 +29,27 @@ public class ActionPanel extends JPanel implements MouseListener{
 	ActionPanel(Game g) 
 	{
 	
-		setBounds(510,600,690, 200);
+		setBounds(410,600,800, 190);
 		setLayout(null);
 		setBackground(Color.gray);
 		
-
-		
 		attackButton = new JButton("Attack");
-		attackButton.setLocation(45, 25);
-		attackButton.setSize(150,50);
-		attackButton.setVisible(false);
+		attackButton.setLocation(10, 20);
+		attackButton.setSize(120,50);
+		attackButton.setVisible(true);
 		attackButton.addMouseListener(this);
 		attackButton.setBackground(Color.yellow);
 		
 		spellsButton = new JButton("Spells");
-		spellsButton.setLocation(270, 25);
-		spellsButton.setSize(150,50);
-		spellsButton.setVisible(false);
+		spellsButton.setLocation(10, 75);
+		spellsButton.setSize(120,50);
+		spellsButton.setVisible(true);
 		spellsButton.setBackground(Color.yellow);
 		
 		itemsButton = new JButton("Items");
-		itemsButton.setLocation(495, 25);
-		itemsButton.setSize(150,50);
-		itemsButton.setVisible(false);
+		itemsButton.setLocation(10, 130);
+		itemsButton.setSize(120,50);
+		itemsButton.setVisible(true);
 		itemsButton.setBackground(Color.yellow);
 		
 		
@@ -57,7 +57,7 @@ public class ActionPanel extends JPanel implements MouseListener{
 		actionLogList = new JList(actionLog);
 		actionLogScroll = new JScrollPane(actionLogList);
 		actionLogScroll.setSize(650, 160);
-		actionLogScroll.setLocation(20, 20);
+		actionLogScroll.setLocation(140, 20);
 		actionLogScroll.setVisible(true);
 		
 		//actionLogScroll.set
@@ -68,6 +68,7 @@ public class ActionPanel extends JPanel implements MouseListener{
 		add(spellsButton);
 		add(itemsButton);
 		add(actionLogScroll);
+		addKeyListener(this);
 		
 		
 		setVisible(true);
@@ -75,18 +76,14 @@ public class ActionPanel extends JPanel implements MouseListener{
 	public void updatePanel() 
 	{
 		if(TowerOfTime.GAME.inCombat) {
-			attackButton.setVisible(true);
-			spellsButton.setVisible(true);
-			itemsButton.setVisible(true);
-			actionLogScroll.setSize(650, 80);
-			actionLogScroll.setLocation(20, 100);
+			attackButton.setEnabled(true);
+			spellsButton.setEnabled(true);
+			itemsButton.setEnabled(true);
 		}
 		else if (!TowerOfTime.GAME.inCombat) {
-			attackButton.setVisible(false);
-			spellsButton.setVisible(false);
-			itemsButton.setVisible(false);
-			actionLogScroll.setSize(650, 160);
-			actionLogScroll.setLocation(20, 20);
+			attackButton.setEnabled(false);
+			spellsButton.setEnabled(false);
+			itemsButton.setEnabled(false);
 		}
 		JScrollBar vertical = actionLogScroll.getVerticalScrollBar(); 
 		vertical.setValue(vertical.getMaximum());
@@ -105,7 +102,9 @@ public class ActionPanel extends JPanel implements MouseListener{
 	public void mouseClicked(MouseEvent e) {
 		if (e.getSource() == attackButton) {
 			//Attack
-			attack();
+			if (TowerOfTime.GAME.inCombat){
+				attack();
+			}
 		}
 		
 	}
@@ -126,6 +125,24 @@ public class ActionPanel extends JPanel implements MouseListener{
 	}
 	@Override
 	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void keyTyped(KeyEvent e) {
+		if (e.getKeyChar() == 'A' || e.getKeyChar() == 'a') {
+			if (TowerOfTime.GAME.inCombat) {
+				attack();
+			}
+		}	
+	}
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -45,6 +45,7 @@ public class GameFrame extends JFrame implements ActionListener{
 		PANELE.updatePanel();
 		//PANELE.actionLogList.set
 		TowerOfTime.GAME.PLAYER.updateCurrentStats();
+		PANELE.updatePanel();
 	}
 
 	public void actionPerformed(ActionEvent e) {

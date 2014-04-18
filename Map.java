@@ -181,7 +181,7 @@ public class Map {
 		DungeonRoom prev = grid[playerLocation.x][playerLocation.y];
 		
 		DungeonRoom moveTo;
-		if(prev.getExits(i)){//there is a door there
+		if(prev.getExits(i)) {//there is a door there
 			switch(i){//which door is it?
 			case 0: //NORTH
 				moveTo = prev.getNorth();
@@ -213,8 +213,11 @@ public class Map {
 				TowerOfTime.GAME.THEGAMEFRAME.PANELE.actionLog.addElement("You moved west.");
 			break;
 			}
+			grid[playerLocation.x][playerLocation.y].engage();
 		}
-		grid[playerLocation.x][playerLocation.y].engage();
+		else if(!prev.getExits(i)) {
+			TowerOfTime.GAME.THEGAMEFRAME.PANELE.actionLog.addElement("There is a wall there.");
+		}
 	}	
 
 	public DungeonRoom get(int x, int y){

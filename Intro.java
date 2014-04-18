@@ -207,75 +207,76 @@ public class Intro extends JFrame implements ActionListener
 	      {
 	      Next.setVisible(true);
 	      Game.PLAYER.setName(Name.getText());
-	      Text.setText("He laughs before stating, Your voice is rather high pitched, pardon my intrusion, but are you male or female?");
-	      //hid the next button
-	      Next.setSize(0,0);
+	      Text.setText(" He exclaims, Excellent! Using my intuition, I can say that you are an Elf. Am I correct?");
+	      // Selecting the race of the player
+	       HUMAN.setSize(100,20);
+	       ELF.setSize(100,20);
+	       DWARF.setSize(100,20);
+	       GNOME.setSize(100,20);
+	       HALFLING.setSize(100,20);
+	       ORC.setSize(100,20);
 
-	      //Make Male and Female appear on screen
-	       M.setSize(80,20);
-           F.setSize(80,20);
-           M.setLocation(100,90);
-           F.setLocation(10,90);
-           TextBox.add(M);
-		   TextBox.add(F);
-		   M.setVisible(true);
-		   F.setVisible(true);
+	       HUMAN.setLocation(10,90);
+	       ELF.setLocation(120,90);
+	       DWARF.setLocation(230,90);
+	       GNOME.setLocation(340,90);
+	       HALFLING.setLocation(450,90);
+	       ORC.setLocation(560,90);
+
+	       HUMAN.setVisible(true);
+	       ELF.setVisible(true);
+	       DWARF.setVisible(true);
+	       GNOME.setVisible(true);
+	       HALFLING.setVisible(true);
+	       ORC.setVisible(true);
+
+	       TextBox.add(HUMAN);
+	       TextBox.add(ELF);
+	       TextBox.add(DWARF);
+	       TextBox.add(GNOME);
+	       TextBox.add(HALFLING);
+	       TextBox.add(ORC);
 		   
 	      }
 
 	      if(NextText == 5)
-	      {    
-	      TowerOfTime.GAME.PLAYER.setGender(sex);
-	      Text.setText(" He exclaims, Excellent! Using my intuition, I can say that you are an Elf. Am I correct?");
-	      // Selecting ethnicity 
-	       ELF.setSize(80,20);
-	       ORC.setSize(80,20);
-	       HUMAN.setSize(100,20);
-	       DWARF.setSize(80,20);
-	       GNOME.setSize(80,20);
-	       HALFLING.setSize(120,20);
+	      {  
+	    	  Text.setText("He laughs before stating, Your voice is rather high pitched, pardon my intrusion, but are you male or female?");
+		      //hid the next button
+		      Next.setSize(0,0);
 
-	       ELF.setLocation(10,90);
-	       ORC.setLocation(100,90);
-	       HUMAN.setLocation(200,90);
-	       DWARF.setLocation(320,90);
-	       GNOME.setLocation(420,90);
-	       HALFLING.setLocation(520,90);
-
-	       ELF.setVisible(true);
-	       ORC.setVisible(true);
-	       HUMAN.setVisible(true);
-	       DWARF.setVisible(true);
-	       GNOME.setVisible(true);
-	       HALFLING.setVisible(true);
-
-	       TextBox.add(ELF);
-	       TextBox.add(ORC);
-	       TextBox.add(HUMAN);
-	       TextBox.add(DWARF);
-	       TextBox.add(GNOME);
-	       TextBox.add(HALFLING);
-
+		      //Make Male and Female appear on screen
+		       M.setSize(80,20);
+	           F.setSize(80,20);
+	           M.setLocation(10,90);
+	           F.setLocation(100,90);
+	           TextBox.add(M);
+			   TextBox.add(F);
+			   M.setVisible(true);
+			   F.setVisible(true);
+	     
 	      }
 
 	      if(NextText ==6){
+		      TowerOfTime.GAME.PLAYER.setGender(sex);
+
 	    	  Text.setText("He responds, Ah, I see... What do you do for a living? You seem quite classy.");
 
+	    	   WARRIOR.setSize(120,20);
 	    	   MARKSMAN.setSize(120,20);
 		       MAGE.setSize(120,20);
-		       WARRIOR.setSize(120,20);
-
-		       MARKSMAN.setLocation(10,90);
-		       MAGE.setLocation(140,90);
-		       WARRIOR.setLocation(270,90);
-
+		       
+		       WARRIOR.setLocation(10,90);
+		       MARKSMAN.setLocation(140,90);
+		       MAGE.setLocation(270,90);
+		       
+		       WARRIOR.setVisible(true);
 		       MARKSMAN.setVisible(true);
 		       MAGE.setVisible(true);
-		       WARRIOR.setVisible(true);
 
+		       TextBox.add(WARRIOR);
 		       TextBox.add(MARKSMAN);
 		       TextBox.add(MAGE);
-		       TextBox.add(WARRIOR);
 	      }
 
 	      if(NextText == 7)
@@ -283,6 +284,7 @@ public class Intro extends JFrame implements ActionListener
 	    	  dispose();
 	    	  try {
 				GAME.THEGAMEFRAME = new GameFrame(GAME);
+				GAME.THEGAMEFRAME.update();
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

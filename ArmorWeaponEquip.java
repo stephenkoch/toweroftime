@@ -1,30 +1,32 @@
-
-public class ArmorWeaponEquip {
-	private Armor helmet; //Slot 0
-	private Armor chest; //Slot 1
-	private Armor legs; //Slot 2
-	private Armor hands; //Slot 3
-	private Armor feet; //Slot 4
-	private Armor shield; //Slot 5
-	private Weapon weapon; //Slot 6
-	private Accessory amulet; //Slot 7
-	private Accessory ring1; //Slot 8
-	private Accessory ring2; //Slot 9
-	private Accessory belt; //Slot 10
+public class ArmorWeaponEquip 
+{
+	private Armor helmet; //Slot Helmet
+	private Armor chest; //Slot Chest
+	private Armor legs; //Slot Legs
+	private Armor hands; //Slot Hands
+	private Armor feet; //Slot Feet
+	private Armor shield; //Slot Shield
+	private Weapon weapon; //Slot Weapon
+	private Accessory amulet; //Slot Amulet
+	private Accessory ring1; //Slot Ring1
+	private Accessory ring2; //Slot Ring2
+	private Accessory belt; //Slot Belt
 	
-	private Armor noHelmet = new Armor("No Helmet Equipped", "You are headless!", 0, 0);
-	private Armor noChest = new Armor("No Cuirass Equipped", "You have nothing equipped", 1, 0);
-	private Armor noLegs = new Armor("No Greaves Equipped", "Try running...", 2, 0);
-	private Armor noHands = new Armor("No Gloves Equipped", "You are bare handed", 3, 0);
-	private Armor noFeet = new Armor("No Boots Equipped", "You have nothing equipped", 4, 0);
-	private Armor noShield = new Armor("No Shield Equipped", "You have nothing equipped", 5, 0);
-	private Weapon noWeapon = new Weapon("No Weapon Equipped", "Fight with your fists!", 6, 0, 0);
-	private Accessory noAmulet = new Accessory("No Amulet Equipped", "No Bling!", 7, "No effect",  0);
-	private Accessory noRing1 = new Accessory("No Ring Equipped", "Single and loving it?", 8, "No effect", 0);
-	private Accessory noRing2 = new Accessory("No Ring Equipped", "You have nothing equipped", 9, "No effect", 0);
-	private Accessory noBelt = new Accessory("No Belt Equipped", "You have nothing equipped", 10, "No effect", 0);
+	private Armor noHelmet = new Armor("No Helmet Equipped", "You are headless!","Helmet", 0);
+	private Armor noChest = new Armor("No Cuirass Equipped", "You have nothing equipped","Chest", 0);
+	private Armor noLegs = new Armor("No Greaves Equipped", "Try running...", "Legs", 0);
+	private Armor noHands = new Armor("No Gloves Equipped", "You are bare handed", "Hands", 0);
+	private Armor noFeet = new Armor("No Boots Equipped", "You have nothing equipped", "Feet", 0);
+	private Armor noShield = new Armor("No Shield Equipped", "You have nothing equipped","Shield", 0);
 	
-	ArmorWeaponEquip() {
+	private Weapon noWeapon = new Weapon("No Weapon Equipped", "Fight with your fists!","Weapon", 0, 0);
+	private Accessory noAmulet = new Accessory("No Amulet Equipped", "No Bling!", "Amulet", "No effect",  0);
+	private Accessory noRing1 = new Accessory("No Ring Equipped", "Single and loving it?", "Ring1", "No effect", 0);
+	private Accessory noRing2 = new Accessory("No Ring Equipped", "You have nothing equipped", "Ring2", "No effect", 0);
+	private Accessory noBelt = new Accessory("No Belt Equipped", "You have nothing equipped", "Belt", "No effect", 0);
+	
+	ArmorWeaponEquip()
+	{
 		helmet = noHelmet;
 		chest = noChest;
 		legs = noLegs;

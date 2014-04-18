@@ -19,18 +19,19 @@ public class GraphicPanel extends JPanel {
 
 	Map m;
 	Game GAME;
-	   public GraphicPanel(Map m, Game g) throws IOException {
+	   public GraphicPanel(Map m, Game g) throws IOException 
+	   {
 		   GAME = g;
 		   this.m=m;
 		   setBounds(410, 10, 800, 600);
 		   setLayout(null);
 		   setVisible(true);
-	}
+	   }
 
 	   public void paintComponent(Graphics g)
 		{
 			super.paintComponent(g);
-			ImageIcon room = new ImageIcon("src/brick room.png");
+			ImageIcon room = new ImageIcon("brick room.png");
 			room.paintIcon(this, g, 0, 0);
 
 			int x,y;
@@ -43,18 +44,21 @@ public class GraphicPanel extends JPanel {
 			   {
 				   if(current.getExits(j))
 				   {
+					   ImageIcon fdoor = new ImageIcon("dooronly.png");
+					   ImageIcon rdoor = new ImageIcon("Rightdoor.png");
+					   ImageIcon ldoor = new ImageIcon("Leftdoor.png");
+					   repaint();
 					   switch(j)
 					   {
 					   case 0: 
-						   ImageIcon fdoor = new ImageIcon("src/dooronly.png");
-							fdoor.paintIcon(this, g, 200, 260);
+						   fdoor.paintIcon(this, g, 200, 260);
 						   break;
 					   case 1:
-						   ImageIcon rdoor = new ImageIcon("src/Rightdoor.png");
+						   
 							rdoor.paintIcon(this, g, 620, 230);
 						   break;
 					   case 3:
-						   ImageIcon ldoor = new ImageIcon("src/Leftdoor.png");
+						   
 							ldoor.paintIcon(this, g, 10, 240);
 						   break;
 					   }

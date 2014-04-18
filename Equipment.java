@@ -1,14 +1,14 @@
-
-public class Equipment extends Item {
-	protected int slot;
+public class Equipment extends Item 
+{
+	protected String slot;
 	
 	Equipment() {}
 	
-	Equipment(String name, String desc, char slot) {
+	Equipment(String name, String desc, String slot) {
 		super.name = name;
 		super.description = desc;
 		this.slot = slot;
 	}
 	
-	public int getSlot(){return this.slot;}
+	public String getSlot(){return this.slot;}
 }

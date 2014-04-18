@@ -29,7 +29,6 @@ public class Character
 	protected int gold;
 	protected int locationX;
 	protected int locationY;
-	protected int skillPoints;
 	protected Equipment equipment;
 	Character() {
 
@@ -44,7 +43,6 @@ public class Character
 		this.backpack = new Pack();
 		this.spellBook = new SpellBook();
 		this.gold = 5;
-		this.skillPoints = 0;
 	}
 
 	public String getName() { return name; }
@@ -69,7 +67,6 @@ public class Character
 	public Pack getPack() { return backpack; }
 	public SpellBook getSpellBook() { return spellBook; }
 	public int getGold() { return gold; }
-	public int getSkillPoints() {return skillPoints;}
 	public int getLocationX() {return locationX;}
 	public int getLocationY() {return locationY;}
 	
@@ -95,7 +92,6 @@ public class Character
 	public void setPack(Pack backpack) { this.backpack = backpack; }	
 	public void setSpellBook(SpellBook book) { this.spellBook = book; }
 	public void setGold(int gold) {this.gold = gold; }
-	public void setSkillPoints(int skillPoints) {this.skillPoints = skillPoints;}
 	public void setLocationX(int x) {this.locationX = x;}
 	public void setLocationY(int y) {this.locationY = y;}
 

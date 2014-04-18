@@ -31,7 +31,7 @@ public class GraphicPanel extends JPanel {
 	   public void paintComponent(Graphics g)
 		{
 			super.paintComponent(g);
-			ImageIcon room = new ImageIcon("brick room.png");
+			ImageIcon room = new ImageIcon("src/brick room.png");
 			room.paintIcon(this, g, 0, 0);
 
 			int x,y;
@@ -44,9 +44,9 @@ public class GraphicPanel extends JPanel {
 			   {
 				   if(current.getExits(j))
 				   {
-					   ImageIcon fdoor = new ImageIcon("dooronly.png");
-					   ImageIcon rdoor = new ImageIcon("Rightdoor.png");
-					   ImageIcon ldoor = new ImageIcon("Leftdoor.png");
+					   ImageIcon fdoor = new ImageIcon("src/dooronly.png");
+					   ImageIcon rdoor = new ImageIcon("src/Rightdoor.png");
+					   ImageIcon ldoor = new ImageIcon("src/Leftdoor.png");
 					   repaint();
 					   switch(j)
 					   {

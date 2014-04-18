@@ -12,7 +12,7 @@ public class Player extends Character
 	private int currentMind;
 	private int currentDefense;
 	private int currentAgility;
-	private int skillPoints;
+	private int skillPoints = 0;
 	
 	Player(String name)
 	{
@@ -48,6 +48,7 @@ public class Player extends Character
 	public void setCurrentMind(int mind) {this.currentMind = mind;}
 	public void setCurrentDefense(int defense) {this.currentDefense = defense;}
 	public void setCurrentAgility(int agility) {this.currentAgility = agility;}
+	public void setSkillPoints(int skillPoints){this.skillPoints = skillPoints;}
 	
 	public int getCurrentStrength() {return currentStrength;}
 	public int getCurrentStamina() {return currentStamina;}
@@ -56,7 +57,7 @@ public class Player extends Character
 	public int getCurrentMind() {return currentMind;}
 	public int getCurrentDefense() {return currentDefense;}
 	public int getCurrentAgility() {return currentAgility;}
-
+    public int getSkillPoints(){return skillPoints;}
 	public void startingStats(String job, String race) 
 	{
 		this.job = job;
@@ -114,7 +115,8 @@ public class Player extends Character
 			this.mind += 2;
 		}
 	}
-	public void updateCurrentStats() {
+	public void updateCurrentStats() 
+	{
 		//TODO WHEN ARMOR IS IMPLEMENTED FIX THIS TO ADD THEARMOR/WEAPON/ACCESSORY BONUS
 		this.currentAgility = super.agility;
 		this.currentDefense = super.defense;
@@ -132,7 +134,6 @@ public class Player extends Character
 		maxHp += stamina/3;
 		maxMp += mind/3;
 		maxExp = (level * 100);
-		
 		exp = 0;
 		hp = maxHp;
 		mp = maxMp;

@@ -31,7 +31,7 @@ public class HealthManaPanel extends JPanel
     JProgressBar HealthBar;
     JProgressBar ManaBar;
     JProgressBar ExpBar;
-    JButton You = new JButton(new ImageIcon(((new ImageIcon("Man.png")).getImage()).getScaledInstance(125,125, java.awt.Image.SCALE_SMOOTH)));  
+    JButton You = new JButton(new ImageIcon(((new ImageIcon("src/Man.png")).getImage()).getScaledInstance(125,125, java.awt.Image.SCALE_SMOOTH)));  
     Game GAME;
 public HealthManaPanel(Game g) 
 {

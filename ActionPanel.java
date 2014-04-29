@@ -103,7 +103,7 @@ public class ActionPanel extends JPanel implements MouseListener, KeyListener{
 		if (e.getSource() == attackButton) {
 			//Attack
 			if (TowerOfTime.GAME.inCombat){
-				attack();
+				this.attack();
 			}
 		}
 		

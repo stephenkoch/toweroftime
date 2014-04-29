@@ -11,51 +11,33 @@ public class SpellBook {
 		spells.add(new Spell("Fire ball", 'a', "Burn your enemy", 8));
 		spells.add(new Spell("Heal", 'b', "Heal your wounds", 4));
 	}
+
 	
-	public void showSpells() {
-		System.out.println("+~~~~~SpellBook~~~~~+");
-		for (int i = 0; i < spells.size(); i++) {
-			System.out.println(i+": "+spells.get(i).getName());
-		}
-		System.out.println("+~~~~~~~~~~~~~~~~~~~+");
-	}
-	
-	public void CastSpell(Character player, Character opponent) {
-		Scanner console = new Scanner(System.in);
-		System.out.println("Which spell do you want to cast?  MP: "+player.getMp()+"/"+player.getMaxMp());
-		int action = console.nextInt();
-		if(spells.size()-1 >= action) {
-			if((player.getMp()-spells.get(action).getCost()) < 0) {
-				System.out.println("Not enough MP");
-				CastSpell(player, opponent);
+	public static void CastSpell(Spell spell) {
+		if (TowerOfTime.GAME.PLAYER.getMp() >= spell.getCost()) {
+			if (TowerOfTime.GAME.inCombat) {
+				TowerOfTime.GAME.PLAYER.setMp(TowerOfTime.GAME.PLAYER.getMp()-spell.getCost());
+
+				Game.LEVEL.grid[Game.LEVEL.playerLocation.x][Game.LEVEL.playerLocation.y].getEncounter().getCombat().castSpell(spell);
 			}
-			else {
-				player.setMp(player.getMp()-spells.get(action).getCost());
-				spells.get(action).useSpell(player, opponent);
-			}
-		}
-		else {
-			System.out.println("Incorrect input");
-		}
-	}
-	
-	public void CastSpell(Character player) {
-		Scanner console = new Scanner(System.in);
-		System.out.println("Which spell do you want to cast?  MP: "+player.getMp()+"/"+player.getMaxMp());
-		int action = console.nextInt();
-		if(spells.size()-1 >= action) {
-			if(player.getMp()-spells.get(action).getCost() < 0) {
-				System.out.println("Not enough MP");
-				CastSpell(player);
-			}
-			else {
-				spells.get(action).useSpell(player);
-				player.setMp(player.getMp()-spells.get(action).getCost());
+			else if (!TowerOfTime.GAME.inCombat) {
+				if (spell.getEffect() == 'a') {
+					String update = ("You canot cast this outside of combat.");
+					TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog(update);
+				}
+				if (spell.getEffect() == 'b') {
+					TowerOfTime.GAME.PLAYER.setMp(TowerOfTime.GAME.PLAYER.getMp()-spell.getCost());
+					int heal = spell.getCost() + (TowerOfTime.GAME.PLAYER.getCurrentIntelligence()/3);
+					TowerOfTime.GAME.PLAYER.setHp(TowerOfTime.GAME.PLAYER.getHp()+heal);
+					String update = ("You healed yourself for "+ heal + " health!");
+					TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog(update);		
+				}
 			}
 		}
 		else {
-			System.out.println("Incorrect input");
+			String update = ("You do not have enough mana");
+			TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog(update);		
 		}
-	}
 	
+	}
 }

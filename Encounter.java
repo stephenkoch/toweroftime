@@ -45,35 +45,35 @@ public class Encounter {
 	}
 	
 	
-	public static Character enemyGen() {
+	private static Enemy enemyGen() {
 		Random enemyGenerator = new Random();
 		int s = enemyGenerator.nextInt(1000);
-		Character opp;
-		switch(s) {
-			case 1: {
-				opp = EnemyCatalog.KoboldDefender;
-				break;
-			}
-			case 2: {
-				opp = EnemyCatalog.GoblinAssassin;
-				break;
-			}
-			default: 
-			{
-				if(s > 500) {
-					//String name, String race,level,hp,str,dex,sta,inte,def
-					opp = EnemyCatalog.KoboldDefender;
-				}
-				else if (s > 250)
-				{
-					opp = EnemyCatalog.KoboldMarauder;
-				}
-				else if (s > 100)
-					opp = EnemyCatalog.Rat;
-				else
-					opp = EnemyCatalog.Spider;
-			}
-		}
+		Enemy opp = EnemyCatalog.FlyingSpider;
+//		switch(s) {
+//			case 1: {
+//				opp = EnemyCatalog.KoboldDefender;
+//				break;
+//			}
+//			case 2: {
+//				opp = EnemyCatalog.GoblinAssassin;
+//				break;
+//			}
+//			default: 
+//			{
+//				if(s > 500) {
+//					//String name, String race,level,hp,str,dex,sta,inte,def
+//					opp = EnemyCatalog.KoboldDefender;
+//				}
+//				else if (s > 250)
+//				{
+//					opp = EnemyCatalog.KoboldMarauder;
+//				}
+//				else if (s > 100)
+//					opp = EnemyCatalog.Rat;
+//				else
+//					opp = EnemyCatalog.Spider;
+//			}
+//		}
 		return opp;
 	}
 	public Combat getCombat() {return combat;}

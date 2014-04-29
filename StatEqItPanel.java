@@ -796,61 +796,61 @@ public class StatEqItPanel extends JTabbedPane
        
        
        SpellPanel.add(Fire);
-       SpellPanel.add(Ice);
+//       SpellPanel.add(Ice);
        SpellPanel.add(Holy);
-       SpellPanel.add(Shadow);
-       SpellPanel.add(Energy);
-       SpellPanel.add(Earth);
-       SpellPanel.add(Air);
-       SpellPanel.add(Water);
-       
+//       SpellPanel.add(Shadow);
+//       SpellPanel.add(Energy);
+//       SpellPanel.add(Earth);
+//       SpellPanel.add(Air);
+//       SpellPanel.add(Water);
+//       
        SpellPanel.add(Fire1);
-       SpellPanel.add(Fire2);
-       SpellPanel.add(Fire3);
-       SpellPanel.add(Fire4);
-       SpellPanel.add(Fire5);
-       
-       SpellPanel.add(Ice1);
-       SpellPanel.add(Ice2);
-       SpellPanel.add(Ice3);
-       SpellPanel.add(Ice4);
-       SpellPanel.add(Ice5);
-       
-       SpellPanel.add(Holy1);
-       SpellPanel.add(Holy2);
-       SpellPanel.add(Holy3);
-       SpellPanel.add(Holy4);
-       SpellPanel.add(Holy5);
-       
-       SpellPanel.add(Shadow1);
-       SpellPanel.add(Shadow2);
-       SpellPanel.add(Shadow3);
-       SpellPanel.add(Shadow4);
-       SpellPanel.add(Shadow5);
-       
-       SpellPanel.add(Energy1);
-       SpellPanel.add(Energy2);
-       SpellPanel.add(Energy3);
-       SpellPanel.add(Energy4);
-       SpellPanel.add(Energy5);
-       
-       SpellPanel.add(Earth1);
-       SpellPanel.add(Earth2);
-       SpellPanel.add(Earth3);
-       SpellPanel.add(Earth4);
-       SpellPanel.add(Earth5);
-       
-       SpellPanel.add(Air1);
-       SpellPanel.add(Air2);
-       SpellPanel.add(Air3);
-       SpellPanel.add(Air4);
-       SpellPanel.add(Air5);
-       
-       SpellPanel.add(Water1);
-       SpellPanel.add(Water2);
-       SpellPanel.add(Water3);
-       SpellPanel.add(Water4);
-       SpellPanel.add(Water5);
+//       SpellPanel.add(Fire2);
+//       SpellPanel.add(Fire3);
+//       SpellPanel.add(Fire4);
+//       SpellPanel.add(Fire5);
+//       
+//       SpellPanel.add(Ice1);
+//       SpellPanel.add(Ice2);
+//       SpellPanel.add(Ice3);
+//       SpellPanel.add(Ice4);
+//       SpellPanel.add(Ice5);
+//       
+      SpellPanel.add(Holy1);
+//       SpellPanel.add(Holy2);
+//       SpellPanel.add(Holy3);
+//       SpellPanel.add(Holy4);
+//       SpellPanel.add(Holy5);
+//       
+//       SpellPanel.add(Shadow1);
+//       SpellPanel.add(Shadow2);
+//       SpellPanel.add(Shadow3);
+//       SpellPanel.add(Shadow4);
+//       SpellPanel.add(Shadow5);
+//       
+//       SpellPanel.add(Energy1);
+//       SpellPanel.add(Energy2);
+//       SpellPanel.add(Energy3);
+//       SpellPanel.add(Energy4);
+//       SpellPanel.add(Energy5);
+//       
+//       SpellPanel.add(Earth1);
+//       SpellPanel.add(Earth2);
+//       SpellPanel.add(Earth3);
+//       SpellPanel.add(Earth4);
+//       SpellPanel.add(Earth5);
+//       
+//       SpellPanel.add(Air1);
+//       SpellPanel.add(Air2);
+//       SpellPanel.add(Air3);
+//       SpellPanel.add(Air4);
+//       SpellPanel.add(Air5);
+//       
+//       SpellPanel.add(Water1);
+//       SpellPanel.add(Water2);
+//       SpellPanel.add(Water3);
+//       SpellPanel.add(Water4);
+//       SpellPanel.add(Water5);
         //-----------------------------------
         // ADD ACTION LISTENERS
         //-----------------------------------
@@ -893,6 +893,8 @@ public class StatEqItPanel extends JTabbedPane
         IEquip.addActionListener(phandler);
         IUse.addActionListener(phandler);
         
+        Fire1.addActionListener(phandler);
+        Holy1.addActionListener(phandler);
         setVisible(true);
        updatePanel();
     }
@@ -960,6 +962,113 @@ public class StatEqItPanel extends JTabbedPane
 		AgilityPlus.setBackground(Color.gray);
 		}
     	
+    	if(IWeapon.getBackground() == Color.yellow)
+    	{
+    	item.clear();
+        for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getWeapons().size(); i++)
+        {
+        Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getWeapons().get(i);
+        item.addElement(Item.name);
+        }
+    	}
+    	
+    	if(IShield.getBackground() == Color.yellow)
+    	{
+    	item.clear();
+        for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getShields().size(); i++)
+        {
+        Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getShields().get(i);
+        item.addElement(Item.name);
+        }
+    	}
+    	
+    	if(IChest.getBackground() == Color.yellow)
+    	{
+    	item.clear();
+        for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getChests().size(); i++)
+        {
+        Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getChests().get(i);
+        item.addElement(Item.name);
+        }
+    	}
+    	
+    	if(ILegs.getBackground() == Color.yellow)
+    	{
+    	item.clear();
+        for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getLegs().size(); i++)
+        {
+        Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getLegs().get(i);
+        item.addElement(Item.name);
+        }
+    	}
+    	
+    	if(IHelmet.getBackground() == Color.yellow)
+    	{
+    	item.clear();
+        for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getHelmets().size(); i++)
+        {
+        Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getHelmets().get(i);
+        item.addElement(Item.name);
+        }
+    	}
+    	
+    	if(IFeet.getBackground() == Color.yellow) {
+    		item.clear();
+    		for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getFeet().size(); i++) {
+    			Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getFeet().get(i);
+    			item.addElement(Item.name);
+    		}
+    	}
+    	
+    	if(IHands.getBackground() == Color.yellow)
+    	{
+    	item.clear();
+        for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getHands().size(); i++)
+        {
+        Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getHands().get(i);
+        item.addElement(Item.name);
+        }
+    	}
+    	
+    	if(IRing1.getBackground() == Color.yellow)
+    	{
+    	item.clear();
+        for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getRings().size(); i++)
+        {
+        Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getRings().get(i);
+        item.addElement(Item.name);
+        }
+    	}
+    	
+    	if(IRing2.getBackground() == Color.yellow)
+    	{
+    	item.clear();
+        for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getRings().size(); i++)
+        {
+        Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getRings().get(i);
+        item.addElement(Item.name);
+        }
+    	}
+    	
+    	if(IBelt.getBackground() == Color.yellow)
+    	{
+    	item.clear();
+        for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getBelts().size(); i++)
+        {
+        Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getBelts().get(i);
+        item.addElement(Item.name);
+        }
+    	}
+    	
+    	if(IAmulet.getBackground() == Color.yellow)
+    	{
+    	item.clear();
+        //for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getAmulets().size(); i++)
+      //  {
+     //   Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getAmulets().get(i);
+     //   item.addElement(Item.name);
+     //   }
+    	}
     }
     //EVERYTHING ABOVE THIS IS IMPORTANT!!!!
     
@@ -1437,177 +1546,6 @@ public class StatEqItPanel extends JTabbedPane
            }
            }
            
-           if(e.getSource() == IRing2)
-           {
-               IWeapon.setBackground(Color.LIGHT_GRAY);
-               IRing2.setBackground(Color.yellow);
-               IHelmet.setBackground(Color.LIGHT_GRAY);
-               IChest.setBackground(Color.LIGHT_GRAY);
-               ILegs.setBackground(Color.LIGHT_GRAY);
-               IAmulet.setBackground(Color.LIGHT_GRAY);
-               IHands.setBackground(Color.LIGHT_GRAY);
-               IBelt.setBackground(Color.LIGHT_GRAY);
-               IFeet.setBackground(Color.LIGHT_GRAY);
-               IRing1.setBackground(Color.LIGHT_GRAY);
-               IPotion.setBackground(Color.LIGHT_GRAY);
-               IShield.setBackground(Color.LIGHT_GRAY);
-               
-           Title.setText("Armor");
-           item.clear();
-           item.addElement("Greater Ring of Fire Resistance");
-           item.addElement("Ring of Ice Resistance");
-           item.addElement("Ring of Fire Resistance");
-           }
-           
-           if(e.getSource() == IHelmet)
-           {
-               IWeapon.setBackground(Color.LIGHT_GRAY);
-               IRing2.setBackground(Color.LIGHT_GRAY);
-               IHelmet.setBackground(Color.yellow);
-               IChest.setBackground(Color.LIGHT_GRAY);
-               ILegs.setBackground(Color.LIGHT_GRAY);
-               IAmulet.setBackground(Color.LIGHT_GRAY);
-               IHands.setBackground(Color.LIGHT_GRAY);
-               IBelt.setBackground(Color.LIGHT_GRAY);
-               IFeet.setBackground(Color.LIGHT_GRAY);
-               IRing1.setBackground(Color.LIGHT_GRAY);
-               IPotion.setBackground(Color.LIGHT_GRAY);
-               IShield.setBackground(Color.LIGHT_GRAY);
-               
-           Title.setText("Armor");
-           item.clear();
-           item.addElement("Curiass");
-           item.addElement("Bulletproof Vest");
-           }
-           
-           if(e.getSource() == IChest)
-           {
-               IWeapon.setBackground(Color.LIGHT_GRAY);
-               IRing2.setBackground(Color.LIGHT_GRAY);
-               IHelmet.setBackground(Color.LIGHT_GRAY);
-               IChest.setBackground(Color.yellow);
-               ILegs.setBackground(Color.LIGHT_GRAY);
-               IAmulet.setBackground(Color.LIGHT_GRAY);
-               IHands.setBackground(Color.LIGHT_GRAY);
-               IBelt.setBackground(Color.LIGHT_GRAY);
-               IFeet.setBackground(Color.LIGHT_GRAY);
-               IRing1.setBackground(Color.LIGHT_GRAY);
-               IPotion.setBackground(Color.LIGHT_GRAY);
-               IShield.setBackground(Color.LIGHT_GRAY);
-               
-           Title.setText("Armor");
-           item.clear();
-           item.addElement("Curiass");
-           item.addElement("Bulletproof Vest");
-           }
-           
-           if(e.getSource() == ILegs)
-           {
-               IWeapon.setBackground(Color.LIGHT_GRAY);
-               IRing2.setBackground(Color.LIGHT_GRAY);
-               IHelmet.setBackground(Color.LIGHT_GRAY);
-               IChest.setBackground(Color.LIGHT_GRAY);
-               ILegs.setBackground(Color.yellow);
-               IAmulet.setBackground(Color.LIGHT_GRAY);
-               IHands.setBackground(Color.LIGHT_GRAY);
-               IBelt.setBackground(Color.LIGHT_GRAY);
-               IFeet.setBackground(Color.LIGHT_GRAY);
-               IRing1.setBackground(Color.LIGHT_GRAY);
-               IPotion.setBackground(Color.LIGHT_GRAY);
-               IShield.setBackground(Color.LIGHT_GRAY);
-               
-           Title.setText("Armor");
-           item.clear();
-           item.addElement("Curiass");
-           item.addElement("Bulletproof Vest");
-           }
-           
-           if(e.getSource() == IAmulet)
-           {
-               IWeapon.setBackground(Color.LIGHT_GRAY);
-               IRing2.setBackground(Color.LIGHT_GRAY);
-               IHelmet.setBackground(Color.LIGHT_GRAY);
-               IChest.setBackground(Color.LIGHT_GRAY);
-               ILegs.setBackground(Color.LIGHT_GRAY);
-               IAmulet.setBackground(Color.yellow);
-               IHands.setBackground(Color.LIGHT_GRAY);
-               IBelt.setBackground(Color.LIGHT_GRAY);
-               IFeet.setBackground(Color.LIGHT_GRAY);
-               IRing1.setBackground(Color.LIGHT_GRAY);
-               IPotion.setBackground(Color.LIGHT_GRAY);
-               IShield.setBackground(Color.LIGHT_GRAY);
-               
-           Title.setText("Armor");
-           item.clear();
-           item.addElement("Curiass");
-           item.addElement("Bulletproof Vest");
-           }
-           
-           if(e.getSource() == IHands)
-           {
-               IWeapon.setBackground(Color.LIGHT_GRAY);
-               IRing2.setBackground(Color.LIGHT_GRAY);
-               IHelmet.setBackground(Color.LIGHT_GRAY);
-               IChest.setBackground(Color.LIGHT_GRAY);
-               ILegs.setBackground(Color.LIGHT_GRAY);
-               IAmulet.setBackground(Color.LIGHT_GRAY);
-               IHands.setBackground(Color.yellow);
-               IBelt.setBackground(Color.LIGHT_GRAY);
-               IFeet.setBackground(Color.LIGHT_GRAY);
-               IRing1.setBackground(Color.LIGHT_GRAY);
-               IPotion.setBackground(Color.LIGHT_GRAY);
-               IShield.setBackground(Color.LIGHT_GRAY);
-               
-           Title.setText("Armor");
-           item.clear();
-           item.addElement("Curiass");
-           item.addElement("Bulletproof Vest");
-           }
-           
-           if(e.getSource() == IBelt)
-           {
-               IWeapon.setBackground(Color.LIGHT_GRAY);
-               IRing2.setBackground(Color.LIGHT_GRAY);
-               IHelmet.setBackground(Color.LIGHT_GRAY);
-               IChest.setBackground(Color.LIGHT_GRAY);
-               ILegs.setBackground(Color.LIGHT_GRAY);
-               IAmulet.setBackground(Color.LIGHT_GRAY);
-               IHands.setBackground(Color.LIGHT_GRAY);
-               IBelt.setBackground(Color.yellow);
-               IFeet.setBackground(Color.LIGHT_GRAY);
-               IRing1.setBackground(Color.LIGHT_GRAY);
-               IPotion.setBackground(Color.LIGHT_GRAY);
-               IShield.setBackground(Color.LIGHT_GRAY);
-               
-           Title.setText("Armor");
-           item.clear();
-           item.addElement("Curiass");
-           item.addElement("Bulletproof Vest");
-           }
-           
-           if(e.getSource() == IFeet)
-           {
-               IWeapon.setBackground(Color.LIGHT_GRAY);
-               IRing2.setBackground(Color.LIGHT_GRAY);
-               IHelmet.setBackground(Color.LIGHT_GRAY);
-               IChest.setBackground(Color.LIGHT_GRAY);
-               ILegs.setBackground(Color.LIGHT_GRAY);
-               IAmulet.setBackground(Color.LIGHT_GRAY);
-               IHands.setBackground(Color.LIGHT_GRAY);
-               IBelt.setBackground(Color.LIGHT_GRAY);
-               IFeet.setBackground(Color.yellow);
-               IRing1.setBackground(Color.LIGHT_GRAY);
-               IPotion.setBackground(Color.LIGHT_GRAY);
-               IShield.setBackground(Color.LIGHT_GRAY);
-               
-           Title.setText("Armor");
-           item.clear();
-           item.addElement("Curiass");
-           item.addElement("Bulletproof Vest");
-           }
-           
-           
-           
            if(e.getSource() == IRing1)
            {
            
@@ -1625,10 +1563,247 @@ public class StatEqItPanel extends JTabbedPane
                IShield.setBackground(Color.LIGHT_GRAY);
            Title.setText("Ring1");
            item.clear();
-           item.addElement("Greater Ring of Fire Resistance");
-           item.addElement("Ring of Ice Resistance");
-           item.addElement("Ring of Fire Resistance");
+           for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getRings().size(); i++)
+           {
+           Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getRings().get(i);
+           item.addElement(Item.name);
            }
+           }
+           
+           if(e.getSource() == IRing2)
+           {
+               IWeapon.setBackground(Color.LIGHT_GRAY);
+               IRing2.setBackground(Color.yellow);
+               IHelmet.setBackground(Color.LIGHT_GRAY);
+               IChest.setBackground(Color.LIGHT_GRAY);
+               ILegs.setBackground(Color.LIGHT_GRAY);
+               IAmulet.setBackground(Color.LIGHT_GRAY);
+               IHands.setBackground(Color.LIGHT_GRAY);
+               IBelt.setBackground(Color.LIGHT_GRAY);
+               IFeet.setBackground(Color.LIGHT_GRAY);
+               IRing1.setBackground(Color.LIGHT_GRAY);
+               IPotion.setBackground(Color.LIGHT_GRAY);
+               IShield.setBackground(Color.LIGHT_GRAY);
+               
+           Title.setText("Rings");
+           item.clear();
+           for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getRings().size(); i++)
+           {
+           Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getRings().get(i);
+           item.addElement(Item.name);
+           }
+           }
+           
+           if(e.getSource() == IHelmet)
+           {
+               IWeapon.setBackground(Color.LIGHT_GRAY);
+               IRing2.setBackground(Color.LIGHT_GRAY);
+               IHelmet.setBackground(Color.yellow);
+               IChest.setBackground(Color.LIGHT_GRAY);
+               ILegs.setBackground(Color.LIGHT_GRAY);
+               IAmulet.setBackground(Color.LIGHT_GRAY);
+               IHands.setBackground(Color.LIGHT_GRAY);
+               IBelt.setBackground(Color.LIGHT_GRAY);
+               IFeet.setBackground(Color.LIGHT_GRAY);
+               IRing1.setBackground(Color.LIGHT_GRAY);
+               IPotion.setBackground(Color.LIGHT_GRAY);
+               IShield.setBackground(Color.LIGHT_GRAY);
+               
+           Title.setText("Helmet");
+           item.clear();
+           for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getHelmets().size(); i++)
+           {
+           Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getHelmets().get(i);
+           item.addElement(Item.name);
+           }
+           }
+           if(e.getSource() == IChest)
+           {
+               IWeapon.setBackground(Color.LIGHT_GRAY);
+               IRing2.setBackground(Color.LIGHT_GRAY);
+               IHelmet.setBackground(Color.LIGHT_GRAY);
+               IChest.setBackground(Color.yellow);
+               ILegs.setBackground(Color.LIGHT_GRAY);
+               IAmulet.setBackground(Color.LIGHT_GRAY);
+               IHands.setBackground(Color.LIGHT_GRAY);
+               IBelt.setBackground(Color.LIGHT_GRAY);
+               IFeet.setBackground(Color.LIGHT_GRAY);
+               IRing1.setBackground(Color.LIGHT_GRAY);
+               IPotion.setBackground(Color.LIGHT_GRAY);
+               IShield.setBackground(Color.LIGHT_GRAY);
+               
+           Title.setText("Chests");
+           item.clear();
+           for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getChests().size(); i++)
+           {
+           Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getChests().get(i);
+           item.addElement(Item.name);
+           }
+           }
+           if(e.getSource() == ILegs)
+           {
+               IWeapon.setBackground(Color.LIGHT_GRAY);
+               IRing2.setBackground(Color.LIGHT_GRAY);
+               IHelmet.setBackground(Color.LIGHT_GRAY);
+               IChest.setBackground(Color.LIGHT_GRAY);
+               ILegs.setBackground(Color.yellow);
+               IAmulet.setBackground(Color.LIGHT_GRAY);
+               IHands.setBackground(Color.LIGHT_GRAY);
+               IBelt.setBackground(Color.LIGHT_GRAY);
+               IFeet.setBackground(Color.LIGHT_GRAY);
+               IRing1.setBackground(Color.LIGHT_GRAY);
+               IPotion.setBackground(Color.LIGHT_GRAY);
+               IShield.setBackground(Color.LIGHT_GRAY);
+               
+           Title.setText("Legs");
+           item.clear();
+           for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getLegs().size(); i++)
+           {
+           Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getLegs().get(i);
+           item.addElement(Item.name);
+           }
+           }
+           if(e.getSource() == IAmulet)
+           {
+               IWeapon.setBackground(Color.LIGHT_GRAY);
+               IRing2.setBackground(Color.LIGHT_GRAY);
+               IHelmet.setBackground(Color.LIGHT_GRAY);
+               IChest.setBackground(Color.LIGHT_GRAY);
+               ILegs.setBackground(Color.LIGHT_GRAY);
+               IAmulet.setBackground(Color.yellow);
+               IHands.setBackground(Color.LIGHT_GRAY);
+               IBelt.setBackground(Color.LIGHT_GRAY);
+               IFeet.setBackground(Color.LIGHT_GRAY);
+               IRing1.setBackground(Color.LIGHT_GRAY);
+               IPotion.setBackground(Color.LIGHT_GRAY);
+               IShield.setBackground(Color.LIGHT_GRAY);
+               
+           Title.setText("Amulets");
+           item.clear();
+         //  for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getAmulets().size(); i++)
+         //  {
+         //  Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getAmulets().get(i);
+         //  item.addElement(Item.name);
+         //  }
+           }
+           if(e.getSource() == IHands)
+           {
+               IWeapon.setBackground(Color.LIGHT_GRAY);
+               IRing2.setBackground(Color.LIGHT_GRAY);
+               IHelmet.setBackground(Color.LIGHT_GRAY);
+               IChest.setBackground(Color.LIGHT_GRAY);
+               ILegs.setBackground(Color.LIGHT_GRAY);
+               IAmulet.setBackground(Color.LIGHT_GRAY);
+               IHands.setBackground(Color.yellow);
+               IBelt.setBackground(Color.LIGHT_GRAY);
+               IFeet.setBackground(Color.LIGHT_GRAY);
+               IRing1.setBackground(Color.LIGHT_GRAY);
+               IPotion.setBackground(Color.LIGHT_GRAY);
+               IShield.setBackground(Color.LIGHT_GRAY);
+               
+           Title.setText("Hands");
+           item.clear();
+           for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getHands().size(); i++)
+           {
+           Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getHands().get(i);
+           item.addElement(Item.name);
+           }
+           }
+           
+           if(e.getSource() == IBelt)
+           {
+               IWeapon.setBackground(Color.LIGHT_GRAY);
+               IRing2.setBackground(Color.LIGHT_GRAY);
+               IHelmet.setBackground(Color.LIGHT_GRAY);
+               IChest.setBackground(Color.LIGHT_GRAY);
+               ILegs.setBackground(Color.LIGHT_GRAY);
+               IAmulet.setBackground(Color.LIGHT_GRAY);
+               IHands.setBackground(Color.LIGHT_GRAY);
+               IBelt.setBackground(Color.yellow);
+               IFeet.setBackground(Color.LIGHT_GRAY);
+               IRing1.setBackground(Color.LIGHT_GRAY);
+               IPotion.setBackground(Color.LIGHT_GRAY);
+               IShield.setBackground(Color.LIGHT_GRAY);
+               
+           Title.setText("Belts");
+           item.clear();
+           for(int i = 0; i < TowerOfTime.GAME.PLAYER.backpack.getBelts().size(); i++)
+           {
+           Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getBelts().get(i);
+           item.addElement(Item.name);
+           }
+           }
+           if(e.getSource() == IFeet)
+           {
+               IWeapon.setBackground(Color.LIGHT_GRAY);
+               IRing2.setBackground(Color.LIGHT_GRAY);
+               IHelmet.setBackground(Color.LIGHT_GRAY);
+               IChest.setBackground(Color.LIGHT_GRAY);
+               ILegs.setBackground(Color.LIGHT_GRAY);
+               IAmulet.setBackground(Color.LIGHT_GRAY);
+               IHands.setBackground(Color.LIGHT_GRAY);
+               IBelt.setBackground(Color.LIGHT_GRAY);
+               IFeet.setBackground(Color.yellow);
+               IRing1.setBackground(Color.LIGHT_GRAY);
+               IPotion.setBackground(Color.LIGHT_GRAY);
+               IShield.setBackground(Color.LIGHT_GRAY);
+               
+           Title.setText("Feet");
+           item.clear();
+           for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getFeet().size(); i++)
+           {
+           Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getFeet().get(i);
+           item.addElement(Item.name);
+           }
+           }
+           
+           if(e.getSource() == IShield)
+           {
+               IWeapon.setBackground(Color.LIGHT_GRAY);
+               IRing2.setBackground(Color.LIGHT_GRAY);
+               IHelmet.setBackground(Color.LIGHT_GRAY);
+               IChest.setBackground(Color.LIGHT_GRAY);
+               ILegs.setBackground(Color.LIGHT_GRAY);
+               IAmulet.setBackground(Color.LIGHT_GRAY);
+               IHands.setBackground(Color.LIGHT_GRAY);
+               IBelt.setBackground(Color.LIGHT_GRAY);
+               IFeet.setBackground(Color.LIGHT_GRAY);
+               IRing1.setBackground(Color.LIGHT_GRAY);
+               IPotion.setBackground(Color.LIGHT_GRAY);
+               IShield.setBackground(Color.yellow);
+        	   
+           Title.setText("Shields");
+           for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getShields().size(); i++)
+           {
+           Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getShields().get(i);
+           item.addElement(Item.name);
+           }
+           }
+           
+           if(e.getSource() == IPotion)
+           {
+           IUse.setVisible(true);
+           IEquip.setVisible(false);
+           IWeapon.setBackground(Color.LIGHT_GRAY);
+           IRing2.setBackground(Color.LIGHT_GRAY);
+           IHelmet.setBackground(Color.LIGHT_GRAY);
+           IChest.setBackground(Color.LIGHT_GRAY);
+           ILegs.setBackground(Color.LIGHT_GRAY);
+           IAmulet.setBackground(Color.LIGHT_GRAY);
+           IHands.setBackground(Color.LIGHT_GRAY);
+           IBelt.setBackground(Color.LIGHT_GRAY);
+           IFeet.setBackground(Color.LIGHT_GRAY);
+           IRing1.setBackground(Color.LIGHT_GRAY);
+           IPotion.setBackground(Color.yellow);
+           IShield.setBackground(Color.LIGHT_GRAY);
+           Title.setText("Potions");
+           for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getPotions().size(); i++)
+           {
+           UsableItem Item = TowerOfTime.GAME.PLAYER.backpack.getPotions().get(i);
+           item.addElement(Item.name);
+           }
+           }
+           
            
            if(e.getSource() != IUse)
            {
@@ -1665,86 +1840,82 @@ public class StatEqItPanel extends JTabbedPane
            {
            if(item.getSize() > 0)
            {
-           int index = itemList.getSelectedIndex();
+        	 
+           int index = itemList.getAnchorSelectionIndex();
            if(index >= 0)
            {
            
-           String itemName = (String) item.getElementAt(index);
+           String itemName = (String) item.getElementAt(index-1);
            
            
            if(IWeapon.getBackground()==Color.yellow)
            {
-           Game.PLAYER.equipped.setWeapon(EquipmentCatalog.getWeapons(itemName));
-           IItemD.setText((String) item.getElementAt(index));
+           Game.PLAYER.equipped.setWeapon(EquipmentCatalog.getWeapon(itemName));
+           IItemD.setText((String) item.getElementAt(index-1));
            }
            
            if(IShield.getBackground()==Color.yellow)
            {
-           Game.PLAYER.equipped.setShield(EquipmentCatalog.getShields(itemName));
-           IItemD.setText((String) item.getElementAt(index));
+           Game.PLAYER.equipped.setShield(EquipmentCatalog.getShield(itemName));
+           IItemD.setText((String) item.getElementAt(index-1));
            }
+           
+           if(IChest.getBackground()==Color.yellow)
+           {
+           Game.PLAYER.equipped.setChest(EquipmentCatalog.getChest(itemName));
+           IItemD.setText((String) item.getElementAt(index-1));
+           }
+           
+           if(ILegs.getBackground()==Color.yellow)
+           {
+           Game.PLAYER.equipped.setLegs(EquipmentCatalog.getLeg(itemName));
+           IItemD.setText((String) item.getElementAt(index-1));
+           }
+           
+           if(IHelmet.getBackground()==Color.yellow)
+           {
+           Game.PLAYER.equipped.setHelmet(EquipmentCatalog.getHelmet(itemName));
+           IItemD.setText((String) item.getElementAt(index-1));
+           }
+           
+           if(IFeet.getBackground()==Color.yellow)
+           {
+           Game.PLAYER.equipped.setFeet(EquipmentCatalog.getFoot(itemName));
+           IItemD.setText((String) item.getElementAt(index-1));
+           }
+           
            
            if(IRing1.getBackground()==Color.yellow)
            {
-           Game.PLAYER.equipped.setRing1(EquipmentCatalog.getRings(itemName));
-           IItemD.setText((String) item.getElementAt(index));
+           Game.PLAYER.equipped.setRing1(EquipmentCatalog.getRing(itemName));
+           IItemD.setText((String) item.getElementAt(index-1));
            }
            
            if(IRing2.getBackground()==Color.yellow)
            {
-           Game.PLAYER.equipped.setRing1(EquipmentCatalog.getRings(itemName));
-           IItemD.setText((String) item.getElementAt(index));
+           Game.PLAYER.equipped.setRing1(EquipmentCatalog.getRing(itemName));
+           IItemD.setText((String) item.getElementAt(index-1));
            }
            
-           
-           }
-           }
-           }
-           
-           if(e.getSource() == IPotion)
+           if(IBelt.getBackground()==Color.yellow)
            {
-           IUse.setVisible(true);
-           IEquip.setVisible(false);
-           IWeapon.setBackground(Color.LIGHT_GRAY);
-           IRing2.setBackground(Color.LIGHT_GRAY);
-           IHelmet.setBackground(Color.LIGHT_GRAY);
-           IChest.setBackground(Color.LIGHT_GRAY);
-           ILegs.setBackground(Color.LIGHT_GRAY);
-           IAmulet.setBackground(Color.LIGHT_GRAY);
-           IHands.setBackground(Color.LIGHT_GRAY);
-           IBelt.setBackground(Color.LIGHT_GRAY);
-           IFeet.setBackground(Color.LIGHT_GRAY);
-           IRing1.setBackground(Color.LIGHT_GRAY);
-           IPotion.setBackground(Color.yellow);
-           IShield.setBackground(Color.LIGHT_GRAY);
-           Title.setText("Potions");
-           item.clear();
-           item.addElement("Potion of Healing");
-           item.addElement("Potion of Mana");
+           Game.PLAYER.equipped.setBelt(EquipmentCatalog.getBelt(itemName));
+           IItemD.setText((String) item.getElementAt(index-1));
            }
            
-           if(e.getSource() == IShield)
-           {
-               IWeapon.setBackground(Color.LIGHT_GRAY);
-               IRing2.setBackground(Color.LIGHT_GRAY);
-               IHelmet.setBackground(Color.LIGHT_GRAY);
-               IChest.setBackground(Color.LIGHT_GRAY);
-               ILegs.setBackground(Color.LIGHT_GRAY);
-               IAmulet.setBackground(Color.LIGHT_GRAY);
-               IHands.setBackground(Color.LIGHT_GRAY);
-               IBelt.setBackground(Color.LIGHT_GRAY);
-               IFeet.setBackground(Color.LIGHT_GRAY);
-               IRing1.setBackground(Color.LIGHT_GRAY);
-               IPotion.setBackground(Color.LIGHT_GRAY);
-               IShield.setBackground(Color.yellow);
-        	   
-           Title.setText("Shields");
-           item.clear();
-           item.addElement("Light Riot Shield");
-           item.addElement("Heat Shield");
-           item.addElement("Buckler");
-           item.addElement("Agis");
            }
+           }
+           }
+           
+           if(e.getSource() == Fire1)
+           {
+        	   TowerOfTime.GAME.PLAYER.spellBook.CastSpell(SpellCatalog.FireBall);
+           }
+           if(e.getSource() == Holy1)
+           {
+        	   TowerOfTime.GAME.PLAYER.spellBook.CastSpell(SpellCatalog.Heal);
+           }
+           
            updatePanel();
        }
            

@@ -6,17 +6,54 @@ public class EquipmentCatalog
 	
 	public static Armor LeatherTunic = new Armor("Leather Tunic", "A regular leather tunic.","Chest", 5);
 	public static Armor BronzeCuriass = new Armor("Bronze Curiass", "A curiass made of bronze.","Chest", 10);
-	
 	public static Armor IronCuriass  = new Armor("Iron Curiass", "A curiass made of Iron.", "Chest", 15);
 	public static Armor SteelCuriass  = new Armor("Steel Curiass", "A curiass made of Steel.","Chest", 20);
-	
-	//MODERN ARMOR
 	public static Armor BulletproofVest = new Armor("Leather Tunic", "You better hope this works.", "Chest",25);
 	public static Armor BallisticVest = new Armor("Ballistic Vest", "He went ballistic.", "Chest",30);
+	public static Armor EnergyVest = new Armor("Energy Vest", "Absorbs Kenetic Energy.", "Chest",35);
+	public static Armor ParticleVest = new Armor("Particle Vest", "Dissolves Matter.", "Chest",40);
 	
+	public static Armor LeatherHelmet = new Armor("Leather Helmet", "A regular leather Helmet.","Helmet", 5);
+	public static Armor BronzeHelmet = new Armor("Bronze Helmet", "A Helmet made of bronze.","Helmet", 10);
+	public static Armor IronHelmet  = new Armor("Iron Helmet", "A Helmet made of Iron.", "Helmet", 15);
+	public static Armor SteelHelmet  = new Armor("Steel Helmet", "A Helmet made of Steel.","Helmet", 20);
+	public static Armor BulletproofHelmet = new Armor("Bulletproof Helmet", "You better hope this works.", "Helmet",25);
+	public static Armor BallisticHelmet = new Armor("Ballistic Helmet", "He went ballistic.", "Helmet",30);
+	public static Armor EnergyHelmet = new Armor("Energy Helmet", "Absorbs Kenetic Energy.", "Helmet",35);
+	public static Armor ParticleHelmet = new Armor("Particle Helmet", "Dissolves Matter.", "Helmet",40);
+
+	public static Armor LeatherGloves = new Armor("Leather Gloves", "A pair regular leather gloves.","Hands", 5);
+	public static Armor BronzeGauntlets = new Armor("Bronze Gauntlets", "Gloves made of bronze.","Hands", 10);
+	public static Armor IronGauntlets  = new Armor("Iron Gauntlets", "Gloves made of Iron.", "Hands", 15);
+	public static Armor SteelGauntlets  = new Armor("Steel Gauntlets", "Gloves made of Steel.","Hands", 20);
+	public static Armor BulletproofGloves = new Armor("Leather Gloves", "You better hope this works.", "Hands",25);
+	public static Armor BallisticGloves = new Armor("Ballistic Gloves", "He went ballistic.", "Hands",30);
+	public static Armor EnergyGloves = new Armor("Energy Gloves", "Absorbs Kenetic Energy.", "Hands",35);
+	public static Armor ParticleGloves = new Armor("Particle Gloves", "Dissolves Matter.", "Hands",40);
+	
+	public static Armor LeatherChaps = new Armor("Leather Chaps", "A regular pair of leather pants.","Legs", 5);
+	public static Armor BronzeGreaves = new Armor("Bronze Greaves", "Greaves made of bronze.","Legs", 10);
+	public static Armor IronGreaves  = new Armor("Iron Greaves", "Greaves made of Iron.", "Legs", 15);
+	public static Armor SteelGreaves  = new Armor("Steel Greaves", "Greaves made of Steel.","Legs", 20);
+	public static Armor BulletproofPants = new Armor("Bulletproof Pants", "You better hope this works.", "Legs",25);
+	public static Armor BallisticPants = new Armor("Ballistic Greaves", "He went ballistic.", "Legs",30);
+	public static Armor EnergyPants = new Armor("Energy Pants", "Absorbs Kenetic Energy.", "Legs",35);
+	public static Armor ParticlePants = new Armor("Particle Pants", "Dissolves Matter.", "Legs",40);
+	
+	public static Armor LeatherBoots = new Armor("Leather Boots", "A pair of regular leather boots.","Feet", 5);
+	public static Armor BronzeBoots = new Armor("Bronze Boots", "Boots made of bronze.","Feet", 10);
+	
+	public static Armor IronBoots  = new Armor("Iron Boots", "Boots made of Iron.", "Feet", 15);
+	public static Armor SteelBoots  = new Armor("Steel Boots", "Boots made of Steel.","Feet", 20);
+	
+	public static Armor BulletproofBoots = new Armor("Leather Boots", "You better hope this works.", "Feet",25);
+	public static Armor BallisticBoots = new Armor("Ballistic Boots", "He went ballistic.", "Feet",30);
+	
+	public static Armor EnergyBoots = new Armor("Energy Boots", "Absorbs Kenetic Energy.", "Feet",35);
+	public static Armor ParticleBoots = new Armor("Particle Boots", "Dissolves Matter.", "Feet",40);
 	
 	public static Armor Buckler = new Armor("Buckler", "Not a belt buckle","Shield",5);
-	public static Armor Agis    = new Armor("Agis", "A shield of the ages.","Shield",10);
+	public static Armor Agis    = new Armor("Agis", "A Shield of the ages.","Shield",10);
 	public static Armor SquareShield = new Armor("Square Shield","Its a square.","Shield",15);
 	public static Armor KiteShield = new Armor("Kite Shield","Pull the boss.", "Sheild",20);
 	public static Armor HeatShield = new Armor("Heat Shield","For the heat of battle","Shield",25);
@@ -25,149 +62,24 @@ public class EquipmentCatalog
 	public static Armor HeavyRiotShield = new Armor("Heavy Riot Shield", "Riot no more", "Shield",40);
 	public static Armor EnergyShield = new Armor("Energy Shield", "Absorbs Kenetic Energy", "Shield",45);
 	public static Armor ParticleShield = new Armor("Energy Shield", "Dissolves Matter", "Shield",50);
+
 	
-	//String PowerDescription = "Lesser";
-	//int Power = 1;
-	//public static Accessory lesserRingofFireResistance = new Accessory(PowerDescription + "Ring of Fire Resistance", "Ring with Fire Enchantment","Ring","Fire",Power);
-	
-	public static Accessory lesserRingofFireResistance = new Accessory("Lesser Ring of Fire Resistance", "Resists 5% of Fire Damage","Ring","Fire",1);
+	public static Accessory LesserRingofFireResistance = new Accessory("Lesser Ring of Fire Resistance", "Resists 5% of Fire Damage","Ring","Fire",1);
 	public static Accessory RingofFireResistance = new Accessory("Ring of Fire Resistance", "Resists 10% of Fire Damaget","Ring","Fire",2);
 	public static Accessory GreaterRingofFireResistance = new Accessory("Greater Ring of Fire Resistance", "Resists 15% of Fire Damage","Ring","Fire",3);
 	
-	public static Accessory lesserRingofIceResistance = new Accessory("Lesser Ring of Ice Resistance", "Resists 5% of Ice Damage","Ring","Ice",1);
+	public static Accessory LesserRingofIceResistance = new Accessory("Lesser Ring of Ice Resistance", "Resists 5% of Ice Damage","Ring","Ice",1);
 	public static Accessory RingofIceResistance = new Accessory("Ring of Ice Resistance", "Resists 10% of Ice Damaget","Ring","Ice",2);
 	public static Accessory GreaterRingofIceResistance = new Accessory("Greater Ring of Ice Resistance", "Resists 15% of Ice Damage","Ring","Ice",3);
 	
+	public static Accessory LesserBeltofFireResistance = new Accessory("Lesser Belt of Fire Resistance", "Resists 5% of Fire Damage","Belt","Fire",1);
+	public static Accessory BeltofFireResistance = new Accessory("Belt of Fire Resistance", "Resists 10% of Fire Damaget","Belt","Fire",2);
+	public static Accessory GreaterBeltofFireResistance = new Accessory("Greater Belt of Fire Resistance", "Resists 15% of Fire Damage","Belt","Fire",3);
 	
+	public static Accessory LesserBeltofIceResistance = new Accessory("Lesser Belt of Ice Resistance", "Resists 5% of Ice Damage","Belt","Ice",1);
+	public static Accessory BeltofIceResistance = new Accessory("Belt of Ice Resistance", "Resists 10% of Ice Damaget","Belt","Ice",2);
+	public static Accessory GreaterBeltofIceResistance = new Accessory("Greater Belt of Ice Resistance", "Resists 15% of Ice Damage","Belt","Ice",3);
 	
-	public static Accessory getRings(String itemName)
-	{
-		ArrayList <Accessory> rings = new ArrayList<Accessory>();
-		
-		rings.add(lesserRingofFireResistance);
-		rings.add(RingofFireResistance);
-		rings.add(GreaterRingofFireResistance);
-		
-		rings.add(lesserRingofIceResistance);
-		rings.add(RingofIceResistance);
-		rings.add(GreaterRingofIceResistance);
-		
-		for(Accessory ring : rings)
-        {
-            if(ring.getName().equals(itemName))
-            {
-            System.out.println(ring.name); 
-            return ring;
-            }
-        }
-        Accessory ring = new Accessory();
-    	return ring;	
-	}
-	
-	public static Armor getShields(String itemName)
-	{
-		ArrayList <Armor> shields = new ArrayList<Armor>();
-		
-		shields.add(Buckler);
-		shields.add(Agis);
-		
-		shields.add(SquareShield);
-		shields.add(KiteShield);
-		
-		shields.add(HeatShield);
-		shields.add(TowerShield);
-		
-		shields.add(LightRiotShield);
-		shields.add(HeavyRiotShield);
-		
-		shields.add(EnergyShield);
-		shields.add(ParticleShield);
-		
-		for(Armor shield : shields)
-        {
-            if(shield.getName().equals(itemName))
-            {
-            System.out.println(shield.name); 
-            return shield;
-            }
-        }
-		
-        Armor shield = new Armor();
-		return shield;
-		
-	}
-	
-	public static Weapon getWeapons(String itemName)
-	{
-		ArrayList <Weapon> weapons = new ArrayList<Weapon>();
-		
-		weapons.add(Dagger);
-		weapons.add(ShortSword);
-		weapons.add(Axe);
-		weapons.add(Quarterstaff);
-		weapons.add(LongSword);
-		
-		weapons.add(ShortBow);
-		weapons.add(LongBow);
-		weapons.add(CompositeLongBow);
-		weapons.add(CompositeShortBow);
-		weapons.add(ThrowingAxe);
-		weapons.add(ThrowingKnife);
-		
-		weapons.add(Mace);
-		weapons.add(Stiletto);
-		weapons.add(Rapier);
-		weapons.add(Flail);
-		weapons.add(Scimitar);
-		weapons.add(BattleAxe);
-		weapons.add(Halberd);
-		weapons.add(TwoHand);
-		
-		weapons.add(Culverin);
-		weapons.add(Javelin);
-		weapons.add(RustedMusket);
-		weapons.add(OrganGun);
-		weapons.add(Musket);
-		weapons.add(CrossBow);
-		
-		weapons.add(TrenchKnife);
-		weapons.add(Machete);
-		weapons.add(Kukri);
-		weapons.add(Katana);
-		weapons.add(Sledgehammer);
-		
-		weapons.add(CompoundBow);
-		weapons.add(DesertEagle);
-		weapons.add(Marlin);
-		weapons.add(AK47);
-		weapons.add(AR15);
-		weapons.add(Remington870);
-		
-		weapons.add(EnergySword);
-		weapons.add(PlasmaWhip);
-		weapons.add(OmniBlade);
-		weapons.add(GravityHammer);
-		weapons.add(LightSaber);
-		
-		weapons.add(SonicScrewdriver);
-		weapons.add(Blaster);
-		weapons.add(PhotonicPhaser);
-		weapons.add(FushionGrendade);
-		weapons.add(ParticleBurstRifle);
-		weapons.add(AntimatterRifle);
-				        for(Weapon weapon : weapons)
-				        {
-				            if(weapon.getName().equals(itemName))
-				            {
-
-				            System.out.println(weapon.name); 
-				            return weapon;
-				            }
-				        }
-				        Weapon weapon = new Weapon();
-						return weapon;
-	}
-
 	public static Weapon Dagger = new Weapon("Dagger","With moves like Dagger.","Weapon",4,3);
 	public static Weapon ShortSword =new Weapon("Short Sword","It Stings?","Weapon",3,4);
 	public static Weapon Axe =new Weapon("Axe","For Men.","Weapon",2,7);
@@ -226,4 +138,351 @@ public class EquipmentCatalog
 	public static Weapon FushionGrendade         = new Weapon ("Fushion Grenade","It's the F-bomb.","Weapon",1,200);
 	public static Weapon ParticleBurstRifle      = new Weapon ("Particle Burst Rifle","When dead, means dead.","Weapon",8,25);
 	public static Weapon AntimatterRifle         = new Weapon ("Antimatter Rifle","When nothing matters.","Weapon",4,50);
+
+
+	
+	public static ArrayList<Accessory> getRings()
+	{
+		ArrayList <Accessory> rings = new ArrayList<Accessory>();
+		
+		rings.add(LesserRingofFireResistance);
+		rings.add(RingofFireResistance);
+		rings.add(GreaterRingofFireResistance);
+		
+		rings.add(LesserRingofIceResistance);
+		rings.add(RingofIceResistance);
+		rings.add(GreaterRingofIceResistance);
+		
+		return rings;
+	}
+	
+	public static ArrayList<Accessory> getBelts()
+	{
+		ArrayList <Accessory> belts = new ArrayList<Accessory>();
+		
+		belts.add(LesserBeltofFireResistance);
+		belts.add(BeltofFireResistance);
+		belts.add(GreaterBeltofFireResistance);
+		
+		belts.add(LesserBeltofIceResistance);
+		belts.add(BeltofIceResistance);
+		belts.add(GreaterBeltofIceResistance);
+		
+		return belts;
+	}
+	
+	public static ArrayList<Armor> getShields()
+	{
+		ArrayList <Armor> shields = new ArrayList<Armor>();
+		
+		shields.add(Buckler);
+		shields.add(Agis);
+		
+		shields.add(SquareShield);
+		shields.add(KiteShield);
+		
+		shields.add(HeatShield);
+		shields.add(TowerShield);
+		
+		shields.add(LightRiotShield);
+		shields.add(HeavyRiotShield);
+		
+		shields.add(EnergyShield);
+		shields.add(ParticleShield);
+
+		return shields;		
+	}
+	
+	public static ArrayList<Weapon> getWeapons()
+	{
+		ArrayList <Weapon> weapons = new ArrayList<Weapon>();
+		
+		weapons.add(Dagger);
+		weapons.add(ShortSword);
+		weapons.add(Axe);
+		weapons.add(Quarterstaff);
+		weapons.add(LongSword);
+		
+		weapons.add(ShortBow);
+		weapons.add(LongBow);
+		weapons.add(CompositeLongBow);
+		weapons.add(CompositeShortBow);
+		weapons.add(ThrowingAxe);
+		weapons.add(ThrowingKnife);
+		
+		weapons.add(Mace);
+		weapons.add(Stiletto);
+		weapons.add(Rapier);
+		weapons.add(Flail);
+		weapons.add(Scimitar);
+		weapons.add(BattleAxe);
+		weapons.add(Halberd);
+		weapons.add(TwoHand);
+		
+		weapons.add(Culverin);
+		weapons.add(Javelin);
+		weapons.add(RustedMusket);
+		weapons.add(OrganGun);
+		weapons.add(Musket);
+		weapons.add(CrossBow);
+		
+		weapons.add(TrenchKnife);
+		weapons.add(Machete);
+		weapons.add(Kukri);
+		weapons.add(Katana);
+		weapons.add(Sledgehammer);
+		
+		weapons.add(CompoundBow);
+		weapons.add(DesertEagle);
+		weapons.add(Marlin);
+		weapons.add(AK47);
+		weapons.add(AR15);
+		weapons.add(Remington870);
+		
+		weapons.add(EnergySword);
+		weapons.add(PlasmaWhip);
+		weapons.add(OmniBlade);
+		weapons.add(GravityHammer);
+		weapons.add(LightSaber);
+		
+		weapons.add(SonicScrewdriver);
+		weapons.add(Blaster);
+		weapons.add(PhotonicPhaser);
+		weapons.add(FushionGrendade);
+		weapons.add(ParticleBurstRifle);
+		weapons.add(AntimatterRifle);
+    return weapons;
+	}
+	
+	public static ArrayList<Armor> getChests()
+	{
+		ArrayList <Armor> chests = new ArrayList<Armor>();
+		
+		chests.add(LeatherTunic);
+		chests.add(BronzeCuriass);
+		
+		chests.add(SteelCuriass);
+		chests.add(IronCuriass);
+		
+		chests.add(BulletproofVest);
+		chests.add(BallisticVest);
+		
+		chests.add(EnergyVest);
+		chests.add(ParticleVest);
+		return chests;		
+	}
+	
+	
+	public static ArrayList<Armor> getHands()
+{
+	ArrayList <Armor> gloves = new ArrayList<Armor>();
+	
+	gloves.add(LeatherGloves);
+	gloves.add(BronzeGauntlets);
+	
+	gloves.add(SteelGauntlets);
+	gloves.add(IronGauntlets);
+	
+	gloves.add(BulletproofGloves);
+	gloves.add(BallisticGloves);
+	
+	gloves.add(EnergyGloves);
+	gloves.add(ParticleGloves);
+	
+	return gloves;		
 }
+
+	public static ArrayList<Armor> getFeet()
+{
+	ArrayList <Armor> feet = new ArrayList<Armor>();
+	
+	feet.add(LeatherBoots);
+	feet.add(BronzeBoots);
+	
+	feet.add(SteelBoots);
+	feet.add(IronBoots);
+	
+	feet.add(BulletproofBoots);
+	feet.add(BallisticBoots);
+	
+	feet.add(EnergyBoots);
+	feet.add(ParticleBoots);
+	
+	return feet;		
+}
+
+	
+	public static ArrayList<Armor> getLegs()
+{
+	ArrayList <Armor> legs = new ArrayList<Armor>();
+	
+	legs.add(LeatherChaps);
+	legs.add(BronzeGreaves);
+	
+	legs.add(SteelGreaves);
+	legs.add(IronGreaves);
+	
+	legs.add(BulletproofPants);
+	legs.add(BallisticPants);
+	
+	legs.add(EnergyPants);
+	legs.add(ParticlePants);
+	
+	return legs;		
+}
+
+	public static ArrayList<Armor> getHelmets()
+{
+	ArrayList <Armor> helmets = new ArrayList<Armor>();
+	
+	helmets.add(LeatherHelmet);
+	helmets.add(BronzeHelmet);
+	
+	helmets.add(SteelHelmet);
+	helmets.add(IronHelmet);
+	
+	helmets.add(BulletproofHelmet);
+	helmets.add(BallisticHelmet);
+	
+	helmets.add(EnergyHelmet);
+	helmets.add(ParticleHelmet);
+	
+	return helmets;		
+}
+
+public static Armor getShield(String itemName) 
+	{
+		ArrayList<Armor> shields = getShields();
+		Armor shield =  new Armor();
+		for(int i = 0; i<shields.size(); i++)
+        {
+            if(shields.get(i).getName().equals(itemName))
+            {
+            System.out.println(shields.get(i).getName()); 
+            shield = shields.get(i);
+            }         
+        }
+		return shield;
+	}
+	
+ public static Armor getChest(String itemName) 
+	{
+		ArrayList<Armor> chests = getChests();
+		Armor chest =  new Armor();
+		for(int i = 0; i<chests.size(); i++)
+        {
+            if(chests.get(i).getName().equals(itemName))
+            {
+            System.out.println(chests.get(i).getName()); 
+            chest = chests.get(i);
+            }         
+        }
+		return chest;
+	}
+
+ public static Armor getLeg(String itemName) 
+	{
+		ArrayList<Armor> legs = getLegs();
+		Armor leg =  new Armor();
+		for(int i = 0; i<legs.size(); i++)
+        {
+            if(legs.get(i).getName().equals(itemName))
+            {
+            System.out.println(legs.get(i).getName()); 
+            leg = legs.get(i);
+            }         
+        }
+		return leg;
+	}
+public static Armor getHelmet(String itemName) 
+	{
+		ArrayList<Armor> helmets = getHelmets();
+		Armor helmet =  new Armor();
+		for(int i = 0; i<helmets.size(); i++)
+        {
+            if(helmets.get(i).getName().equals(itemName))
+            {
+            System.out.println(helmets.get(i).getName()); 
+            helmet = helmets.get(i);
+            }         
+        }
+		return helmet;
+	}
+
+public static Armor getHand(String itemName) 
+	{
+		ArrayList<Armor> gloves = getHands();
+		Armor glove =  new Armor();
+		for(int i = 0; i<gloves.size(); i++)
+        {
+            if(gloves.get(i).getName().equals(itemName))
+            {
+            System.out.println(gloves.get(i).getName()); 
+            glove = gloves.get(i);
+            }         
+        }
+		return glove;
+	}
+	
+public static Armor getFoot(String itemName) 
+{
+	ArrayList<Armor> feet = getFeet();
+	Armor foot =  new Armor();
+	for(int i = 0; i<feet.size(); i++)
+    {
+        if(feet.get(i).getName().equals(itemName))
+        {
+        System.out.println(feet.get(i).getName()); 
+        foot = feet.get(i);
+        }         
+    }
+	return foot;
+}
+
+	//------------------------------------------------------------------
+	public static Weapon getWeapon(String itemName) {
+		ArrayList<Weapon> weapons = getWeapons();
+		Weapon weapon =  new Weapon();
+		for(int i = 0; i<weapons.size(); i++)
+        {
+            if(weapons.get(i).getName().equals(itemName))
+            {
+            System.out.println(weapons.get(i).getName()); 
+            weapon = weapons.get(i);
+            }         
+        }
+		return weapon;
+	}
+
+//------------------------------------------------------------------
+	public static Accessory getRing(String itemName) {
+	ArrayList<Accessory> rings = getRings();
+	Accessory ring =  new Accessory();
+	for(int i = 0; i<rings.size(); i++)
+    {
+        if(rings.get(i).getName().equals(itemName))
+        {
+        System.out.println(rings.get(i).getName()); 
+        ring = rings.get(i);
+        }         
+    }
+	return ring;
+}
+	public static Accessory getBelt(String itemName) {
+	ArrayList<Accessory> belts = getBelts();
+	Accessory belt =  new Accessory();
+	for(int i = 0; i<belts.size(); i++)
+    {
+        if(belts.get(i).getName().equals(itemName))
+        {
+        System.out.println(belts.get(i).getName()); 
+        belt = belts.get(i);
+        }         
+    }
+	return belt;
+}
+
+}
+
+
+	

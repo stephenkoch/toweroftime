@@ -19,7 +19,7 @@ public class ArmorWeaponEquip
 	private Armor noFeet = new Armor("No Boots Equipped", "You have nothing equipped", "Feet", 0);
 	private Armor noShield = new Armor("No Shield Equipped", "You have nothing equipped","Shield", 0);
 	
-	private Weapon noWeapon = new Weapon("No Weapon Equipped", "Fight with your fists!","Weapon", 0, 0);
+	private Weapon noWeapon = new Weapon("No Weapon Equipped", "Fight with your fists!","Weapon", 4, 2);
 	private Accessory noAmulet = new Accessory("No Amulet Equipped", "No Bling!", "Amulet", "No effect",  0);
 	private Accessory noRing1 = new Accessory("No Ring Equipped", "Single and loving it?", "Ring1", "No effect", 0);
 	private Accessory noRing2 = new Accessory("No Ring Equipped", "You have nothing equipped", "Ring2", "No effect", 0);

@@ -117,7 +117,9 @@ public class Inventory {
 	public ArrayList<Accessory> getBelts(){
 		return belts;
 	}
-	
+	public ArrayList<Accessory> getAmulets(){
+		return belts;
+	}
 	
 	public void dropTheItem(Item item) {
 		

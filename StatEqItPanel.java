@@ -3,6 +3,8 @@ import javax.imageio.ImageIO;
 import java.util.*;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import com.sun.media.sound.Toolkit;
 
@@ -115,11 +117,11 @@ public class StatEqItPanel extends JTabbedPane
     JButton IElement = new JButton("Element");
     JButton IPower   = new JButton("Power");
     
-    JButton IDamageD  = new JButton("1");
-    JButton ISpeedD   = new JButton("2");
-    JButton IDefenseD = new JButton("3");
-    JButton IElementD = new JButton("4");
-    JButton IPowerD   = new JButton("5");
+    JButton IDamageD  = new JButton("-");
+    JButton ISpeedD   = new JButton("-");
+    JButton IDefenseD = new JButton("-");
+    JButton IElementD = new JButton("-");
+    JButton IPowerD   = new JButton("-");
     
     JButton IEquip   = new JButton("EQUIP");
     JButton IUse   = new JButton("USE");
@@ -209,7 +211,8 @@ public class StatEqItPanel extends JTabbedPane
        addTab("Equipment", EquipmentPanel);
        addTab("Backpack", BackpackPanel);
        addTab("Spells", SpellPanel);
-
+       
+       
        StatsPanel.setLayout(null);      //Custom button placement for first panel
        EquipmentPanel.setLayout(null);  //Reference line above, but for second panel
        BackpackPanel.setLayout(null);   //Backpack layout manager set to null
@@ -296,9 +299,9 @@ public class StatEqItPanel extends JTabbedPane
        //--------------------
        //Panel 3
        //--------------------
-       scroll.setSize(200,180);
+       scroll.setSize(195,190);
        
-       Title.setSize(200,20);
+       Title.setSize(195,20);
        IWeapon.setSize(90,20);
        IRing1.setSize(90,20);
        IRing2.setSize(90,20);
@@ -476,7 +479,7 @@ public class StatEqItPanel extends JTabbedPane
        SkillPoints.setLocation(50,310);
        SkillPointsD.setLocation(195,310);
        //-----------------------------------
-       scroll.setLocation(105,40);
+       scroll.setLocation(105,30);
        
        Title.setLocation(105,10);
        
@@ -854,7 +857,114 @@ public class StatEqItPanel extends JTabbedPane
         //-----------------------------------
         // ADD ACTION LISTENERS
         //-----------------------------------
-       
+      ListSelectionListener listSelectionListener = new ListSelectionListener() 
+      {
+	      public void valueChanged(ListSelectionEvent listSelectionEvent) 
+	      {
+
+	        	  int i = itemList.getSelectedIndex();
+	            if(i >= 0)
+	            {
+	        	String itemName = (String) item.getElementAt(i);
+	           
+	          if(IAmulet.getBackground() == Color.yellow)
+	          {
+	          Accessory amulet = EquipmentCatalog.getAmulet(itemName);
+	          IItemD.setText(amulet.name);
+	          IDescriptionD.setText(amulet.description);
+	          IElementD.setText(amulet.effect);
+	          IPowerD.setText(Integer.toString(amulet.effectStrength));
+	          }
+	          
+	          if(IBelt.getBackground() == Color.yellow)
+	          {
+	          Accessory belt = EquipmentCatalog.getBelt(itemName);
+	          IItemD.setText(belt.name);
+	          IDescriptionD.setText(belt.description);
+	          IElementD.setText(belt.effect);
+	          IPowerD.setText(Integer.toString(belt.effectStrength));
+	          }
+	          
+	          if(IChest.getBackground() == Color.yellow)
+	          {
+	          Armor chest = EquipmentCatalog.getChest(itemName);
+	          IItemD.setText(chest.name);
+	          IDescriptionD.setText(chest.description);
+	          IDefenseD.setText(Integer.toString(chest.defense));
+	          }
+	          
+	          if(IFeet.getBackground() == Color.yellow)
+	          {
+	        	  Armor feet = EquipmentCatalog.getFoot(itemName);
+		          IItemD.setText(feet.name);
+		          IDescriptionD.setText(feet.description);
+		          IDefenseD.setText(Integer.toString(feet.defense));
+	          }
+	          
+	          if(IHands.getBackground() == Color.yellow)
+	          {
+	        	  Armor hands = EquipmentCatalog.getHand(itemName);
+		          IItemD.setText(hands.name);
+		          IDescriptionD.setText(hands.description);
+		          IDefenseD.setText(Integer.toString(hands.defense));
+	          }
+	          
+	          if(IHelmet.getBackground() == Color.yellow)
+	          {
+	        	  Armor helmets = EquipmentCatalog.getHelmet(itemName);
+		          IItemD.setText(helmets.name);
+		          IDescriptionD.setText(helmets.description);
+		          IDefenseD.setText(Integer.toString(helmets.defense));
+	          }
+	          
+	          if(ILegs.getBackground() == Color.yellow)
+	          {
+	        	  Armor legs = EquipmentCatalog.getLeg(itemName);
+		          IItemD.setText(legs.name);
+		          IDescriptionD.setText(legs.description);
+		          IDefenseD.setText(Integer.toString(legs.defense));
+	          }
+	          
+	          if(IRing1.getBackground() == Color.yellow)
+	          {
+	        	  Accessory rings = EquipmentCatalog.getRing(itemName);
+		          IItemD.setText(rings.name);
+		          IDescriptionD.setText(rings.description);
+		          IElementD.setText(rings.effect);
+		          IPowerD.setText(Integer.toString(rings.effectStrength));
+	          }
+	          
+	          if(IRing2.getBackground() == Color.yellow)
+	          {
+	        	  Accessory rings = EquipmentCatalog.getRing(itemName);
+		          IItemD.setText(rings.name);
+		          IDescriptionD.setText(rings.description);
+		          IElementD.setText(rings.effect);
+		          IPowerD.setText(Integer.toString(rings.effectStrength));
+	          }
+	          
+	          if(IShield.getBackground() == Color.yellow)
+	          {
+	        	  Armor weapons = EquipmentCatalog.getShield(itemName);
+		          IItemD.setText(weapons.name);
+		          IDescriptionD.setText(weapons.description);
+		          IDefenseD.setText(Integer.toString(weapons.defense));
+	          }
+	          
+	          if(IWeapon.getBackground() == Color.yellow)
+	          {
+	        	  Weapon weapons = EquipmentCatalog.getWeapon(itemName);
+		          IItemD.setText(weapons.name);
+		          IDescriptionD.setText(weapons.description);
+		          ISpeedD.setText(Integer.toString(weapons.speed));
+		          IDamageD.setText(Integer.toString(weapons.damage));
+	          }
+	          
+	          }
+	          
+	      }
+	    };
+	    itemList.addListSelectionListener(listSelectionListener);
         // Create action listener and Button Handler
         ButtonHandler phandler = new ButtonHandler();
         Weapon.addActionListener(phandler);
@@ -961,117 +1071,72 @@ public class StatEqItPanel extends JTabbedPane
 		DexterityPlus.setBackground(Color.gray);
 		AgilityPlus.setBackground(Color.gray);
 		}
-    	
-    	if(IWeapon.getBackground() == Color.yellow)
-    	{
-    	item.clear();
-        for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getWeapons().size(); i++)
-        {
-        Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getWeapons().get(i);
-        item.addElement(Item.name);
-        }
-    	}
-    	
-    	if(IShield.getBackground() == Color.yellow)
-    	{
-    	item.clear();
-        for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getShields().size(); i++)
-        {
-        Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getShields().get(i);
-        item.addElement(Item.name);
-        }
-    	}
-    	
-    	if(IChest.getBackground() == Color.yellow)
-    	{
-    	item.clear();
-        for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getChests().size(); i++)
-        {
-        Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getChests().get(i);
-        item.addElement(Item.name);
-        }
-    	}
-    	
-    	if(ILegs.getBackground() == Color.yellow)
-    	{
-    	item.clear();
-        for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getLegs().size(); i++)
-        {
-        Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getLegs().get(i);
-        item.addElement(Item.name);
-        }
-    	}
-    	
-    	if(IHelmet.getBackground() == Color.yellow)
-    	{
-    	item.clear();
-        for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getHelmets().size(); i++)
-        {
-        Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getHelmets().get(i);
-        item.addElement(Item.name);
-        }
-    	}
-    	
-    	if(IFeet.getBackground() == Color.yellow) {
-    		item.clear();
-    		for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getFeet().size(); i++) {
-    			Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getFeet().get(i);
-    			item.addElement(Item.name);
-    		}
-    	}
-    	
-    	if(IHands.getBackground() == Color.yellow)
-    	{
-    	item.clear();
-        for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getHands().size(); i++)
-        {
-        Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getHands().get(i);
-        item.addElement(Item.name);
-        }
-    	}
-    	
-    	if(IRing1.getBackground() == Color.yellow)
-    	{
-    	item.clear();
-        for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getRings().size(); i++)
-        {
-        Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getRings().get(i);
-        item.addElement(Item.name);
-        }
-    	}
-    	
-    	if(IRing2.getBackground() == Color.yellow)
-    	{
-    	item.clear();
-        for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getRings().size(); i++)
-        {
-        Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getRings().get(i);
-        item.addElement(Item.name);
-        }
-    	}
-    	
-    	if(IBelt.getBackground() == Color.yellow)
-    	{
-    	item.clear();
-        for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getBelts().size(); i++)
-        {
-        Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getBelts().get(i);
-        item.addElement(Item.name);
-        }
-    	}
-    	
-    	if(IAmulet.getBackground() == Color.yellow)
-    	{
-    	item.clear();
-        //for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getAmulets().size(); i++)
-      //  {
-     //   Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getAmulets().get(i);
-     //   item.addElement(Item.name);
-     //   }
-    	}
     }
     //EVERYTHING ABOVE THIS IS IMPORTANT!!!!
     
+    public void UpdateList()
+    {
+    	item.clear();
+		if(IWeapon.getBackground() == Color.yellow)
+		IWeapon.doClick();
+		
+		if(IShield.getBackground() == Color.yellow)
+		IShield.doClick();
+		
+		if(IHelmet.getBackground() == Color.yellow)
+		IHelmet.doClick();
+		
+		if(IChest.getBackground() == Color.yellow)
+		IChest.doClick();
+		
+		if(ILegs.getBackground() == Color.yellow)
+		ILegs.doClick();
+		
+		if(IFeet.getBackground() == Color.yellow)
+		IFeet.doClick();
+		
+		if(IHands.getBackground() == Color.yellow)
+		IHands.doClick();
+		
+		if(IBelt.getBackground() == Color.yellow)
+		IBelt.doClick();
+		
+		if(IAmulet.getBackground() == Color.yellow)
+		IAmulet.doClick();
+		
+		if(IRing1.getBackground() == Color.yellow)
+		IRing1.doClick();
+		
+		if(IRing2.getBackground() == Color.yellow)
+		IRing2.doClick();
+		
+    };
+    
+    public void UpdateArmor()
+    {
+	    if(Weapon.getBackground() == Color.yellow)
+	    Weapon.doClick();
+	    if(Shield.getBackground() == Color.yellow)
+	    Shield.doClick();
+	    if(Helmet.getBackground() == Color.yellow)
+	    Helmet.doClick();
+	    if(Chest.getBackground() == Color.yellow)
+	    Chest.doClick();
+	    if(Legs.getBackground() == Color.yellow)
+	    Legs.doClick();
+	    if(Amulet.getBackground() == Color.yellow)
+	    Amulet.doClick();
+	    if(Belt.getBackground() == Color.yellow)
+	    Belt.doClick();
+	    if(Hands.getBackground() == Color.yellow)
+	    Hands.doClick();
+	    if(Ring1.getBackground() == Color.yellow)
+	    Ring1.doClick();
+	    if(Ring2.getBackground() == Color.yellow)
+	    Ring2.doClick();
+	    if(Feet.getBackground() == Color.yellow)
+	    Feet.doClick();
+    };
     
 	public class ButtonHandler implements ActionListener
     {
@@ -1473,29 +1538,47 @@ public class StatEqItPanel extends JTabbedPane
         		if((Game.PLAYER.getSkillPoints()) > 0)
         		{
         		if(e.getSource() == StrengthPlus){Game.PLAYER.setStrength(Game.PLAYER.getStrength()+1);
+        		{
         		TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("You have chose to increase STRENGTH! (+1)");}
-        		
+        		Game.PLAYER.setSkillPoints(Game.PLAYER.getSkillPoints() -1);
+        		}
         		if(e.getSource() == StaminaPlus){Game.PLAYER.setStamina(Game.PLAYER.getStamina()+1);
+        		{
         		TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("You have chose to increase STAMINA! (+1)");
         		Game.PLAYER.setMaxHp(Game.PLAYER.getMaxHp()+ Game.PLAYER.getStamina()/3);}
+        		Game.PLAYER.setSkillPoints(Game.PLAYER.getSkillPoints() -1);
+        		}
         		
         		if(e.getSource() == IntelligencePlus){Game.PLAYER.setIntelligence(Game.PLAYER.getIntelligence()+1);
+        		{
         		TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("You have chose to increase INTELLIGENCE! (+1)");}
+        		Game.PLAYER.setSkillPoints(Game.PLAYER.getSkillPoints() -1);
+        		}
         		
         		if(e.getSource() == MindPlus){Game.PLAYER.setMind(Game.PLAYER.getMind()+1);
+        		{
         		TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("You have chose to increase MIND! (+1)");
         		Game.PLAYER.setMaxMp(Game.PLAYER.getMaxMp()+ Game.PLAYER.getMind()/3);}
+        		Game.PLAYER.setSkillPoints(Game.PLAYER.getSkillPoints() -1);
+        		}
         		
         		if(e.getSource() == DefensePlus){Game.PLAYER.setDefense(Game.PLAYER.getDefense()+1);
+        		{
         		TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("You have chose to increase DEFENSE! (+1)");}
-            	
-        		if(e.getSource() == DexterityPlus){Game.PLAYER.setDexterity(Game.PLAYER.getDexterity()+1);
-        		TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("You have chose to increase DEXTERITY! (+1)");}
-            	
-        		if(e.getSource() == AgilityPlus){Game.PLAYER.setAgility(Game.PLAYER.getAgility()+1);
-        		TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("You have chose to increase AGILITY! (+1)");}
-        		
         		Game.PLAYER.setSkillPoints(Game.PLAYER.getSkillPoints() -1);
+        		}
+        		
+        		if(e.getSource() == DexterityPlus){Game.PLAYER.setDexterity(Game.PLAYER.getDexterity()+1);
+        		{
+        		TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("You have chose to increase DEXTERITY! (+1)");}
+        		Game.PLAYER.setSkillPoints(Game.PLAYER.getSkillPoints() -1);
+        		}
+        		if(e.getSource() == AgilityPlus){Game.PLAYER.setAgility(Game.PLAYER.getAgility()+1);
+        		{
+        		TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("You have chose to increase AGILITY! (+1)");}
+        		Game.PLAYER.setSkillPoints(Game.PLAYER.getSkillPoints() -1);
+        		}
+        		
         		
         		TowerOfTime.GAME.THEGAMEFRAME.update();
         		}
@@ -1561,7 +1644,7 @@ public class StatEqItPanel extends JTabbedPane
                IRing1.setBackground(Color.yellow);
                IPotion.setBackground(Color.LIGHT_GRAY);
                IShield.setBackground(Color.LIGHT_GRAY);
-           Title.setText("Ring1");
+           Title.setText("Rings");
            item.clear();
            for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getRings().size(); i++)
            {
@@ -1589,7 +1672,7 @@ public class StatEqItPanel extends JTabbedPane
            item.clear();
            for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getRings().size(); i++)
            {
-           Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getRings().get(i);
+        Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getRings().get(i);
            item.addElement(Item.name);
            }
            }
@@ -1773,6 +1856,7 @@ public class StatEqItPanel extends JTabbedPane
                IShield.setBackground(Color.yellow);
         	   
            Title.setText("Shields");
+           item.clear();
            for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getShields().size(); i++)
            {
            Equipment Item = TowerOfTime.GAME.PLAYER.backpack.getShields().get(i);
@@ -1797,6 +1881,7 @@ public class StatEqItPanel extends JTabbedPane
            IPotion.setBackground(Color.yellow);
            IShield.setBackground(Color.LIGHT_GRAY);
            Title.setText("Potions");
+           item.clear();
            for(int i = 0; i <TowerOfTime.GAME.PLAYER.backpack.getPotions().size(); i++)
            {
            UsableItem Item = TowerOfTime.GAME.PLAYER.backpack.getPotions().get(i);
@@ -1838,73 +1923,122 @@ public class StatEqItPanel extends JTabbedPane
            
            if(e.getSource() == IEquip)
            {
+        	   
            if(item.getSize() > 0)
            {
-        	 
-           int index = itemList.getAnchorSelectionIndex();
-           if(index >= 0)
-           {
-           
-           String itemName = (String) item.getElementAt(index-1);
-           
-           
+        	 int index = 0;
+        	  index = itemList.getSelectedIndex();
+	            if(index > -1)
+	            {
+	        	String itemName = (String) item.getElementAt(index);
+	        	System.out.println(index);
+	        	
            if(IWeapon.getBackground()==Color.yellow)
            {
            Game.PLAYER.equipped.setWeapon(EquipmentCatalog.getWeapon(itemName));
-           IItemD.setText((String) item.getElementAt(index-1));
+           IItemD.setText((String) item.getElementAt(index));
            }
            
            if(IShield.getBackground()==Color.yellow)
            {
            Game.PLAYER.equipped.setShield(EquipmentCatalog.getShield(itemName));
-           IItemD.setText((String) item.getElementAt(index-1));
+           IItemD.setText((String) item.getElementAt(index));
+           }
+           
+           if(IPotion.getBackground()==Color.yellow)
+           {
+          // Game.PLAYER.equipped.setShield(masterItems.getPotion(itemName));
+          // IItemD.setText((String) item.getElementAt(index));
            }
            
            if(IChest.getBackground()==Color.yellow)
            {
            Game.PLAYER.equipped.setChest(EquipmentCatalog.getChest(itemName));
-           IItemD.setText((String) item.getElementAt(index-1));
+           IItemD.setText((String) item.getElementAt(index));
            }
            
            if(ILegs.getBackground()==Color.yellow)
            {
            Game.PLAYER.equipped.setLegs(EquipmentCatalog.getLeg(itemName));
-           IItemD.setText((String) item.getElementAt(index-1));
+           IItemD.setText((String) item.getElementAt(index));
            }
            
            if(IHelmet.getBackground()==Color.yellow)
            {
            Game.PLAYER.equipped.setHelmet(EquipmentCatalog.getHelmet(itemName));
-           IItemD.setText((String) item.getElementAt(index-1));
+           IItemD.setText((String) item.getElementAt(index));
            }
            
            if(IFeet.getBackground()==Color.yellow)
            {
            Game.PLAYER.equipped.setFeet(EquipmentCatalog.getFoot(itemName));
-           IItemD.setText((String) item.getElementAt(index-1));
+           IItemD.setText((String) item.getElementAt(index));
            }
-           
            
            if(IRing1.getBackground()==Color.yellow)
            {
            Game.PLAYER.equipped.setRing1(EquipmentCatalog.getRing(itemName));
-           IItemD.setText((String) item.getElementAt(index-1));
+           IItemD.setText((String) item.getElementAt(index));
            }
            
            if(IRing2.getBackground()==Color.yellow)
            {
            Game.PLAYER.equipped.setRing1(EquipmentCatalog.getRing(itemName));
-           IItemD.setText((String) item.getElementAt(index-1));
+           IItemD.setText((String) item.getElementAt(index));
            }
            
            if(IBelt.getBackground()==Color.yellow)
            {
            Game.PLAYER.equipped.setBelt(EquipmentCatalog.getBelt(itemName));
-           IItemD.setText((String) item.getElementAt(index-1));
+           IItemD.setText((String) item.getElementAt(index));
+           }
+           if(IHands.getBackground()==Color.yellow)
+           {
+        	   Game.PLAYER.equipped.setHands(EquipmentCatalog.getHand(itemName));
+               IItemD.setText((String) item.getElementAt(index));
            }
            
            }
            }
+           UpdateArmor();
+           }
+           
+           if(e.getSource() == Unequip)
+           {
+        	   if(IWeapon.getBackground() == Color.yellow)
+        	   Game.PLAYER.equipped.setWeapon(ArmorWeaponEquip.noWeapon);
+        	  
+        	   if(IRing2.getBackground()== Color.yellow)
+        			   Game.PLAYER.equipped.setRing2(ArmorWeaponEquip.noRing2);
+        	   
+        	   if(IHelmet.getBackground()== Color.yellow)
+        			   Game.PLAYER.equipped.setHelmet(ArmorWeaponEquip.noHelmet);
+        	   
+        	   if(IChest.getBackground()== Color.yellow)
+        			   Game.PLAYER.equipped.setChest(ArmorWeaponEquip.noChest);
+        	   
+        	   if(ILegs.getBackground()== Color.yellow)
+        			   Game.PLAYER.equipped.setLegs(ArmorWeaponEquip.noLegs);
+        	   
+        	   if(IAmulet.getBackground()== Color.yellow)
+        			   Game.PLAYER.equipped.setAmulet(ArmorWeaponEquip.noAmulet);
+        	   
+        	   if(IHands.getBackground()== Color.yellow)
+        			   Game.PLAYER.equipped.setHands(ArmorWeaponEquip.noHands);
+        	   
+        	   if(IBelt.getBackground()== Color.yellow)
+        			   Game.PLAYER.equipped.setBelt(ArmorWeaponEquip.noBelt);
+        	   
+        	   if(IFeet.getBackground()== Color.yellow)
+        			   Game.PLAYER.equipped.setFeet(ArmorWeaponEquip.noFeet);
+        	   
+        	   if(IRing1.getBackground()== Color.yellow)
+        			   Game.PLAYER.equipped.setRing1(ArmorWeaponEquip.noRing1);
+        	   
+        	   if(IShield.getBackground()== Color.yellow)
+        			   Game.PLAYER.equipped.setShield(ArmorWeaponEquip.noShield);
+        	   UpdateArmor();
+           
            }
            
            if(e.getSource() == Fire1)

@@ -24,10 +24,10 @@ public class MapPanel extends JPanel implements ActionListener, KeyListener{
 	ImageIcon southImage = new ImageIcon("src/south.png");
 	ImageIcon westImage = new ImageIcon("src/west.png");
 	ImageIcon mapPanelBackgroundImage = new ImageIcon("src/maptexture.jpg");
-	JButton north = new JButton("N");
-	JButton west = new JButton("W");
-	JButton east = new JButton("E");
-	JButton south = new JButton("S");
+	JButton north = new JButton(northImage);
+	JButton west = new JButton(westImage);
+	JButton east = new JButton(eastImage);
+	JButton south = new JButton(southImage);
 	Game GAME;
 
 	public MapPanel(Map m, Game g) {
@@ -45,18 +45,18 @@ public class MapPanel extends JPanel implements ActionListener, KeyListener{
 		    east.addActionListener(this);     
 		    south.addActionListener(this); 
 		    west.addActionListener(this);  
-			north.setBounds(72,5,46,60);
-			north.setContentAreaFilled(true); north.setBorderPainted(true);
-			west.setBounds(5,77,60,46);
-			west.setContentAreaFilled(true); west.setBorderPainted(true);
-			east.setBounds(125,77,60,46);
-			east.setContentAreaFilled(true); east.setBorderPainted(true);
-			south.setBounds(72,135,46,60);
-			south.setContentAreaFilled(true); south.setBorderPainted(true);   
+			north.setBounds(70,20,60,80);
+			north.setContentAreaFilled(false); north.setBorderPainted(false);
+			west.setBounds(0,75,90,60);
+			west.setContentAreaFilled(false); west.setBorderPainted(false);
+			east.setBounds(110,75,90,60);
+			east.setContentAreaFilled(false); east.setBorderPainted(false);
+			south.setBounds(70,120,60,80);
+			south.setContentAreaFilled(false); south.setBorderPainted(false);   
 
 		setLayout(null);
 		left.setBounds(0,0,210,210);
-		right.setBounds(210,0,190,200);
+		right.setBounds(210,0,300,200);
 		//add(mapPanelBackground);
 		add(left);
 		add(right);

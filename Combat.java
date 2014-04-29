@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -93,7 +94,6 @@ public class Combat {
 		else {
 			enemyAttack();
 		}
-		TowerOfTime.GAME.PLAYER.backpack.addEquipment(EquipmentCatalog.AR15);
 	}
 	private static void checkCombatWinnerEnemy() {
 		if(Game.PLAYER.getHp() <= 0) {
@@ -122,6 +122,7 @@ public class Combat {
 		TowerOfTime.GAME.THEGAMEFRAME.PANELE.updateActionLog("You have gained " + exp + " experience!");
 		TowerOfTime.GAME.PLAYER.shouldLevelUp();
 		loot();
+		TowerOfTime.GAME.THEGAMEFRAME.PANELA.UpdateList();
 	}
 	public Enemy getEnemy() {return enemy;}
 	 private static void loot()

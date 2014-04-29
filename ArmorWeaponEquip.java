@@ -14,7 +14,7 @@ public class ArmorWeaponEquip
 	
 	private Armor noHelmet = new Armor("No Helmet Equipped", "You are headless!","Helmet", 0);
 	private Armor noChest = new Armor("No Cuirass Equipped", "You have nothing equipped","Chest", 0);
-	private Armor noLegs = new Armor("No Greaves Equipped", "Try running...", "Legs", 0);
+	private Armor noLegs = new Armor("No Greaves Equipped", "You are not wearing any pants.", "Legs", 0);
 	private Armor noHands = new Armor("No Gloves Equipped", "You are bare handed", "Hands", 0);
 	private Armor noFeet = new Armor("No Boots Equipped", "You have nothing equipped", "Feet", 0);
 	private Armor noShield = new Armor("No Shield Equipped", "You have nothing equipped","Shield", 0);

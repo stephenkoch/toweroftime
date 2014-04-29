@@ -19,11 +19,11 @@ public class MapPanel extends JPanel implements ActionListener, KeyListener{
 	protected Map m;
 	JLabel mapPanelBackground;
 	JPanel left, right;
-	ImageIcon northImage = new ImageIcon("src/north.png");
-	ImageIcon eastImage = new ImageIcon("src/east.png");
-	ImageIcon southImage = new ImageIcon("src/south.png");
-	ImageIcon westImage = new ImageIcon("src/west.png");
-	ImageIcon mapPanelBackgroundImage = new ImageIcon("src/maptexture.jpg");
+	ImageIcon northImage = new ImageIcon("north.png");
+	ImageIcon eastImage = new ImageIcon("east.png");
+	ImageIcon southImage = new ImageIcon("south.png");
+	ImageIcon westImage = new ImageIcon("west.png");
+	ImageIcon mapPanelBackgroundImage = new ImageIcon("maptexture.jpg");
 	JButton north = new JButton(northImage);
 	JButton west = new JButton(westImage);
 	JButton east = new JButton(eastImage);

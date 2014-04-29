@@ -72,7 +72,8 @@ public class Combat {
 		}
 		else {
 			enemyAttack();
-		}	
+		}
+		TowerOfTime.GAME.PLAYER.backpack.addEquipment(EquipmentCatalog.AR15);
 	}
 	private static void checkCombatWinnerEnemy() {
 		if(Game.PLAYER.getHp() <= 0) {

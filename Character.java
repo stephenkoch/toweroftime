@@ -24,7 +24,7 @@ public class Character
 	protected int mind;
 	protected int defense;
 	protected int agility;
-	protected Pack backpack;
+	protected Inventory backpack;
 	protected SpellBook spellBook;
 	protected int gold;
 	protected int locationX;
@@ -40,7 +40,7 @@ public class Character
 		this.role = "Player";
 		this.level = 1;
 		this.exp = 0;
-		this.backpack = new Pack();
+		this.backpack = new Inventory();
 		this.spellBook = new SpellBook();
 		this.gold = 5;
 	}
@@ -64,7 +64,7 @@ public class Character
 	public int getMind() { return mind; }
 	public int getDefense() { return defense; }
 	public int getAgility() { return agility; }
-	public Pack getPack() { return backpack; }
+	public Inventory getPack() { return backpack; }
 	public SpellBook getSpellBook() { return spellBook; }
 	public int getGold() { return gold; }
 	public int getLocationX() {return locationX;}
@@ -89,7 +89,7 @@ public class Character
 	public void setMind(int mind) { this.mind = mind; }
 	public void setDefense(int defense) { this.defense = defense; }
 	public void setAgility(int agility) { this.agility = agility; }
-	public void setPack(Pack backpack) { this.backpack = backpack; }	
+	public void setInventory(Inventory backpack) { this.backpack = backpack; }	
 	public void setSpellBook(SpellBook book) { this.spellBook = book; }
 	public void setGold(int gold) {this.gold = gold; }
 	public void setLocationX(int x) {this.locationX = x;}

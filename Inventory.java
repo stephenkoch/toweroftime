@@ -10,14 +10,23 @@ public class Inventory {
 	private ArrayList<Accessory> accessories;
 	
 	Inventory() {
-		items = new ArrayList<usableItem>();
+		items = new ArrayList<UsableItem>();
 		weapons = new ArrayList<Weapon>();
 		armor = new ArrayList<Armor>();
 		accessories = new ArrayList<Accessory>();
 	} 
+	public void addEquipment(Equipment item) {
+		if (item.getSlot().equalsIgnoreCase("Weapon")) {
+			weapons.add((Weapon) item);
+		}
+	}
 	
 	public void useItem() {
 		
+	}
+	
+	public ArrayList<Weapon> getWeapons(){
+		return weapons;
 	}
 	
 	public ArrayList<UsableItem> getItems() {

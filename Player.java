@@ -34,7 +34,7 @@ public class Player extends Character
 		super.setIntelligence(10);
 		super.setMind(10);
 		super.setAgility(10);
-		super.backpack = new Pack();
+		super.backpack = new Inventory();
 		equipped = new ArmorWeaponEquip();
 	}
 	

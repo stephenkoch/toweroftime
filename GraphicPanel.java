@@ -68,13 +68,13 @@ public class GraphicPanel extends JPanel {
 				   }
 			   }
 			   
-			   if (GAME.inCombat == true) {
+			   if (GAME.inCombat == true &&  current.hasBoss() == false) {
 					ImageIcon monster = new ImageIcon("src/flying spider.png");
 					monster.paintIcon(this, g, 120, 220);
 					repaint();
 				}
 				
-				if ( m.start.hasBoss() == true)
+				if ( current.hasBoss() == true)
 				{
 					ImageIcon boss = new ImageIcon("src/Knight monster.png");
 					boss.paintIcon(this, g, 200, 400);
@@ -82,7 +82,7 @@ public class GraphicPanel extends JPanel {
 					
 				}
 				
-				if ( m.start.hasTreasure() == true)
+				if ( current.hasTreasure() == true)
 				{
 					ImageIcon treasure = new ImageIcon("src/treasure.png");
 					treasure.paintIcon(this, g, 500, 400);

@@ -65,19 +65,27 @@ public class EquipmentCatalog
 
 	
 	public static Accessory LesserRingofFireResistance = new Accessory("Lesser Ring of Fire Resistance", "Resists 5% of Fire Damage","Ring","Fire",1);
-	public static Accessory RingofFireResistance = new Accessory("Ring of Fire Resistance", "Resists 10% of Fire Damaget","Ring","Fire",2);
+	public static Accessory RingofFireResistance = new Accessory("Ring of Fire Resistance", "Resists 10% of Fire Damage","Ring","Fire",2);
 	public static Accessory GreaterRingofFireResistance = new Accessory("Greater Ring of Fire Resistance", "Resists 15% of Fire Damage","Ring","Fire",3);
 	
 	public static Accessory LesserRingofIceResistance = new Accessory("Lesser Ring of Ice Resistance", "Resists 5% of Ice Damage","Ring","Ice",1);
-	public static Accessory RingofIceResistance = new Accessory("Ring of Ice Resistance", "Resists 10% of Ice Damaget","Ring","Ice",2);
+	public static Accessory RingofIceResistance = new Accessory("Ring of Ice Resistance", "Resists 10% of Ice Damage","Ring","Ice",2);
 	public static Accessory GreaterRingofIceResistance = new Accessory("Greater Ring of Ice Resistance", "Resists 15% of Ice Damage","Ring","Ice",3);
 	
 	public static Accessory LesserBeltofFireResistance = new Accessory("Lesser Belt of Fire Resistance", "Resists 5% of Fire Damage","Belt","Fire",1);
-	public static Accessory BeltofFireResistance = new Accessory("Belt of Fire Resistance", "Resists 10% of Fire Damaget","Belt","Fire",2);
+	public static Accessory BeltofFireResistance = new Accessory("Belt of Fire Resistance", "Resists 10% of Fire Damage","Belt","Fire",2);
 	public static Accessory GreaterBeltofFireResistance = new Accessory("Greater Belt of Fire Resistance", "Resists 15% of Fire Damage","Belt","Fire",3);
 	
+	public static Accessory LesserAmuletofIceResistance = new Accessory("Lesser Amulet of Ice Resistance", "Resists 5% of Ice Damage","Amulet","Ice",1);
+	public static Accessory AmuletofIceResistance = new Accessory("Amulet of Ice Resistance", "Resists 10% of Ice Damage","Amulet","Ice",2);
+	public static Accessory GreaterAmuletofIceResistance = new Accessory("Greater Amulet of Ice Resistance", "Resists 15% of Ice Damage","Amulet","Ice",3);
+	
+	public static Accessory LesserAmuletofFireResistance = new Accessory("Lesser Amulet of Fire Resistance", "Resists 5% of Fire Damage","Amulet","Fire",1);
+	public static Accessory AmuletofFireResistance = new Accessory("Amulet of Fire Resistance", "Resists 10% of Fire Damage","Amulet","Fire",2);
+	public static Accessory GreaterAmuletofFireResistance = new Accessory("Greater Amulet of Fire Resistance", "Resists 15% of Fire Damage","Amulet","Fire",3);
+	
 	public static Accessory LesserBeltofIceResistance = new Accessory("Lesser Belt of Ice Resistance", "Resists 5% of Ice Damage","Belt","Ice",1);
-	public static Accessory BeltofIceResistance = new Accessory("Belt of Ice Resistance", "Resists 10% of Ice Damaget","Belt","Ice",2);
+	public static Accessory BeltofIceResistance = new Accessory("Belt of Ice Resistance", "Resists 10% of Ice Damage","Belt","Ice",2);
 	public static Accessory GreaterBeltofIceResistance = new Accessory("Greater Belt of Ice Resistance", "Resists 15% of Ice Damage","Belt","Ice",3);
 	
 	public static Weapon Dagger = new Weapon("Dagger","With moves like Dagger.","Weapon",4,3);
@@ -154,6 +162,20 @@ public class EquipmentCatalog
 		rings.add(GreaterRingofIceResistance);
 		
 		return rings;
+	}
+	public static ArrayList<Accessory> getAmulets()
+	{
+		ArrayList <Accessory> amulets = new ArrayList<Accessory>();
+		
+		amulets.add(LesserAmuletofFireResistance);
+		amulets.add(AmuletofFireResistance);
+		amulets.add(GreaterAmuletofFireResistance);
+		
+		amulets.add(LesserAmuletofIceResistance);
+		amulets.add(AmuletofIceResistance);
+		amulets.add(GreaterAmuletofIceResistance);
+		
+		return amulets;
 	}
 	
 	public static ArrayList<Accessory> getBelts()
@@ -275,21 +297,21 @@ public class EquipmentCatalog
 	
 	public static ArrayList<Armor> getHands()
 {
-	ArrayList <Armor> gloves = new ArrayList<Armor>();
+	ArrayList <Armor> hands = new ArrayList<Armor>();
 	
-	gloves.add(LeatherGloves);
-	gloves.add(BronzeGauntlets);
+	hands.add(LeatherGloves);
+	hands.add(BronzeGauntlets);
 	
-	gloves.add(SteelGauntlets);
-	gloves.add(IronGauntlets);
+	hands.add(SteelGauntlets);
+	hands.add(IronGauntlets);
 	
-	gloves.add(BulletproofGloves);
-	gloves.add(BallisticGloves);
+	hands.add(BulletproofGloves);
+	hands.add(BallisticGloves);
 	
-	gloves.add(EnergyGloves);
-	gloves.add(ParticleGloves);
+	hands.add(EnergyGloves);
+	hands.add(ParticleGloves);
 	
-	return gloves;		
+	return hands;		
 }
 
 	public static ArrayList<Armor> getFeet()
@@ -481,6 +503,21 @@ public static Armor getFoot(String itemName)
     }
 	return belt;
 }
+	
+	public static Accessory getAmulet(String itemName) {
+	ArrayList<Accessory> amulets = getAmulets();
+	Accessory amulet =  new Accessory();
+	for(int i = 0; i<amulets.size(); i++)
+    {
+        if(amulets.get(i).getName().equals(itemName))
+        {
+        System.out.println(amulets.get(i).getName()); 
+        amulet = amulets.get(i);
+        }         
+    }
+	return amulet;
+}
+
 
 }
 

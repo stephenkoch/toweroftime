@@ -12,18 +12,18 @@ public class ArmorWeaponEquip
 	private Accessory ring2; //Slot Ring2
 	private Accessory belt; //Slot Belt
 	
-	private Armor noHelmet = new Armor("No Helmet Equipped", "You are headless!","Helmet", 0);
-	private Armor noChest = new Armor("No Cuirass Equipped", "You have nothing equipped","Chest", 0);
-	private Armor noLegs = new Armor("No Greaves Equipped", "You are not wearing any pants.", "Legs", 0);
-	private Armor noHands = new Armor("No Gloves Equipped", "You are bare handed", "Hands", 0);
-	private Armor noFeet = new Armor("No Boots Equipped", "You have nothing equipped", "Feet", 0);
-	private Armor noShield = new Armor("No Shield Equipped", "You have nothing equipped","Shield", 0);
+	public static Armor noHelmet = new Armor("No Helmet Equipped", "You are headless!","Helmet", 0);
+	public static Armor noChest = new Armor("No Cuirass Equipped", "You have nothing equipped","Chest", 0);
+	public static Armor noLegs = new Armor("No Greaves Equipped", "You are not wearing any pants.", "Legs", 0);
+	public static Armor noHands = new Armor("No Gloves Equipped", "You are bare handed", "Hands", 0);
+	public static Armor noFeet = new Armor("No Boots Equipped", "You have nothing equipped", "Feet", 0);
+	public static Armor noShield = new Armor("No Shield Equipped", "You have nothing equipped","Shield", 0);
 	
-	private Weapon noWeapon = new Weapon("No Weapon Equipped", "Fight with your fists!","Weapon", 4, 2);
-	private Accessory noAmulet = new Accessory("No Amulet Equipped", "No Bling!", "Amulet", "No effect",  0);
-	private Accessory noRing1 = new Accessory("No Ring Equipped", "Single and loving it?", "Ring1", "No effect", 0);
-	private Accessory noRing2 = new Accessory("No Ring Equipped", "You have nothing equipped", "Ring2", "No effect", 0);
-	private Accessory noBelt = new Accessory("No Belt Equipped", "You have nothing equipped", "Belt", "No effect", 0);
+	public static Weapon noWeapon = new Weapon("No Weapon Equipped", "Fight with your fists!","Weapon", 4, 2);
+	public static Accessory noAmulet = new Accessory("No Amulet Equipped", "No Bling!", "Amulet", "No effect",  0);
+	public static Accessory noRing1 = new Accessory("No Ring Equipped", "Single and loving it?", "Ring1", "No effect", 0);
+	public static Accessory noRing2 = new Accessory("No Ring Equipped", "You have nothing equipped", "Ring2", "No effect", 0);
+	public static Accessory noBelt = new Accessory("No Belt Equipped", "You have nothing equipped", "Belt", "No effect", 0);
 	
 	ArmorWeaponEquip()
 	{

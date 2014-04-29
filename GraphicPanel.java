@@ -77,7 +77,7 @@ public class GraphicPanel extends JPanel {
 				if ( current.hasBoss() == true)
 				{
 					ImageIcon boss = new ImageIcon("src/Knight monster.png");
-					boss.paintIcon(this, g, 200, 400);
+					boss.paintIcon(this, g, 120, 220);
 					repaint();
 					
 				}
